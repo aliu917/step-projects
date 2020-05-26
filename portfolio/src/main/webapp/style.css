@@ -7,3 +7,14 @@
 #greeting-container {
   margin-top: 20px;
 }
+
+body {
+  background-color: lightblue;
+}
+
+div {
+  width: 300px;
+  border: 5px solid white;
+  padding: 50px;
+  margin: 20px;
+}
