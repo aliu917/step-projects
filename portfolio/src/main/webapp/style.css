@@ -1,7 +1,7 @@
 #content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: auto;
 }
 
 #greeting-container {
@@ -13,8 +13,41 @@ body {
 }
 
 div {
-  width: 300px;
+  width: auto;
   border: 5px solid white;
   padding: 50px;
   margin: 20px;
 }
+
+
+img {
+  margin: 10px;
+  object-fit: contain;
+}
+
+p {
+  color:white;
+  margin: 10px;
+  font-size: x-large;
+}
+
+.section {
+    border-radius: 1em;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.section:hover { 
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.flex-section {
+    display: flex;
+    border-radius: 1em;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.flex-section:hover { 
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
