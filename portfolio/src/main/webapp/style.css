@@ -17,6 +17,18 @@
   background-color: white;
 }
 
+#hello-container {
+  margin: 20px;
+  padding: 30px;
+  color: rgb(7, 35, 63);
+  font-family: papyrus;
+  font-size: 150px;
+  text-align: center;
+  width: auto;
+  height: auto;
+  transition: 2s ease;
+}
+
 button {
   margin: 20px;
   margin-top: 0px;
@@ -44,6 +56,27 @@ img {
   object-fit: contain;
 }
 
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  color: whitesmoke;
+}
+
+/* selected link */
+a:active {
+  color: whitesmoke;
+}
+
 p {
   color:rgb(7, 35, 63);
   margin: 10px;
@@ -54,6 +87,12 @@ p1 {
   color:white;
   margin: 20px;
   font-size: 17pt;
+}
+
+.lower-right {
+    position:absolute;
+    bottom:0;
+    right:0;
 }
 
 h1 {
@@ -79,6 +118,7 @@ flex {
 }
 
 .header {
+  position: relative;
   margin-left: 10%;
   margin-right: 10%;
   width: auto;
