@@ -7,26 +7,32 @@
     <script src="script.js"></script>
   </head>
   <body>
-    <div id="content">
-      <h1>Angela's Portfolio</h1>
+    <div class="header">
+      <h1>Angela Liu</h1>
       <a href="https://github.com/aliu917">
-        <img border="0" alt="Github" src="images/github.png" width="50" height="50">
+        <img border="0" alt="Github" src="images/github_white.png" width="50" height="50">
       </a>
       <a href="mailto:aliu917@berkeley.edu">
         <img border="0" alt="Email" src="images/email.png" width="50" height="50">
       </a>
+    </div>
 
-      <div class="flex-section">
-        <img border="0" alt="Picture of Me" src="images/me.jpg" float=left margin-right="30px";/>
-        <p>Hi, I'm Angela! 
-          I'm an incoming junior at UC Berkeley studying Computer Science. 
-          I've lived my entire life in the bay area and I love it here!
-          Some of my hobbies include teaching, playing golf, and reading.
-          And of course, I love learning new things like making a website (I'm trying).
-        </p>
+    <div id="content">
+      <div class="section">
+        <h2> About Me </h2>
+        <flex>
+          <img border="0" alt="Picture of Me" src="images/me.jpg" float=left margin-right="30px";/>
+          <p>Hi, I'm Angela! 
+            I'm an incoming junior at UC Berkeley studying Computer Science. 
+            I've lived my entire life in the bay area and I love it here!
+            Some of my hobbies include teaching, playing golf, and reading.
+            And of course, I love learning new things like making a website (I'm trying).
+          </p>
+        </flex>
       </div>      
       
       <div class="section">
+        <h2> Random Section </h2>
         <p>Click here to get a random message:</p>
         <button onclick="addRandomGreeting()">Hello</button>
         <div id="greeting-container"></div>
