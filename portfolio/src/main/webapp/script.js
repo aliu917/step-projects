@@ -26,3 +26,18 @@ function addRandomFact() {
   const factContainer = document.getElementById('fact-container');
   factContainer.innerText = fact;
 }
+
+var greetingIndex = 1;
+
+function addGreeting() {
+  const greetings =
+      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+  const helloContainer = document.getElementById('hello-container');
+  helloContainer.innerText = greetings[0];
+  setInterval(getNextGreeting, 2000, greetings, helloContainer);
+}
+
+function getNextGreeting(greetings, helloContainer) {
+    helloContainer.innerText = greetings[greetingIndex];
+    greetingIndex = (greetingIndex + 1) % greetings.length;
+}
