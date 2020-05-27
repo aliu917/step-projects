@@ -16,9 +16,6 @@ body {
 
 div {
   width: auto;
-  border: 5px solid white;
-  padding: 50px;
-  margin: 20px;
 }
 
 img {
@@ -32,16 +29,32 @@ p {
   font-size: x-large;
 }
 
+p1 {
+  color:white;
+  margin: 20px;
+  font-size: 17pt;
+}
+
 h1 {
-    color:white;
-    font-family: papyrus;
-    font-size: 55pt;
+  color:white;
+  font-family: papyrus;
+  font-size: 55pt;
 }
 
 h2 {
-    color:rgb(7, 35, 63);
-    font-family: papyrus;
-    font-size: 40pt;
+  color:rgb(7, 35, 63);
+  font-family: papyrus;
+  font-size: 40pt;
+}
+
+simple-flex {
+  display: flex;
+}
+
+flex {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 200px;
 }
 
 .header {
@@ -50,21 +63,54 @@ h2 {
   width: auto;
   height: auto;
   background: rgb(7, 35, 63);
-  margin: 0px;
-  padding: 20 px;
+  margin: 20px;
+  padding: 50px;
 }
 
 .section {
-    border-radius: 1em;
-    background-image: linear-gradient(rgba(7, 35, 63, 0), rgba(7, 35, 63, 0.1));
+  padding: 50px;
+  margin: 20px;
+  border: 5px solid white;
+  border-radius: 1em;
+  background-image: linear-gradient(rgba(7, 35, 63, 0), rgba(7, 35, 63, 0.1));
 }
 
 .section:hover { 
-    background-image: linear-gradient(rgba(7, 35, 63, 0), rgba(7, 35, 63, 0.25));
+  background-image: linear-gradient(rgba(7, 35, 63, 0), rgba(7, 35, 63, 0.25));
 }
 
-flex {
-    display: flex;
+.overlay {
+  margin: 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  width: 200px;
+  padding: 25px;
+  opacity: 0;
+  transition: .3s ease;
+  background-color: gray;
+  border-radius: 1em;
 }
 
+.proj-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  padding: 0px;
+  margin: 10px;
+  border-radius: 1em;
+}
+
+.proj-container:hover .overlay {
+  opacity: 0.7;
+}
+
+.proj-img {
+  width: 100%;
+  margin: 10px;
+  border-radius: 1em;
+}
 
