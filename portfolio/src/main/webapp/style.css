@@ -6,8 +6,29 @@
   padding: 0px;
 }
 
-#greeting-container {
-  margin-top: 20px;
+#fact-container {
+  margin: 20px;
+  padding: 30px;
+  color: rgb(7, 35, 63);
+  font-family: papyrus;
+  font-size: 20px;
+  width: auto;
+  height: auto;
+  background-color: white;
+}
+
+button {
+  margin: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 10px 15px;
+  width: auto;
+  height: auto;
+  border-radius: 1em;
+  font-family: papyrus;
+  font-size: 20px;
+  color: white;
+  background-color: rgb(7, 35, 63);
 }
 
 body {
