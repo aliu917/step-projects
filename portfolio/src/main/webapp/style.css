@@ -2,6 +2,8 @@
   margin-left: 10%;
   margin-right: 10%;
   width: auto;
+  border: 0px;
+  padding: 0px;
 }
 
 #greeting-container {
@@ -9,7 +11,7 @@
 }
 
 body {
-  background-color: lightblue;
+  background-color: whitesmoke;
 }
 
 div {
@@ -19,35 +21,50 @@ div {
   margin: 20px;
 }
 
-
 img {
   margin: 10px;
   object-fit: contain;
 }
 
 p {
-  color:white;
+  color:rgb(7, 35, 63);
   margin: 10px;
   font-size: x-large;
 }
 
+h1 {
+    color:white;
+    font-family: papyrus;
+    font-size: 55pt;
+}
+
+h2 {
+    color:rgb(7, 35, 63);
+    font-family: papyrus;
+    font-size: 40pt;
+}
+
+.header {
+  margin-left: 10%;
+  margin-right: 10%;
+  width: auto;
+  height: auto;
+  background: rgb(7, 35, 63);
+  margin: 0px;
+  padding: 20 px;
+}
+
 .section {
     border-radius: 1em;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(rgba(7, 35, 63, 0), rgba(7, 35, 63, 0.1));
 }
 
 .section:hover { 
-    background-color: rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(rgba(7, 35, 63, 0), rgba(7, 35, 63, 0.25));
 }
 
-.flex-section {
+flex {
     display: flex;
-    border-radius: 1em;
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
-.flex-section:hover { 
-    background-color: rgba(0, 0, 0, 0.4);
 }
 
 
