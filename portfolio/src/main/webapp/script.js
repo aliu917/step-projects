@@ -41,3 +41,13 @@ function getNextGreeting(greetings, helloContainer) {
     helloContainer.innerText = greetings[greetingIndex];
     greetingIndex = (greetingIndex + 1) % greetings.length;
 }
+
+function toggleCollapsible(collapsibleButton) {
+    collapsibleButton.classList.toggle("active");
+    var collapsedContent = collapsibleButton.nextElementSibling;
+    if (collapsedContent.style.display === "block") {
+      collapsedContent.style.display = "none";
+    } else {
+      collapsedContent.style.display = "block";
+    }
+}

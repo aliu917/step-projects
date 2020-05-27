@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  <body onload="addGreeting()">
+    <div class="header">
+      <h1><a href="index.html">Angela Liu</a></h1>
+      <a href="https://github.com/aliu917">
+        <img border="0" alt="Github" src="images/github_white.png" width="50" height="50">
+      </a>
+      <a href="mailto:aliu917@berkeley.edu">
+        <img border="0" alt="Email" src="images/email.png" width="50" height="50">
+      </a>
+      <p1 class="lower-right"><a href="resume.html">Resume</a> &emsp; <a href="teaching.html">Teaching</a> &emsp; <a href="hello.html">Hello World</a></p1>
+    </div>
+
+    <div id="content">
+      <div class="teaching-section">
+        <h2> CS 61B Resources </h2>
+        <button onclick="toggleCollapsible(this)" class="collapsible">Tutoring Worksheet Walkthroughs</button>
+        <div class="collapsible-content">
+          <ul>
+            <li><a target="_blank" href="https://docs.google.com/presentation/d/1cM34iwi2gVvG88mZY414unSZ3Y8pkFjs9PMQXq1Al_A/edit?usp=sharing">Stacks and Queues</a></li>
+            <li><a target="_blank" href="https://docs.google.com/presentation/d/1IaMRnyysrnM77zWl2v4ngfsL70yraTseFHHfEEZWXJo/edit?usp=sharing">Binary Search Trees</a></li>
+            <li><a target="_blank" href="https://docs.google.com/presentation/d/1e7WRJYHk4Eq1NvUgVJmBTuNWsx-Zbh9-Yca8ncO7XDM/edit?usp=sharing">Hashes and Heaps</a></li>
+            <li><a target="_blank" href="https://docs.google.com/presentation/d/1KWajVHGyYchThhcMcbWigl8ANF8BPK7hWgmZ7y28p5g/edit?usp=sharing">Sorting</a></li>
+            <li><a target="_blank" href="https://docs.google.com/presentation/d/1k16YR-zmxsRC_44uTB6UnDKUYz4ukyNMzer_mBblgjc/edit?usp=sharing">Balanced Search Structures (B-trees and LLRBs)</a></li>
+            <li><a target="_blank" href="https://docs.google.com/presentation/d/1k_h6GUKsMXCCxWP08_86KzStoyu2qQ8fBRcDXR7y73s/edit?usp=sharing">Graph Algorithms</a></li>
+          </ul>
+        </div>
+        <br />
+        <button onclick="toggleCollapsible(this)" class="collapsible">Sorting Demos</button>
+        <div class="collapsible-content">
+          <ul>
+            <li><a target="_blank" href="https://docs.google.com/presentation/d/1oFsRP4pKjLl3NrglDJq7v_AqlHJhjRhlAldBiTvg_hk/edit?usp=sharing">Selection Sort</a></li>
+            <li><a target="_blank" href="https://docs.google.com/presentation/d/1bQ4RBtNG7kSKyJmnffaXb1iT3_FjCMHXXpcKzirvZhs/edit?usp=sharing">Insertion Sort</a></li>
+            <li><a target="_blank" href="https://docs.google.com/presentation/d/1eGjXmsEmRElA97boDGapdryHf6QnafgrTUgPy8gRNak/edit?usp=sharing">Mergesort</a></li>
+            <li><a target="_blank" href="https://docs.google.com/presentation/d/1eGjXmsEmRElA97boDGapdryHf6QnafgrTUgPy8gRNak/edit?usp=sharing">Heapsort</a></li>
+          </ul>
+        </div>
+        <br />
+        <button onclick="toggleCollapsible(this)" class="collapsible">Other Resources</button>
+        <div class="collapsible-content">
+          <ul>
+            <li><a target="_blank" href="https://docs.google.com/presentation/d/1pgfC-VNazVgwX9_1za-u3jnScbCuPapG7gTt6XG4oEA/edit?usp=sharing">Graph Algorithms Demo</a></li>
+            <li><a target="_blank" href="https://docs.google.com/presentation/d/1BI1Y74jcQuuT4KsT22eD70_tgdLw3AraQFaAoTOuoq0/edit?usp=sharing">Discussion 10 (exam prep) Q1 hashing walkthrough</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
