@@ -18,15 +18,14 @@
 }
 
 #hello-container {
-  margin: 20px;
-  padding: 30px;
-  color: rgb(7, 35, 63);
-  font-family: Palatino;
-  font-size: 100px;
-  text-align: center;
-  width: auto;
-  height: auto;
+  margin: 10%;
+  margin-top: 0px;
+  width: 80%;
+  padding-top: 45%;
   transition: 2s ease;
+  background-image: url(images/berkeley-white.jpg);
+  background-size: cover;
+  position: relative;
 }
 
 button {
@@ -119,6 +118,13 @@ h2 {
   font-size: 40pt;
 }
 
+h3 {
+  color: rgb(7, 35, 63);
+  font-family: Palatino;
+  font-size: 10vw;
+  margin-top: 0px;
+}
+
 flex {
   display: flex;
   flex-wrap: wrap;
@@ -202,6 +208,21 @@ iframe {
   transition: .3s ease;
   background-color: gray;
   border-radius: 1em;
+}
+
+.overlay-hello {
+  margin: 0px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: calc(100% - 100px);
+  padding: 50px;
+  padding-top: 10%;
+  transition: .3s ease;
+  text-align: center;
 }
 
 .proj-container {
