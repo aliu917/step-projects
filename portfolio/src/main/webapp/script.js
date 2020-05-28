@@ -33,12 +33,12 @@ function addGreeting() {
   const greetings =
       ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
   const helloContainer = document.getElementById('hello-container');
-  helloContainer.innerText = greetings[0];
-  setInterval(getNextGreeting, 2000, greetings, helloContainer);
+  const helloText = document.getElementById('hello-text');
+  setInterval(getNextGreeting, 2000, greetings, helloContainer, helloText);
 }
 
-function getNextGreeting(greetings, helloContainer) {
-    helloContainer.innerText = greetings[greetingIndex];
+function getNextGreeting(greetings, helloContainer, helloText) {
+    helloText.innerHTML = greetings[greetingIndex];
     greetingIndex = (greetingIndex + 1) % greetings.length;
 }
 
