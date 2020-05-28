@@ -10,7 +10,7 @@
   margin: 20px;
   padding: 30px;
   color: rgb(7, 35, 63);
-  font-family: papyrus;
+  font-family: Palatino;
   font-size: 20px;
   width: auto;
   height: auto;
@@ -21,7 +21,7 @@
   margin: 20px;
   padding: 30px;
   color: rgb(7, 35, 63);
-  font-family: papyrus;
+  font-family: Palatino;
   font-size: 100px;
   text-align: center;
   width: auto;
@@ -37,7 +37,7 @@ button {
   width: auto;
   height: auto;
   border-radius: 1em;
-  font-family: papyrus;
+  font-family: Palatino;
   font-size: 20px;
   color: white;
   background-color: rgb(7, 35, 63);
@@ -99,13 +99,13 @@ p1 {
 
 h1 {
   color:white;
-  font-family: papyrus;
+  font-family: Palatino;
   font-size: 55pt;
 }
 
 h2 {
   color:rgb(7, 35, 63);
-  font-family: papyrus;
+  font-family: Palatino;
   font-size: 40pt;
 }
 
