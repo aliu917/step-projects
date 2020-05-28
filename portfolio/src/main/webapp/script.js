@@ -59,3 +59,9 @@ function toggleCollapsible(collapsibleButton) {
       collapsedContent.style.display = "block";
     }
 }
+
+function getData() {
+    fetch('/data').then(response => response.json()).then((data) => {
+        document.getElementById('fact-container').innerText = data;
+    });
+}
