@@ -32,7 +32,7 @@ var greetingIndex = 1;
 function addGreeting() {
   const greetings =
       ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
-  const images = ["berkeley.jpg", "spain.jpeg", "china.jpeg", "france.jpg"];
+  const images = ["berkeley.jpg", "spain.jpg", "china.jpg", "france.jpg"];
   const helloContainer = document.getElementById('hello-container');
   const helloText = document.getElementById('hello-text');
   setInterval(getNextGreeting, 2000, greetings, images, helloContainer, helloText);
