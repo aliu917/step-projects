@@ -32,12 +32,30 @@ var greetingIndex = 1;
 function addGreeting() {
   const greetings =
       ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+  const images = ["berkeley.jpg", "spain.jpg", "china.jpg", "france.jpg"];
   const helloContainer = document.getElementById('hello-container');
-  helloContainer.innerText = greetings[0];
-  setInterval(getNextGreeting, 2000, greetings, helloContainer);
+  const helloText = document.getElementById('hello-text');
+  setInterval(getNextGreeting, 2000, greetings, images, helloContainer, helloText);
 }
 
-function getNextGreeting(greetings, helloContainer) {
-    helloContainer.innerText = greetings[greetingIndex];
+function getNextGreeting(greetings, images, helloContainer, helloText) {
+    helloText.innerHTML = greetings[greetingIndex];
+    if (greetingIndex == 0) {
+        helloText.style.color = "white";
+    } else {
+        helloText.style.color = "rgb(7, 35, 63)";
+    }
+    var urlstring = "url(images/";
+    helloContainer.style.backgroundImage = urlstring.concat(images[greetingIndex], ")");
     greetingIndex = (greetingIndex + 1) % greetings.length;
+}
+
+function toggleCollapsible(collapsibleButton) {
+    collapsibleButton.classList.toggle("active");
+    var collapsedContent = collapsibleButton.nextElementSibling;
+    if (collapsedContent.style.display === "block") {
+      collapsedContent.style.display = "none";
+    } else {
+      collapsedContent.style.display = "block";
+    }
 }
