@@ -22,7 +22,7 @@
   margin-top: 0px;
   width: 80%;
   padding-top: 45%;
-  transition: 2s ease;
+  transition: all 2s ease;
   background-image: url(images/berkeley.jpg);
   background-size: cover;
   position: relative;
@@ -123,6 +123,7 @@ h2 {
   font-family: Palatino;
   font-size: 10vw;
   margin-top: 0px;
+  transition: 2s ease;
 }
 
 flex {
