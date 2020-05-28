@@ -52,9 +52,13 @@ div {
 }
 
 img {
-  margin: 10px;
   margin-top: 0px;
   object-fit: contain;
+}
+
+.margin {
+  margin: 10px;
+  margin-bottom: 30px;
 }
 
 a:link {
@@ -78,6 +82,10 @@ a:active {
   color: whitesmoke;
 }
 
+.current {
+  text-decoration: underline;
+}
+
 p {
   color:rgb(7, 35, 63);
   margin: 10px;
@@ -92,15 +100,17 @@ p1 {
 }
 
 .lower-right {
-    position:absolute;
-    bottom:0;
-    right:0;
+  display: block;
+  text-align: right;
+  margin-right: 0px;
+  margin-top: 0px;
 }
 
 h1 {
   color:white;
   font-family: Palatino;
   font-size: 55pt;
+  margin-bottom: 30px;
 }
 
 h2 {
@@ -109,20 +119,36 @@ h2 {
   font-size: 40pt;
 }
 
-simple-flex {
-  display: flex;
-}
-
 flex {
   display: flex;
   flex-wrap: wrap;
-  flex: 200px;
+  /* flex: 200px; */
+}
+
+flex .wrap-img {
+  flex-grow: 1;
+  flex-basis: calc(50% - 20px);
+  margin: 10px;
+  min-width: 250px;
+}
+
+.wrap-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.wrap-txt {
+  flex-grow: 1;
+  flex-basis: calc(50% - 22px);
+  border: 1px;
+  margin: 10px;
+  min-width: 250px;
 }
 
 iframe {
-  margin-left: 10%;
-  margin-right: 10%;
-  width: 80%;
+  width: 100%;
   height: 1150px;
 }
 
@@ -135,6 +161,7 @@ iframe {
   background: rgb(7, 35, 63);
   margin: 20px;
   padding: 50px;
+  padding-bottom: 5px;
 }
 
 .section {
@@ -202,7 +229,7 @@ iframe {
 
 .collapsible {
   color: rgb(7, 35, 63);
-  background-color: Transparent;
+  background-color: transparent;
   text-decoration: underline;
   border: none;
   text-align: left;
