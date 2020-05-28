@@ -23,7 +23,7 @@
   width: 80%;
   padding-top: 45%;
   transition: 2s ease;
-  background-image: url(images/berkeley-white.jpg);
+  background-image: url(images/berkeley.jpg);
   background-size: cover;
   position: relative;
 }
@@ -119,7 +119,7 @@ h2 {
 }
 
 #hello-text {
-  color: rgb(7, 35, 63);
+  color: white;
   font-family: Palatino;
   font-size: 10vw;
   margin-top: 0px;

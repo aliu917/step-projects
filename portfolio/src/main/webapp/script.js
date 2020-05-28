@@ -32,13 +32,21 @@ var greetingIndex = 1;
 function addGreeting() {
   const greetings =
       ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+  const images = ["berkeley.jpg", "spain.jpeg", "china.jpeg", "france.jpg"];
   const helloContainer = document.getElementById('hello-container');
   const helloText = document.getElementById('hello-text');
-  setInterval(getNextGreeting, 2000, greetings, helloContainer, helloText);
+  setInterval(getNextGreeting, 2000, greetings, images, helloContainer, helloText);
 }
 
-function getNextGreeting(greetings, helloContainer, helloText) {
+function getNextGreeting(greetings, images, helloContainer, helloText) {
     helloText.innerHTML = greetings[greetingIndex];
+    if (greetingIndex == 0) {
+        helloText.style.color = "white";
+    } else {
+        helloText.style.color = "rgb(7, 35, 63)";
+    }
+    var urlstring = "url(images/";
+    helloContainer.style.backgroundImage = urlstring.concat(images[greetingIndex], ")");
     greetingIndex = (greetingIndex + 1) % greetings.length;
 }
 
