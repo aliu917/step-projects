@@ -69,6 +69,7 @@ function getData() {
 function getComments() {
   fetch('/list-comments').then(response => response.json()).then((history) => {
     const historyContainer = document.getElementById('comment-history');
+    historyContainer.innerHTML = "";
     history.forEach((comment) => {
       historyContainer.appendChild(createListElement(comment));
     });
