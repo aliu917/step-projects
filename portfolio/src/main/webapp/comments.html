@@ -28,15 +28,17 @@
     </div>
     <h2>Comments</h>
 
-    <ul id="comment-history"></ul>
-
     <form action="/comment" method="POST">
-
       <p>Write a comment:</p>
       <input type="text" name="user-comment">
       <br/><br/>
-
       <input type="submit" value="Comment"/>
+      <br/><br/>
+      <input type="number" name="display-count" min="5" max="20" value="5">
+      <input type="submit" onclick="getComments();return(false);" value="update"/>
     </form>
+
+    <ul id="comment-history"></ul>
+
   </body>
 </html>
