@@ -65,3 +65,18 @@ function getData() {
         document.getElementById('fact-container').innerText = data;
     });
 }
+
+function getComments() {
+  fetch('/comment').then(response => response.json()).then((history) => {
+    const historyContainer = document.getElementById('comment-history');
+    history.forEach((comment) => {
+      historyContainer.appendChild(createListElement(comment));
+    });
+  });
+}
+
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
+}

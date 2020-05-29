@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="getComments()">
     <div class="header">
       <h1><a href="index.html">Angela Liu</a></h1>
       <a href="https://github.com/aliu917">
@@ -26,7 +26,17 @@
         <a class="current" hhref="comments.html">Comments</a>
       </p1>
     </div>
-    <button onclick="getData()">Fetch from data</button>
-    <div id="fact-container"></div>
+    <h2>Comments</h>
+
+    <ul id="comment-history"></ul>
+
+    <form action="/comment" method="POST">
+
+      <p>Write a comment:</p>
+      <input type="text" name="user-comment">
+      <br/><br/>
+
+      <input type="submit" value="Comment"/>
+    </form>
   </body>
 </html>
