@@ -67,7 +67,17 @@ function getData() {
 }
 
 function getComments() {
-  fetch('/list-comments').then(response => response.json()).then((history) => {
+  const countTextBox = document.getElementsByName("display-count")[0];
+  var displayCount = countTextBox.value;
+  if (displayCount == "") {
+      prevCount = window.sessionStorage.getItem("prevDisplayCount");
+      displayCount = prevCount == null ? 5 : prevCount;
+      countTextBox.value = displayCount;
+  } else {
+      window.sessionStorage.setItem("prevDisplayCount", displayCount);
+  }
+
+  fetch('/list-comments?count=' + displayCount).then(response => response.json()).then((history) => {
     const historyContainer = document.getElementById('comment-history');
     historyContainer.innerHTML = "";
     history.forEach((comment) => {

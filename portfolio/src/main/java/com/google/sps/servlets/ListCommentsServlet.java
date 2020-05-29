@@ -18,8 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/list-comments")
 public class ListCommentsServlet extends HttpServlet {
 
-  int prevDisplayCount = 5;
-
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Query query = new Query("Comment").addSort("timestamp", SortDirection.DESCENDING);
@@ -31,10 +29,8 @@ public class ListCommentsServlet extends HttpServlet {
     int displayCount = getCountInput(request);
     if (displayCount == -1) {
       response.setContentType("text/html");
-      response.getWriter().println("Please enter an integer between 1 and 3.");
+      response.getWriter().println("Please enter an integer between 5 and 20.");
       return;
-    } else {
-        prevDisplayCount = displayCount;
     }
 
     for (Entity entity : results.asIterable()) {
@@ -53,11 +49,8 @@ public class ListCommentsServlet extends HttpServlet {
 
   private int getCountInput(HttpServletRequest request) {
     System.out.println("REQUEST: " + request.getQueryString());
-    String displayCountString = request.getParameter("display-count");
+    String displayCountString = request.getParameter("count");
     System.out.println("COUNT: " + displayCountString);
-    if (displayCountString == null) {
-      return prevDisplayCount;
-    }
     int displayCount;
     try {
       displayCount = Integer.parseInt(displayCountString);
