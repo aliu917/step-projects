@@ -60,16 +60,12 @@ function toggleCollapsible(collapsibleButton) {
     }
 }
 
-function getData() {
-    fetch('/data').then(response => response.json()).then((data) => {
-        document.getElementById('fact-container').innerText = data;
-    });
-}
+var prevValue = 5;
 
 function getComments() {
   const countTextBox = document.getElementsByName("display-count")[0];
   var displayCount = countTextBox.value;
-  if (displayCount == "") {
+  if (invalidCountValue(displayCount)) {
       prevCount = window.sessionStorage.getItem("prevDisplayCount");
       displayCount = prevCount == null ? 5 : prevCount;
       countTextBox.value = displayCount;
@@ -84,6 +80,17 @@ function getComments() {
       historyContainer.appendChild(createListElement(comment));
     });
   });
+}
+
+function invalidCountValue(displayCount) {
+    if (displayCount == "") {
+        return true;
+    }
+    if (displayCount < 5) {
+      window.alert("Input value for comment display count out of range. Must be an integer greater than 5.");
+      return true;
+    }
+    return false;
 }
 
 function createListElement(text) {
