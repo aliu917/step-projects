@@ -26,12 +26,7 @@ public class ListCommentsServlet extends HttpServlet {
     PreparedQuery results = datastore.prepare(query);
 
     ArrayList<String> allComments = new ArrayList<>();
-    int displayCount = getCountInput(request);
-    if (displayCount == -1) {
-      response.setContentType("text/html");
-      response.getWriter().println("Please enter an integer between 5 and 20.");
-      return;
-    }
+    int displayCount = Integer.parseInt(request.getParameter("count"));
 
     for (Entity entity : results.asIterable()) {
       if (displayCount == 0) {
@@ -45,24 +40,6 @@ public class ListCommentsServlet extends HttpServlet {
     Gson gson = new Gson();
     response.setContentType("application/json;");
     response.getWriter().println(gson.toJson(allComments));
-  }
-
-  private int getCountInput(HttpServletRequest request) {
-    System.out.println("REQUEST: " + request.getQueryString());
-    String displayCountString = request.getParameter("count");
-    System.out.println("COUNT: " + displayCountString);
-    int displayCount;
-    try {
-      displayCount = Integer.parseInt(displayCountString);
-    } catch (NumberFormatException e) {
-      System.err.println("Could not convert to int: " + displayCountString);
-      return -1;
-    }
-    if (displayCount < 5 || displayCount > 20) {
-      System.err.println("Comment display count is out of range: " + displayCountString);
-      return -1;
-    }
-    return displayCount;
   }
 
 }
