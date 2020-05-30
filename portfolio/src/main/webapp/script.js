@@ -77,7 +77,7 @@ function getComments() {
     const historyContainer = document.getElementById('comment-history');
     historyContainer.innerHTML = "";
     history.forEach((comment) => {
-      historyContainer.appendChild(createListElement(comment));
+      historyContainer.appendChild(createCommentDisplay(comment));
     });
   });
 }
@@ -93,8 +93,20 @@ function invalidCountValue(displayCount) {
     return false;
 }
 
-function createListElement(text) {
-  const liElement = document.createElement('li');
-  liElement.innerText = text;
-  return liElement;
+function createCommentDisplay(text) {
+  var commentDiv = document.createElement("div");
+  
+  var textContainer = document.createElement("p");
+  var commentText = document.createTextNode(text);
+  textContainer.appendChild(commentText);
+  textContainer.style.fontSize = "25px";
+  textContainer.style.backgroundColor = "gray";
+
+//   var timeStyle = document.createElement("p");
+//   timeStyle.style.color = "lightgrey";
+//   var timeDiffDays = new Date() - 
+//   var timeText = document.createTextNode()
+
+  commentDiv.appendChild(textContainer);
+  return commentDiv;
 }
