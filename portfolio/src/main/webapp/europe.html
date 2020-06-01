@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script> 
+      $(function(){
+        $("#header").load("header.html"); 
+      });
+    </script> 
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <p class="center">
+      <a class="travel" href="travel.html">All</a> &emsp; 
+      <a class="travel" href="america.html">North America</a> &emsp; 
+      <a class="travel current" href="europe.html">Europe</a> &emsp; 
+      <a class="travel" href="asia.html">Asia</a> &emsp;
+      <a class="travel" href="australia.html">Australia</a>
+    </p>
+    
+    <grid-container>
+      <a href="seville.html">
+        <div class="simple-box"> 
+          <img style="width: 100%" alt="Seville" src="images/seville.jpg">
+          <p class="center travel-dark caption"> <span class="no=wrap">S E V I L L E</span></p>
+          <p1 class="sub-caption">Winter 2018</p1>
+        </div>
+      </a>
+      <a href="toledo.html">
+        <div class="simple-box"> 
+          <img style="width: 100%" alt="Toledo" src="images/toledo.jpg">
+          <p class="center travel-dark caption"> <span class="no=wrap">T O L E D O</span></p>
+          <p1 class="sub-caption">Winter 2018</p1>
+        </div>
+      </a>
+      <a href="madrid.html">
+        <div class="simple-box"> 
+          <img style="width: 100%" alt="Madrid" src="images/madrid.jpg">
+          <p class="center travel-dark caption"> <span class="no=wrap">M A D R I D</span></p>
+          <p1 class="sub-caption">Winter 2018</p1>
+        </div>
+      </a>
+      <a href="granada.html">
+        <div class="simple-box"> 
+          <img style="width: 100%" alt="Granada" src="images/granada.jpg">
+          <p class="center travel-dark caption"> <span class="no=wrap">G R A N A D A</span></p>
+          <p1 class="sub-caption">Winter 2018</p1>
+        </div>
+      </a>
+      <a href="barcelona.html">
+        <div class="simple-box"> 
+          <img style="width: 100%" alt="Barcelona" src="images/spain.jpg">
+          <p class="center travel-dark caption"> <span class="no=wrap">B A R C E L O N A</span></p>
+          <p1 class="sub-caption">Winter 2018</p1>
+        </div>
+      </a>
+    </grid-container>
+  </body>
+</html>

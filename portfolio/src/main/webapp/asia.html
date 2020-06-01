@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script> 
+      $(function(){
+        $("#header").load("header.html"); 
+      });
+    </script> 
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <p class="center">
+      <a class="travel" href="travel.html">All</a> &emsp; 
+      <a class="travel" href="america.html">North America</a> &emsp; 
+      <a class="travel" href="europe.html">Europe</a> &emsp; 
+      <a class="travel current" href="asia.html">Asia</a> &emsp;
+      <a class="travel" href="australia.html">Australia</a>
+    </p>
+    
+    <grid-container>
+      <a href="beijing.html">
+        <div class="simple-box"> 
+          <img style="width: 100%" alt="Beijing" src="images/beijing.jpg">
+          <p class="center travel-dark caption"> <span class="no=wrap">B E I J I N G</span></p>
+          <p1 class="sub-caption">Summer 2019</p1>
+        </div>
+      </a>
+      <a href="shanghai.html">
+        <div class="simple-box"> 
+          <img style="width: 100%" alt="Shanghai" src="images/shanghai.jpg">
+          <p class="center travel-dark caption"> <span class="no=wrap">S H A N G H A I</span></p>
+          <p1 class="sub-caption">Summer 2018</p1>
+        </div>
+      </a>
+      <a href="shenzhen.html">
+        <div class="simple-box"> 
+          <img style="width: 100%" alt="Shenzhen" src="images/shenzhen.jpg">
+          <p class="center travel-dark caption"> <span class="no=wrap">S H E N Z H E N</span></p>
+          <p1 class="sub-caption">Summer 2018</p1>
+        </div>
+      </a>
+      <a href="hongkong.html">
+        <div class="simple-box"> 
+          <img style="width: 100%" alt="Hongkong" src="images/hongkong.jpg">
+          <p class="center travel-dark caption"> <span class="no=wrap">H O N G K O N G</span></p>
+          <p1 class="sub-caption">Summer 2018</p1>
+        </div>
+      </a>
+      <a href="taiwan.html">
+        <div class="simple-box"> 
+          <img style="width: 100%" alt="Taiwan" src="images/taiwan.jpg">
+          <p class="center travel-dark caption"> <span class="no=wrap">T A I W A N</span></p>
+          <p1 class="sub-caption">Summer 2018</p1>
+        </div>
+      </a>
+      <a href="beijing2.html">
+        <div class="simple-box"> 
+          <img style="width: 100%" alt="Beijing" src="images/beijing2.jpg">
+          <p class="center travel-dark caption"> <span class="no=wrap">B E I J I N G</span></p>
+          <p1 class="sub-caption">Winter 2018</p1>
+        </div>
+      </a>
+    </grid-container>
+  </body>
+</html>

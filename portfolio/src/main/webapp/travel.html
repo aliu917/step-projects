@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script> 
+      $(function(){
+        $("#header").load("header.html"); 
+      });
+    </script> 
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <p class="center">
+      <a class="travel current" href="travel.html">All</a> &emsp; 
+      <a class="travel" href="america.html">North America</a> &emsp; 
+      <a class="travel" href="europe.html">Europe</a> &emsp; 
+      <a class="travel" href="asia.html">Asia</a> &emsp;
+      <a class="travel" href="australia.html">Australia</a>
+    </p>
+
+    <div class="map-container">
+      <img class="map" alt="map" src="images/map.png">
+      <a href="america.html">
+        <img class="map-obj" style="top: 5%; left: 0px;" alt="North America" src="images/sf2.jpg"> 
+      </a>
+      <a href="europe.html">
+        <img class="map-obj" style="top: 10%; left: 40%;" alt="Europe" src="images/seville.jpg">
+      </a>
+      <a href="asia.html">
+      <img class="map-obj" style="top: 15%; right: 5%;" alt="Asia" src="images/shanghai.jpg">
+      </a>
+      <a href="australia.html">
+        <img class="map-obj" style="bottom: 7%; left: 70%;" alt="Australia" src="images/sydney.jpg">
+      </a>
+    </div>
+
+  </body>
+</html>
