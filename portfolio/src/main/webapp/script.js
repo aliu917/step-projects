@@ -62,6 +62,10 @@ function toggleCollapsible(collapsibleButton) {
 
 var prevValue = 5;
 
+function refreshComments() {
+  setInterval(getComments, 60000);
+}
+
 function getComments() {
   const countTextBox = document.getElementsByName("display-count")[0];
   var displayCount = countTextBox.value;
