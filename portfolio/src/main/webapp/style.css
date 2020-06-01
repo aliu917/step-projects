@@ -268,3 +268,12 @@ iframe {
   display: none;
   overflow: hidden;
 }
+
+.comment {
+  margin-right: 30px;
+  margin-top: 5px;
+  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: white;
+}

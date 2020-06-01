@@ -77,7 +77,7 @@ function getComments() {
     const historyContainer = document.getElementById('comment-history');
     historyContainer.innerHTML = "";
     history.forEach((comment) => {
-      historyContainer.appendChild(createCommentDisplay(comment.text, comment.timestamp));
+      historyContainer.appendChild(createCommentDisplay(comment.text, comment.timestamp, comment.username));
     });
   });
 }
@@ -93,29 +93,32 @@ function invalidCountValue(displayCount) {
     return false;
 }
 
-function createCommentDisplay(text, timestamp) {
+function createCommentDisplay(text, timestamp, username) {
   var commentDiv = document.createElement("div");
-  commentDiv.style.marginRight = "30px";
-  commentDiv.style.marginTop = "5px";
-  commentDiv.style.padding = "20px";
-  commentDiv.style.paddingTop = "10px";
-  commentDiv.style.paddingBottom = "10px";
-  commentDiv.style.background = "white";
+  commentDiv.classList.add('comment');
   
   var textContainer = document.createElement("p");
   var commentText = document.createTextNode(text);
   textContainer.appendChild(commentText);
   textContainer.style.fontSize = "20px";
-  
+
+  var nameContainer = document.createElement("p");
+  nameContainer.style.fontSize = "20px";
+  nameContainer.style.fontWeight = "bold";
+  nameContainer.style.marginBottom = "0px";
+  var nameText = document.createTextNode(username);
+  nameContainer.appendChild(nameText);
 
   var timeContainer = document.createElement("p");
   timeContainer.style.color = "gray";
   timeContainer.style.fontSize = "15px";
+  timeContainer.style.marginTop = "3px";
   var timeDiffHours = Math.floor((new Date() - timestamp) / 36e5);
   var timeText = document.createTextNode(timeDiffHours.toString() + " hours ago");
   timeContainer.appendChild(timeText);
 
-  commentDiv.appendChild(timeContainer)
+  commentDiv.appendChild(nameContainer);
+  commentDiv.appendChild(timeContainer);
   commentDiv.appendChild(textContainer);
   return commentDiv;
 }
