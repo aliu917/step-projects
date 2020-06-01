@@ -28,7 +28,7 @@
   position: relative;
 }
 
-button {
+.styled-button {
   margin: 20px;
   margin-top: 0px;
   margin-bottom: 0px;

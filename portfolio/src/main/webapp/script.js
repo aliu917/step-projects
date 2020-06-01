@@ -77,7 +77,7 @@ function getComments() {
     const historyContainer = document.getElementById('comment-history');
     historyContainer.innerHTML = "";
     history.forEach((comment) => {
-      historyContainer.appendChild(createCommentDisplay(comment));
+      historyContainer.appendChild(createCommentDisplay(comment.text, comment.timestamp));
     });
   });
 }
@@ -93,20 +93,29 @@ function invalidCountValue(displayCount) {
     return false;
 }
 
-function createCommentDisplay(text) {
+function createCommentDisplay(text, timestamp) {
   var commentDiv = document.createElement("div");
+  commentDiv.style.marginRight = "30px";
+  commentDiv.style.marginTop = "5px";
+  commentDiv.style.padding = "20px";
+  commentDiv.style.paddingTop = "10px";
+  commentDiv.style.paddingBottom = "10px";
+  commentDiv.style.background = "white";
   
   var textContainer = document.createElement("p");
   var commentText = document.createTextNode(text);
   textContainer.appendChild(commentText);
-  textContainer.style.fontSize = "25px";
-  textContainer.style.backgroundColor = "gray";
+  textContainer.style.fontSize = "20px";
+  
 
-//   var timeStyle = document.createElement("p");
-//   timeStyle.style.color = "lightgrey";
-//   var timeDiffDays = new Date() - 
-//   var timeText = document.createTextNode()
+  var timeContainer = document.createElement("p");
+  timeContainer.style.color = "gray";
+  timeContainer.style.fontSize = "15px";
+  var timeDiffHours = Math.floor((new Date() - timestamp) / 36e5);
+  var timeText = document.createTextNode(timeDiffHours.toString() + " hours ago");
+  timeContainer.appendChild(timeText);
 
+  commentDiv.appendChild(timeContainer)
   commentDiv.appendChild(textContainer);
   return commentDiv;
 }

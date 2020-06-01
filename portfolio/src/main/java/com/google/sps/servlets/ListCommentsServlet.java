@@ -18,6 +18,16 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/list-comments")
 public class ListCommentsServlet extends HttpServlet {
 
+  class Comment {
+    String text;
+    Long timestamp;
+
+    Comment(String text, Long timestamp) {
+      this.text = text;
+      this.timestamp = timestamp;
+    }
+  }
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Query query = new Query("Comment").addSort("timestamp", SortDirection.DESCENDING);
@@ -25,7 +35,7 @@ public class ListCommentsServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
-    ArrayList<String> allComments = new ArrayList<>();
+    ArrayList<Comment> allComments = new ArrayList<>();
     int displayCount = Integer.parseInt(request.getParameter("count"));
 
     for (Entity entity : results.asIterable()) {
@@ -33,7 +43,9 @@ public class ListCommentsServlet extends HttpServlet {
           break;
       }
       String text = (String) entity.getProperty("text");
-      allComments.add(text);
+      Long timestamp = (Long) entity.getProperty("timestamp");
+      Comment c = new Comment(text, timestamp);
+      allComments.add(c);
       displayCount --;
     }
 
