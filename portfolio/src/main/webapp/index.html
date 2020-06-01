@@ -5,27 +5,15 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script> 
+      $(function(){
+        $("#header").load("header.html"); 
+      });
+    </script> 
   </head>
   <body>
-    <div class="header">
-      <h1><a href="index.html">Angela Liu</a></h1>
-      <a href="https://github.com/aliu917">
-        <img class="margin" border="0" alt="Github" src="images/github_white.png" width="50" height="50">
-      </a>
-      <a href="mailto:aliu917@berkeley.edu">
-        <img class="margin" border="0" alt="Email" src="images/email.png" width="50" height="50">
-      </a>
-      <a href="resume.html">
-        <img class="margin" border="0" alt="LinkedIn" src="images/linkedin.png" width="50" height="50">
-      </a>
-      <p1 class="lower-right">
-        <a class="current" hhref="index.html">About Me</a> &emsp;
-        <a href="resume.html">Resume</a> &emsp; 
-        <a href="teaching.html">Teaching</a> &emsp; 
-        <a href="hello.html">Hello World</a> &emsp;
-        <a href="comments.html">Comments</a>
-      </p1>
-    </div>
+    <div id="header"></div>
 
     <div id="content">
       <div class="section">
@@ -37,8 +25,8 @@
           <p class="wrap-txt">Hi, I'm Angela! 
             I'm an incoming junior at UC Berkeley studying Computer Science. 
             I've lived my entire life in the bay area and I love it here!
-            Some of my hobbies include teaching, playing golf, and reading.
-            And of course, I love learning new things like making a website (I'm trying).
+            Some of my hobbies include teaching, playing golf, reading and traveling!
+            And of course, I love learning new things from complex CS theory to making a website (I'm trying).
           </p>
         </flex>
       </div>

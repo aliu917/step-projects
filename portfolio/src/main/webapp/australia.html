@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script> 
+      $(function(){
+        $("#header").load("header.html"); 
+      });
+    </script> 
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <p class="center">
+      <a class="travel" href="travel.html">All</a> &emsp; 
+      <a class="travel" href="america.html">North America</a> &emsp; 
+      <a class="travel" href="europe.html">Europe</a> &emsp; 
+      <a class="travel" href="asia.html">Asia</a> &emsp;
+      <a class="travel current" href="australia.html">Australia</a>
+    </p>
+    
+    <grid-container>
+      <a href="melbourne.html">
+        <div class="simple-box"> 
+          <img style="width: 100%" alt="Melbourne" src="images/melbourne.jpg">
+          <p class="center travel-dark caption"> <span class="no=wrap">M E L B O U R N E</span></p>
+          <p1 class="sub-caption">Winter 2019</p1>
+        </div>
+      </a>
+      <a href="whitsundays.html">
+        <div class="simple-box"> 
+          <img style="width: 100%" alt="Whitsundays" src="images/whitsundays.jpg">
+          <p class="center travel-dark caption"> <span class="no=wrap">W H I T S U N D A Y S</span></p>
+          <p1 class="sub-caption">Winter 2019</p1>
+        </div>
+      </a>
+      <a href="brisbane.html">
+        <div class="simple-box"> 
+          <img style="width: 100%" alt="Brisbane" src="images/brisbane.jpg">
+          <p class="center travel-dark caption"> <span class="no=wrap">B R I S B A N E</span></p>
+          <p1 class="sub-caption">Winter 2019</p1>
+        </div>
+      </a>
+      <a href="sydney.html">
+        <div class="simple-box"> 
+          <img style="width: 100%" alt="Sydney" src="images/sydney.jpg">
+          <p class="center travel-dark caption"> <span class="no=wrap">S Y D N E Y</span></p>
+          <p1 class="sub-caption">Winter 2019</p1>
+        </div>
+      </a>
+    </grid-container>
+  </body>
+</html>
