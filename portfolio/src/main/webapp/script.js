@@ -113,12 +113,36 @@ function createCommentDisplay(text, timestamp, username) {
   timeContainer.style.color = "gray";
   timeContainer.style.fontSize = "15px";
   timeContainer.style.marginTop = "3px";
-  var timeDiffHours = Math.floor((new Date() - timestamp) / 36e5);
-  var timeText = document.createTextNode(timeDiffHours.toString() + " hours ago");
+  var timeDiff = getTimeDiff(timestamp);
+  var timeText = document.createTextNode(timeDiff);
   timeContainer.appendChild(timeText);
 
   commentDiv.appendChild(nameContainer);
   commentDiv.appendChild(timeContainer);
   commentDiv.appendChild(textContainer);
   return commentDiv;
+}
+
+function getTimeDiff(timestamp) {
+  var msDiff = (new Date()).getTime() - timestamp;
+  if (msDiff / 60000 < 1) {  //Less than 1 minute ago --> Just now
+    return "Just now";
+  } else if (msDiff / 3600000 < 1) {   //Less than an hour ago --> min units
+    var minuteDiff = Math.floor(msDiff / 60000);
+    if (minuteDiff == 1) {
+      return "1 min ago";
+    } else {
+      return minuteDiff.toString() + " mins ago";
+    }
+  } else if (msDiff / 86400000 < 1) {   //Less than one day ago --> hour units
+    var hourDiff = Math.floor((new Date() - timestamp) / 36e5);
+    if (hourDiff == 1) {
+      return "1 hour ago";
+    } else {
+      return hourDiff.toString() + " hours ago";
+    }
+  } else {   //More than a day ago --> use date
+    date = new Date(timestamp);
+    return date.toLocaleDateString();
+  }
 }
