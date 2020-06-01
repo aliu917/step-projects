@@ -29,6 +29,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/comment")
 public class DataServlet extends HttpServlet {
 
+  ArrayList<String> commentHistory = new ArrayList<>();
+
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String userInput = request.getParameter("user-comment");
