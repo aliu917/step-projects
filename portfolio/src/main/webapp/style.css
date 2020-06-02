@@ -28,7 +28,7 @@
   position: relative;
 }
 
-button {
+.styled-button {
   margin: 20px;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -267,4 +267,17 @@ iframe {
   padding: 0 18px;
   display: none;
   overflow: hidden;
+<<<<<<< HEAD
 }
+
+.comment {
+  margin-right: 30px;
+  margin-top: 5px;
+  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: white;
+}
+=======
+}
+>>>>>>> 27b3a2a3b22f6cd4449fd496c396fe5206784177

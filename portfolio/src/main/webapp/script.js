@@ -62,6 +62,10 @@ function toggleCollapsible(collapsibleButton) {
 
 var prevValue = 5;
 
+function refreshComments() {
+  setInterval(getComments, 60000);
+}
+
 function getComments() {
   const countTextBox = document.getElementsByName("display-count")[0];
   var displayCount = countTextBox.value;
@@ -77,7 +81,7 @@ function getComments() {
     const historyContainer = document.getElementById('comment-history');
     historyContainer.innerHTML = "";
     history.forEach((comment) => {
-      historyContainer.appendChild(createListElement(comment));
+      historyContainer.appendChild(createCommentDisplay(comment.text, comment.timestamp, comment.username));
     });
   });
 }
@@ -93,8 +97,56 @@ function invalidCountValue(displayCount) {
     return false;
 }
 
-function createListElement(text) {
-  const liElement = document.createElement('li');
-  liElement.innerText = text;
-  return liElement;
+function createCommentDisplay(text, timestamp, username) {
+  var commentDiv = document.createElement("div");
+  commentDiv.classList.add('comment');
+  
+  var textContainer = document.createElement("p");
+  var commentText = document.createTextNode(text);
+  textContainer.appendChild(commentText);
+  textContainer.style.fontSize = "20px";
+
+  var nameContainer = document.createElement("p");
+  nameContainer.style.fontSize = "20px";
+  nameContainer.style.fontWeight = "bold";
+  nameContainer.style.marginBottom = "0px";
+  var nameText = document.createTextNode(username);
+  nameContainer.appendChild(nameText);
+
+  var timeContainer = document.createElement("p");
+  timeContainer.style.color = "gray";
+  timeContainer.style.fontSize = "15px";
+  timeContainer.style.marginTop = "3px";
+  var timeDiff = getTimeDiff(timestamp);
+  var timeText = document.createTextNode(timeDiff);
+  timeContainer.appendChild(timeText);
+
+  commentDiv.appendChild(nameContainer);
+  commentDiv.appendChild(timeContainer);
+  commentDiv.appendChild(textContainer);
+  return commentDiv;
+}
+
+function getTimeDiff(timestamp) {
+  var msDiff = (new Date()).getTime() - timestamp;
+  if (msDiff / 60000 < 1) {  //Less than 1 minute ago --> Just now
+    return "Just now";
+  } else if (msDiff / 3600000 < 1) {   //Less than an hour ago --> min units
+    var minuteDiff = Math.floor(msDiff / 60000);
+    if (minuteDiff == 1) {
+      return "1 min ago";
+    } else {
+      return minuteDiff.toString() + " mins ago";
+    }
+  } else if (msDiff / 86400000 < 1) {   //Less than one day ago --> hour units
+    var hourDiff = Math.floor((new Date() - timestamp) / 36e5);
+    if (hourDiff == 1) {
+      return "1 hour ago";
+    } else {
+      return hourDiff.toString() + " hours ago";
+    }
+  } else {   //More than a day ago --> use date
+    date = new Date(timestamp);
+    return date.toLocaleDateString();
+  }
 }
