@@ -17,6 +17,11 @@ package com.google.sps.servlets;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
 import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.io.IOException;
@@ -33,18 +38,33 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     String userInput = request.getParameter("user-comment");
     userInput = userInput.equals("") ? "" : userInput;
-
-    String username = request.getParameter("username");
-    username = username.equals("") ? "Anonymous" : username;
+	
+    String username;
+    UserService userService = UserServiceFactory.getUserService();
+    if (userService.isUserLoggedIn()) {
+	  Query query =
+        new Query("UserInfo")
+            .setFilter(new Query.FilterPredicate("id", Query.FilterOperator.EQUAL, userService.getCurrentUser().getUserId()));
+      PreparedQuery results = datastore.prepare(query);
+      Entity entity = results.asSingleEntity();
+      if (entity == null) {
+        username = userService.getCurrentUser().getEmail();
+      } else {
+        username = (String) entity.getProperty("nickname");
+      }
+    } else {
+      username = request.getParameter("username");
+      username = username.equals("") ? "Anonymous" : username;
+    }
 
     Entity commentEntity = new Entity("Comment");
     commentEntity.setProperty("text", userInput);
     commentEntity.setProperty("timestamp", System.currentTimeMillis());
     commentEntity.setProperty("username", username);
 
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(commentEntity);
 
     response.sendRedirect("/comments.html");
