@@ -67,6 +67,28 @@ function refreshComments() {
 }
 
 function getComments() {
+  getNumComments(commentDisplayNum());
+}
+
+function getNumComments(displayCount) {
+  fetch('/list-comments?count=' + displayCount).then(response => response.json()).then((history) => {
+    const historyContainer = document.getElementById('comment-history');
+    historyContainer.innerHTML = "";
+    history.forEach((comment) => {
+      historyContainer.appendChild(createCommentDisplay(comment));
+    });
+  });
+}
+
+function getMoreComments() {
+  var moreDisplayNum = parseInt(commentDisplayNum()) + 10;
+  const countTextBox = document.getElementsByName("display-count")[0];
+  countTextBox.value = moreDisplayNum.toString();
+  window.sessionStorage.setItem("prevDisplayCount", moreDisplayNum);
+  getNumComments(moreDisplayNum);
+}
+
+function commentDisplayNum() {
   const countTextBox = document.getElementsByName("display-count")[0];
   var displayCount = countTextBox.value;
   if (invalidCountValue(displayCount)) {
@@ -76,14 +98,7 @@ function getComments() {
   } else {
       window.sessionStorage.setItem("prevDisplayCount", displayCount);
   }
-
-  fetch('/list-comments?count=' + displayCount).then(response => response.json()).then((history) => {
-    const historyContainer = document.getElementById('comment-history');
-    historyContainer.innerHTML = "";
-    history.forEach((comment) => {
-      historyContainer.appendChild(createCommentDisplay(comment));
-    });
-  });
+  return displayCount;
 }
 
 function invalidCountValue(displayCount) {
@@ -123,6 +138,7 @@ function createCommentDisplay(comment) {
   timeContainer.appendChild(timeText);
 
   var deleteButton = document.createElement("button");
+  deleteButton.classList.add('text-button');
   deleteButton.style.position = "absolute";
   deleteButton.style.right = "5px";
   deleteButton.style.top = "5px";
