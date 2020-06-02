@@ -28,8 +28,10 @@
     </div>
 	
     <div id="content">
-      <form action="/comment" method="POST">
-        <div class="section" style="margin:0px">
+      <div name="authcheck">
+      </div>
+      <div class="section" style="margin:0px; display:none">
+        <form action="/comment" method="POST">
           <h2> Comment </h2>
           <p style="display: inline;">Name:</p>
           <input style="margin-bottom: 10px" type="text" name="username" placeholder="Insert name">
@@ -37,12 +39,12 @@
           <textarea type="text" name="user-comment" placeholder="Enter a comment." style="width: 90%; height: 100px; margin-left: 15px"></textarea>        
           <br/><br/>
           <input class="styled-button" type="submit" value="Comment"/>
-        </div>
-        <br/>
-        <p style="display: inline;">Number of comments displaying:</p>
-        <input style="margin-bottom: 10px" type="number" name="display-count" min="5" placeholder="5">
-        <input type="submit" onclick="getComments();return(false);" value="update"/>
-      </form>
+          <br/>
+        </form>
+      </div>
+      <p style="display: inline;">Number of comments displaying:</p>
+      <input style="margin-bottom: 10px" type="number" name="display-count" min="5" max="20" placeholder="5">
+      <input type="submit" onclick="getComments()" value="update"/>
 
       <div id="comment-history" style="margin-left: 15px; margin-bottom: 15px"></div>
       <div style="text-align: center; margin-bottom: 50px;">

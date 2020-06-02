@@ -95,6 +95,10 @@ a:active {
   text-decoration: underline;
 }
 
+a.link {
+  color: rgb(55, 148, 211);
+}
+
 p {
   color:rgb(7, 35, 63);
   margin: 10px;
