@@ -20,13 +20,15 @@ public class ListCommentsServlet extends HttpServlet {
 
   class Comment {
     String text;
-    Long timestamp;
+    long timestamp;
     String username;
+    long id;
 
-    Comment(String text, Long timestamp, String username) {
+    Comment(long id, String text, long timestamp, String username) {
       this.text = text;
       this.timestamp = timestamp;
       this.username = username;
+      this.id = id;
     }
   }
 
@@ -44,10 +46,11 @@ public class ListCommentsServlet extends HttpServlet {
       if (displayCount == 0) {
           break;
       }
+      long id = entity.getKey().getId();
       String text = (String) entity.getProperty("text");
-      Long timestamp = (Long) entity.getProperty("timestamp");
+      long timestamp = (long) entity.getProperty("timestamp");
       String username = (String) entity.getProperty("username");
-      Comment c = new Comment(text, timestamp, username);
+      Comment c = new Comment(id, text, timestamp, username);
       allComments.add(c);
       displayCount --;
     }
