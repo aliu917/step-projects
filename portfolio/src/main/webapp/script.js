@@ -81,7 +81,7 @@ function getComments() {
     const historyContainer = document.getElementById('comment-history');
     historyContainer.innerHTML = "";
     history.forEach((comment) => {
-      historyContainer.appendChild(createCommentDisplay(comment.text, comment.timestamp, comment.username));
+      historyContainer.appendChild(createCommentDisplay(comment));
     });
   });
 }
@@ -97,12 +97,13 @@ function invalidCountValue(displayCount) {
     return false;
 }
 
-function createCommentDisplay(text, timestamp, username) {
+function createCommentDisplay(comment) {
   var commentDiv = document.createElement("div");
   commentDiv.classList.add('comment');
+  commentDiv.style.position = "Relative";
   
   var textContainer = document.createElement("p");
-  var commentText = document.createTextNode(text);
+  var commentText = document.createTextNode(comment.text);
   textContainer.appendChild(commentText);
   textContainer.style.fontSize = "20px";
 
@@ -110,21 +111,38 @@ function createCommentDisplay(text, timestamp, username) {
   nameContainer.style.fontSize = "20px";
   nameContainer.style.fontWeight = "bold";
   nameContainer.style.marginBottom = "0px";
-  var nameText = document.createTextNode(username);
+  var nameText = document.createTextNode(comment.username);
   nameContainer.appendChild(nameText);
 
   var timeContainer = document.createElement("p");
   timeContainer.style.color = "gray";
   timeContainer.style.fontSize = "15px";
   timeContainer.style.marginTop = "3px";
-  var timeDiff = getTimeDiff(timestamp);
+  var timeDiff = getTimeDiff(comment.timestamp);
   var timeText = document.createTextNode(timeDiff);
   timeContainer.appendChild(timeText);
+
+  var deleteButton = document.createElement("button");
+  deleteButton.style.position = "absolute";
+  deleteButton.style.right = "5px";
+  deleteButton.style.top = "5px";
+  deleteButton.innerText = "Delete";
+  deleteButton.addEventListener('click', () => {
+    deleteComment(comment);
+    commentDiv.remove();
+  });
 
   commentDiv.appendChild(nameContainer);
   commentDiv.appendChild(timeContainer);
   commentDiv.appendChild(textContainer);
+  commentDiv.appendChild(deleteButton);
   return commentDiv;
+}
+
+function deleteComment(comment) {
+  const params = new URLSearchParams();
+  params.append('id', comment.id);
+  fetch('/delete-comment', {method: 'POST', body: params});
 }
 
 function getTimeDiff(timestamp) {
