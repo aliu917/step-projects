@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.sps.utils.UserUtils;
+
 @WebServlet("/auth")
 public class AuthServlet extends HttpServlet {
 
@@ -30,36 +32,15 @@ public class AuthServlet extends HttpServlet {
     if (isGuest != null && isGuest.equals("true")) {
 	  String guestGreeting = "<p>Hello Guest! To continue as a user, <a class=\"link\" href=\"" + loginUrl + "\">login here</a></p>";
       createForm(out, guestGreeting, "Anonymous", true);
-      return;
     } else if (userService.isUserLoggedIn()) {
       String logoutUrl = userService.createLogoutURL("/comments.html");
       String id = userService.getCurrentUser().getUserId();
-      String nickname = getUserNickname(id, userService);
+      String nickname = UserUtils.getUserNickname(id, userService);
       String userGreeting = "<p>Hello " + nickname + "! Not you? <a class=\"link\" href=\"" + logoutUrl + "\">Logout here</a></p>";
       createForm(out, userGreeting, nickname, false);
     } else {
-      out.println("<p>To comment, <a class=\"link\" href=\"" + loginUrl + "\">login here</a> or <button class=\"text-button, link\" style=\"font-size: x-large\" onclick=\"showGuestForm()\">continue as a guest</button>.</p>");
+      out.println("<p>To comment, <a class=\"link\" href=\"" + loginUrl + "\">login here</a> or <button class=\"text-button link\" style=\"font-size: x-large\" onclick=\"showGuestForm()\">continue as a guest</button>.</p>");
     }
-  }
-
-  public String getUserNickname(String id, UserService userService) {
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    Query query =
-        new Query("UserInfo")
-            .setFilter(new Query.FilterPredicate("id", Query.FilterOperator.EQUAL, id));
-    PreparedQuery results = datastore.prepare(query);
-    Entity entity = results.asSingleEntity();
-    String nickname;
-    if (entity == null) {
-      nickname = userService.getCurrentUser().getEmail();
-      entity = new Entity("UserInfo", id);
-      entity.setProperty("id", id);
-      entity.setProperty("nickname", nickname);
-      datastore.put(entity);
-      return nickname;
-    }
-    nickname = (String) entity.getProperty("nickname");
-    return nickname;
   }
 
   private void createForm(PrintWriter out, String greetingLine, String displayNickname, boolean guest) {

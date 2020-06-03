@@ -46,10 +46,14 @@
 .text-button {
   background-color: transparent;
   border: 0px;
-  color: rgb(65, 140, 214);
+  color: rgb(55, 148, 211);
   font-size: 15px;
   font-family: Palatino;
   cursor: pointer;
+}
+
+.text-button:hover {
+  text-decoration: underline;
 }
 
 body {
@@ -73,6 +77,7 @@ img {
 a:link {
   color: white;
   text-decoration: none;
+  cursor: pointer;
 }
 
 /* visited link */
