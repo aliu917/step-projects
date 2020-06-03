@@ -188,9 +188,17 @@ function getTimeDiff(timestamp) {
   }
 }
 
-function getAuth() {
-  fetch("/auth").then((response) => response.text()).then((displayText) => {
+function getAuthInput(input) {
+  fetch(input).then((response) => response.text()).then((displayText) => {
     var container = document.getElementsByName("authcheck")[0];
     container.innerHTML = displayText;
   });
+}
+
+function getAuth() {
+  getAuthInput("/auth");
+}
+
+function showGuestForm() {
+  getAuthInput("/auth?guest=true");
 }
