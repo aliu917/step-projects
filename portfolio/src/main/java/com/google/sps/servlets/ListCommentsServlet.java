@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.sps.utils.UserUtils;
+
 /** Servlet responsible for listing previous comments. */
 @WebServlet("/list-comments")
 public class ListCommentsServlet extends HttpServlet {
@@ -62,12 +64,10 @@ public class ListCommentsServlet extends HttpServlet {
         if (userService.isUserLoggedIn() && userId.equals(userService.getCurrentUser().getUserId())) {
             currentUserComment = true;
         }
-        Query userQuery = new Query("UserInfo").setFilter(new Query.FilterPredicate("id", Query.FilterOperator.EQUAL, userId));
-        Entity userEntity = (datastore.prepare(userQuery)).asSingleEntity();
-        if (userEntity == null) {
-          username = (String) entity.getProperty("username");
+        if (UserUtils.hasNickname(userId, userService)) {
+            username = UserUtils.getUserNickname(userId, userService);
         } else {
-          username = (String) userEntity.getProperty("nickname");
+            username = (String) entity.getProperty("username");
         }
       }
       Comment c = new Comment(id, text, timestamp, username, currentUserComment);

@@ -30,6 +30,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.sps.utils.UserUtils;
+
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/comment")
 public class DataServlet extends HttpServlet {
@@ -42,25 +44,15 @@ public class DataServlet extends HttpServlet {
     String userInput = request.getParameter("user-comment");
     userInput = userInput.equals("") ? "" : userInput;
 	
-    String username;
-    String userId;
+    String username = "";
+    String userId = "";
     UserService userService = UserServiceFactory.getUserService();
     if (userService.isUserLoggedIn()) {
-	  Query query =
-        new Query("UserInfo")
-            .setFilter(new Query.FilterPredicate("id", Query.FilterOperator.EQUAL, userService.getCurrentUser().getUserId()));
-      PreparedQuery results = datastore.prepare(query);
-      Entity entity = results.asSingleEntity();
-      if (entity == null) {
-        username = userService.getCurrentUser().getEmail();
-      } else {
-        username = (String) entity.getProperty("nickname");
-      }
       userId = userService.getCurrentUser().getUserId();
+      username = UserUtils.getUserNickname(userId, userService);
     } else {
       username = request.getParameter("username");
       username = username.equals("") ? "Anonymous" : username;
-	  userId = "";
     }
 
     Entity commentEntity = new Entity("Comment");
@@ -68,7 +60,6 @@ public class DataServlet extends HttpServlet {
     commentEntity.setProperty("timestamp", System.currentTimeMillis());
     commentEntity.setProperty("username", username);
     commentEntity.setProperty("userId", userId);
-
     datastore.put(commentEntity);
 
     response.sendRedirect("/comments.html");
