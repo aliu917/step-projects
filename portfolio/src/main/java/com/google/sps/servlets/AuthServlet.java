@@ -23,52 +23,63 @@ public class AuthServlet extends HttpServlet {
     response.setContentType("text/html;");
     PrintWriter out = response.getWriter();
 
-    // Only logged-in users can see the form
     UserService userService = UserServiceFactory.getUserService();
-    if (userService.isUserLoggedIn()) {
+    String loginUrl = userService.createLoginURL("/comments.html");
+    String isGuest = request.getParameter("guest");
+
+    if (isGuest != null && isGuest.equals("true")) {
+	  String guestGreeting = "<p>Hello Guest! To continue as a user, <a class=\"link\" href=\"" + loginUrl + "\">login here</a></p>";
+      createForm(out, guestGreeting, "Anonymous", true);
+      return;
+    } else if (userService.isUserLoggedIn()) {
       String logoutUrl = userService.createLogoutURL("/comments.html");
       String id = userService.getCurrentUser().getUserId();
-      String nickname = getUserNickname(id);
-      if (nickname.equals("")) {
-        nickname = userService.getCurrentUser().getEmail();
-        Entity entity = new Entity("UserInfo", id);
-      	entity.setProperty("id", id);
-      	entity.setProperty("nickname", nickname);
-        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-      	datastore.put(entity);
-      }
-      createForm(out, nickname, logoutUrl);
+      String nickname = getUserNickname(id, userService);
+      String userGreeting = "<p>Hello " + nickname + "! Not you? <a class=\"link\" href=\"" + logoutUrl + "\">Logout here</a></p>";
+      createForm(out, userGreeting, nickname, false);
     } else {
-      String loginUrl = userService.createLoginURL("/comments.html");
-      out.println("<p>To comment, <a class=\"link\" href=\"" + loginUrl + "\">login here</a>.</p>");
+      out.println("<p>To comment, <a class=\"link\" href=\"" + loginUrl + "\">login here</a> or <button class=\"text-button, link\" style=\"font-size: x-large\" onclick=\"showGuestForm()\">continue as a guest</button>.</p>");
     }
   }
 
-  public String getUserNickname(String id) {
+  public String getUserNickname(String id, UserService userService) {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     Query query =
         new Query("UserInfo")
             .setFilter(new Query.FilterPredicate("id", Query.FilterOperator.EQUAL, id));
     PreparedQuery results = datastore.prepare(query);
     Entity entity = results.asSingleEntity();
+    String nickname;
     if (entity == null) {
-      return "";
+      nickname = userService.getCurrentUser().getEmail();
+      entity = new Entity("UserInfo", id);
+      entity.setProperty("id", id);
+      entity.setProperty("nickname", nickname);
+      datastore.put(entity);
+      return nickname;
     }
-    String nickname = (String) entity.getProperty("nickname");
+    nickname = (String) entity.getProperty("nickname");
     return nickname;
   }
 
-  private void createForm(PrintWriter out, String nickname, String logoutUrl) {
+  private void createForm(PrintWriter out, String greetingLine, String displayNickname, boolean guest) {
   	out.println("<div class=\"section\" style=\"margin:0px\">");
   	out.println("<h2> Comment </h2>");
-  	out.println("<p>Hello " + nickname + "! Not you? <a class=\"link\" href=\"" + logoutUrl + "\">Logout here</a></p>");
-  	out.println("<p style=\"display: inline;\">Change your nickname: </p>");
-  	out.println("<form method=\"POST\" action=\"/auth\" style=\"display: inline;\">");
-  	out.println("<input name=\"nickname\" value=\"" + nickname + "\" />");
-  	out.println("<button>Update</button>");
-  	out.println("</form>");
+  	out.println(greetingLine);
+    
+    if (!guest) {
+      out.println("<p style=\"display: inline;\">Change your nickname: </p>");
+  	  out.println("<form method=\"POST\" action=\"/auth\" style=\"display: inline;\">");
+  	  out.println("<input name=\"nickname\" value=\"" + displayNickname + "\" />");
+  	  out.println("<button>Update</button>");
+  	  out.println("</form>");
+    }
 
   	out.println("<form action=\"/comment\" method=\"POST\">");
+    if (guest) {
+      out.println("<p style=\"display: inline;\">Name:</p>");
+      out.println("<input style=\"margin-bottom: 10px\" type=\"text\" name=\"username\" placeholder=\"Insert name\">");
+    }
   	out.println("<p>Write a comment:</p>");
   	out.println("<textarea type=\"text\" name=\"user-comment\" placeholder=\"Enter a comment.\" style=\"width: 90%; height: 100px; margin-left: 15px\"></textarea>");        
   	out.println("<br/><br/>");

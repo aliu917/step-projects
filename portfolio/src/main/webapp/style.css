@@ -99,6 +99,11 @@ a.link {
   color: rgb(55, 148, 211);
 }
 
+a.link:hover {
+  color: rgb(55, 148, 211);
+  text-decoration: underline;
+}
+
 p {
   color:rgb(7, 35, 63);
   margin: 10px;
