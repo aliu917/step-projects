@@ -49,7 +49,7 @@ public class ListCommentsServlet extends HttpServlet {
 
     for (Entity entity : results.asIterable()) {
       if (displayCount == 0) {
-          break;
+        break;
       }
       long id = entity.getKey().getId();
       String text = (String) entity.getProperty("text");
@@ -62,12 +62,12 @@ public class ListCommentsServlet extends HttpServlet {
       } else {
         UserService userService = UserServiceFactory.getUserService();
         if (userService.isUserLoggedIn() && userId.equals(userService.getCurrentUser().getUserId())) {
-            currentUserComment = true;
+          currentUserComment = true;
         }
         if (UserUtils.hasNickname(userId, userService)) {
-            username = UserUtils.getUserNickname(userId, userService);
+          username = UserUtils.getUserNickname(userId, userService);
         } else {
-            username = (String) entity.getProperty("username");
+          username = (String) entity.getProperty("username");
         }
       }
       Comment c = new Comment(id, text, timestamp, username, currentUserComment);

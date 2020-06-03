@@ -1,0 +1,2 @@
+<p style="display: inline;">Name:</p>
+<input style="margin-bottom: 10px" type="text" name="username" placeholder="Insert name">

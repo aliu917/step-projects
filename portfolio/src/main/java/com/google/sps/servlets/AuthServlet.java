@@ -10,6 +10,10 @@ import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.BufferedReader;
+import java.io.FileReader; 
+import java.nio.file.Files; 
+import java.nio.file.Paths;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +23,10 @@ import com.google.sps.utils.UserUtils;
 
 @WebServlet("/auth")
 public class AuthServlet extends HttpServlet {
+
+  static final String COMMENT_FORM_FILE_STRING = "/home/arliu/step/portfolio/src/main/java/com/google/sps/files/comment-form.txt";
+  static final String GUEST_FIELD_FILE_STRING = "/home/arliu/step/portfolio/src/main/java/com/google/sps/files/guest-name-field.txt";
+  static final String USER_FIELD_FILE_STRING = "/home/arliu/step/portfolio/src/main/java/com/google/sps/files/user-name-field.txt";
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -31,43 +39,38 @@ public class AuthServlet extends HttpServlet {
 
     if (isGuest != null && isGuest.equals("true")) {
 	  String guestGreeting = "<p>Hello Guest! To continue as a user, <a class=\"link\" href=\"" + loginUrl + "\">login here</a></p>";
-      createForm(out, guestGreeting, "Anonymous", true);
+      try {
+        createForm(out, guestGreeting, "Anonymous", true);
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
     } else if (userService.isUserLoggedIn()) {
       String logoutUrl = userService.createLogoutURL("/comments.html");
       String id = userService.getCurrentUser().getUserId();
       String nickname = UserUtils.getUserNickname(id, userService);
       String userGreeting = "<p>Hello " + nickname + "! Not you? <a class=\"link\" href=\"" + logoutUrl + "\">Logout here</a></p>";
-      createForm(out, userGreeting, nickname, false);
+      try {
+        createForm(out, userGreeting, nickname, false);
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
     } else {
       out.println("<p>To comment, <a class=\"link\" href=\"" + loginUrl + "\">login here</a> or <button class=\"text-button link\" style=\"font-size: x-large\" onclick=\"showGuestForm()\">continue as a guest</button>.</p>");
     }
   }
 
-  private void createForm(PrintWriter out, String greetingLine, String displayNickname, boolean guest) {
-  	out.println("<div class=\"section\" style=\"margin:0px\">");
-  	out.println("<h2> Comment </h2>");
-  	out.println(greetingLine);
-    
+  private void createForm(PrintWriter out, String greetingLine, String displayNickname, boolean guest) throws Exception {
+    String userNameField = "";
+    String guestNameField = "";
     if (!guest) {
-      out.println("<p style=\"display: inline;\">Change your nickname: </p>");
-  	  out.println("<form method=\"POST\" action=\"/auth\" style=\"display: inline;\">");
-  	  out.println("<input name=\"nickname\" value=\"" + displayNickname + "\" />");
-  	  out.println("<button>Update</button>");
-  	  out.println("</form>");
+      userNameField = new String(Files.readAllBytes(Paths.get(USER_FIELD_FILE_STRING)));
+      userNameField = String.format(userNameField, displayNickname);
+    } else {
+      guestNameField = new String(Files.readAllBytes(Paths.get(GUEST_FIELD_FILE_STRING)));
     }
-
-  	out.println("<form action=\"/comment\" method=\"POST\">");
-    if (guest) {
-      out.println("<p style=\"display: inline;\">Name:</p>");
-      out.println("<input style=\"margin-bottom: 10px\" type=\"text\" name=\"username\" placeholder=\"Insert name\">");
-    }
-  	out.println("<p>Write a comment:</p>");
-  	out.println("<textarea type=\"text\" name=\"user-comment\" placeholder=\"Enter a comment.\" style=\"width: 90%; height: 100px; margin-left: 15px\"></textarea>");        
-  	out.println("<br/><br/>");
-  	out.println("<input class=\"styled-button\" type=\"submit\" value=\"Comment\"/>");
-  	out.println("</form>");
-    out.println("</div>");
-  	out.println("<br/>");
+    String commentFormHtml = new String(Files.readAllBytes(Paths.get(COMMENT_FORM_FILE_STRING)));
+    commentFormHtml = String.format(commentFormHtml, greetingLine, userNameField, guestNameField);
+    out.println(commentFormHtml);
   }
 
   @Override

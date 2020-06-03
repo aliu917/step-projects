@@ -14,7 +14,7 @@ public class UserUtils{
     PreparedQuery results = datastore.prepare(query);
     Entity entity = results.asSingleEntity();
     if (entity == null) {
-        System.out.println(userService.getCurrentUser());
+      System.out.println(userService.getCurrentUser());
       return userService.getCurrentUser().getEmail();
     }
     return (String) entity.getProperty("nickname");
