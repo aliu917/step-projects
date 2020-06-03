@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.io.FileReader; 
+import java.io.File;
 import java.nio.file.Files; 
 import java.nio.file.Paths;
 import javax.servlet.annotation.WebServlet;
@@ -24,9 +25,9 @@ import com.google.sps.utils.UserUtils;
 @WebServlet("/auth")
 public class AuthServlet extends HttpServlet {
 
-  static final String COMMENT_FORM_FILE_STRING = "/home/arliu/step/portfolio/src/main/java/com/google/sps/files/comment-form.txt";
-  static final String GUEST_FIELD_FILE_STRING = "/home/arliu/step/portfolio/src/main/java/com/google/sps/files/guest-name-field.txt";
-  static final String USER_FIELD_FILE_STRING = "/home/arliu/step/portfolio/src/main/java/com/google/sps/files/user-name-field.txt";
+  static final String COMMENT_FORM_FILE_STRING = "/files/comment-form.txt";
+  static final String GUEST_FIELD_FILE_STRING = "/files/guest-name-field.txt";
+  static final String USER_FIELD_FILE_STRING = "/files/user-name-field.txt";
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -63,12 +64,12 @@ public class AuthServlet extends HttpServlet {
     String userNameField = "";
     String guestNameField = "";
     if (!guest) {
-      userNameField = new String(Files.readAllBytes(Paths.get(USER_FIELD_FILE_STRING)));
+      userNameField = new String(Files.readAllBytes(Paths.get(getClass().getResource(USER_FIELD_FILE_STRING).getFile())));
       userNameField = String.format(userNameField, displayNickname);
     } else {
-      guestNameField = new String(Files.readAllBytes(Paths.get(GUEST_FIELD_FILE_STRING)));
+      guestNameField = new String(Files.readAllBytes(Paths.get(getClass().getResource(GUEST_FIELD_FILE_STRING).getFile())));
     }
-    String commentFormHtml = new String(Files.readAllBytes(Paths.get(COMMENT_FORM_FILE_STRING)));
+    String commentFormHtml = new String(Files.readAllBytes(Paths.get(getClass().getResource(COMMENT_FORM_FILE_STRING).getFile())));
     commentFormHtml = String.format(commentFormHtml, greetingLine, userNameField, guestNameField);
     out.println(commentFormHtml);
   }
