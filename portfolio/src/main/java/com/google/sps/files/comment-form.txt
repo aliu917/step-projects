@@ -1,0 +1,13 @@
+<div class="section" style="margin:0px">
+  <h2> Comment </h2>
+  %s
+  %s
+  <form action="/comment" method="POST">
+  %s
+  <p>Write a comment:</p>
+  <textarea type="text" name="user-comment" placeholder="Enter a comment." style="width: 90%%; height: 100px; margin-left: 15px"></textarea>        
+  <br/><br/>
+  <input class="styled-button" type="submit" value="Comment"/>
+  </form>
+</div>
+<br/>

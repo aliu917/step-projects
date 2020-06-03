@@ -1,0 +1,5 @@
+<p style="display: inline;">Change your nickname: </p>
+<form method="POST" action="/auth" style="display: inline;">
+  <input name="nickname" value="%s" />
+  <button>Update</button>
+</form>
