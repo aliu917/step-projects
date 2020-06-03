@@ -137,21 +137,24 @@ function createCommentDisplay(comment) {
   var timeText = document.createTextNode(timeDiff);
   timeContainer.appendChild(timeText);
 
-  var deleteButton = document.createElement("button");
-  deleteButton.classList.add('text-button');
-  deleteButton.style.position = "absolute";
-  deleteButton.style.right = "5px";
-  deleteButton.style.top = "5px";
-  deleteButton.innerText = "Delete";
-  deleteButton.addEventListener('click', () => {
-    deleteComment(comment);
-    commentDiv.remove();
-  });
-
   commentDiv.appendChild(nameContainer);
   commentDiv.appendChild(timeContainer);
   commentDiv.appendChild(textContainer);
-  commentDiv.appendChild(deleteButton);
+
+  if (comment.currentUserComment) {
+	var deleteButton = document.createElement("button");
+    deleteButton.classList.add('text-button');
+    deleteButton.style.position = "absolute";
+    deleteButton.style.right = "5px";
+    deleteButton.style.top = "5px";
+    deleteButton.innerText = "Delete";
+    deleteButton.addEventListener('click', () => {
+      deleteComment(comment);
+      commentDiv.remove();
+    });
+    commentDiv.appendChild(deleteButton);
+  }
+
   return commentDiv;
 }
 
