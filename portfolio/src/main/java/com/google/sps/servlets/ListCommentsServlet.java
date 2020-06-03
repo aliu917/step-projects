@@ -49,7 +49,20 @@ public class ListCommentsServlet extends HttpServlet {
       long id = entity.getKey().getId();
       String text = (String) entity.getProperty("text");
       long timestamp = (long) entity.getProperty("timestamp");
-      String username = (String) entity.getProperty("username");
+      String username;
+      String userId = (String) entity.getProperty("userId");
+      if (userId == null || userId.equals("")) {
+	    username = (String) entity.getProperty("username");
+      } else {
+        System.out.println("USER ID: " + userId);
+        Query userQuery = new Query("UserInfo").setFilter(new Query.FilterPredicate("id", Query.FilterOperator.EQUAL, userId));
+        Entity userEntity = (datastore.prepare(userQuery)).asSingleEntity();
+        if (userEntity == null) {
+          username = (String) entity.getProperty("username");
+        } else {
+          username = (String) userEntity.getProperty("nickname");
+        }
+      }
       Comment c = new Comment(id, text, timestamp, username);
       allComments.add(c);
       displayCount --;
@@ -58,6 +71,7 @@ public class ListCommentsServlet extends HttpServlet {
     Gson gson = new Gson();
     response.setContentType("application/json;");
     response.getWriter().println(gson.toJson(allComments));
+    System.out.println(gson.toJson(allComments));
   }
 
 }

@@ -43,6 +43,7 @@ public class DataServlet extends HttpServlet {
     userInput = userInput.equals("") ? "" : userInput;
 	
     String username;
+    String userId;
     UserService userService = UserServiceFactory.getUserService();
     if (userService.isUserLoggedIn()) {
 	  Query query =
@@ -55,15 +56,18 @@ public class DataServlet extends HttpServlet {
       } else {
         username = (String) entity.getProperty("nickname");
       }
+      userId = userService.getCurrentUser().getUserId();
     } else {
       username = request.getParameter("username");
       username = username.equals("") ? "Anonymous" : username;
+	  userId = "";
     }
 
     Entity commentEntity = new Entity("Comment");
     commentEntity.setProperty("text", userInput);
     commentEntity.setProperty("timestamp", System.currentTimeMillis());
     commentEntity.setProperty("username", username);
+    commentEntity.setProperty("userId", userId);
 
     datastore.put(commentEntity);
 

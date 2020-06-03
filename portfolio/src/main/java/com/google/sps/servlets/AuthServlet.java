@@ -26,15 +26,19 @@ public class AuthServlet extends HttpServlet {
     // Only logged-in users can see the form
     UserService userService = UserServiceFactory.getUserService();
     if (userService.isUserLoggedIn()) {
-      System.out.println("Logged in");
       String logoutUrl = userService.createLogoutURL("/comments.html");
-      String nickname = getUserNickname(userService.getCurrentUser().getUserId());
+      String id = userService.getCurrentUser().getUserId();
+      String nickname = getUserNickname(id);
       if (nickname.equals("")) {
-          nickname = userService.getCurrentUser().getEmail();
+        nickname = userService.getCurrentUser().getEmail();
+        Entity entity = new Entity("UserInfo", id);
+      	entity.setProperty("id", id);
+      	entity.setProperty("nickname", nickname);
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+      	datastore.put(entity);
       }
       createForm(out, nickname, logoutUrl);
     } else {
-      System.out.println("Logged out");
       String loginUrl = userService.createLoginURL("/comments.html");
       out.println("<p>To comment, <a class=\"link\" href=\"" + loginUrl + "\">login here</a>.</p>");
     }
