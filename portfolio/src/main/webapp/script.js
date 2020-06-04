@@ -17,7 +17,12 @@
  */
 function addRandomFact() {
   const facts =
-      ['I used to be a competitive golfer.', 'I love reading books.', 'My favorite foods are eggs and tomatoes.', 'I can\'t stand slow walkers.', 'There is a kangaroo cropped out of the image of me shown above.'];
+      ['I used to be a competitive golfer.', 
+      'I love reading books.', 
+      'My favorite foods are eggs and tomatoes.', 
+      'I can\'t stand slow walkers.', 
+      'There is a kangaroo cropped out of the image of me shown above.',
+      'Pineapples can go on anything (including pizza, fried rice, korean bbq, etc.).'];
 
   // Pick a random fact.
   const fact = facts[Math.floor(Math.random() * facts.length)];
