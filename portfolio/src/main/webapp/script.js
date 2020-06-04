@@ -207,3 +207,32 @@ function getAuth() {
 function showGuestForm() {
   getAuthInput("/auth?guest=true");
 }
+
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -37.815018, lng: 144.946014},
+    zoom: 8
+  });
+  for (var placeName in places) {
+    var infowindow = new google.maps.InfoWindow({content: placeName});
+    var marker = new google.maps.Marker({position: places[placeName], map: map, title: placeName, info: infowindow});
+    marker.addListener('click', function() {
+      if (isInfoWindowOpen(this.info)) {
+        this.info.close(map, this);
+      } else {
+        this.info.open(map, this);
+      }
+    });
+    markers[placeName] = marker;
+  }
+}
+
+function flipInfo(place) {
+  var marker = markers[place];
+  marker.info.open(map, marker);
+}
+
+function isInfoWindowOpen(infoWindow) {
+  var map = infoWindow.getMap();
+  return (map !== null && typeof map !== "undefined");
+}
