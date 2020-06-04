@@ -30,7 +30,11 @@
 
 #map {
   height: 600px;
-  width:100%;
+  width: 100%;
+}
+
+button {
+  outline: none;
 }
 
 .styled-button {
@@ -59,6 +63,12 @@
 
 .text-button:hover {
   text-decoration: underline;
+}
+
+.normal-bold-text {
+  color:rgb(7, 35, 63);
+  font-size: x-large;
+  font-weight:bold;
 }
 
 body {
@@ -139,12 +149,7 @@ a.travel:visited {
 
 /* mouse over link */
 a.travel:hover {
-  color: rgb(180, 241, 233);
-}
-
-/* selected link */
-a.travel:active {
-  color: rgb(180, 241, 233);
+  text-decoration: underline;
 }
 
 a.current {
