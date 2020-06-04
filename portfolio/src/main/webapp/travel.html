@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="getAuth(); getComments(); refreshComments();">
     <div class="header">
       <h1><a href="index.html">Angela Liu</a></h1>
       <a href="https://github.com/aliu917">
@@ -51,5 +51,17 @@
       </a>
     </div>
 
+    <div id="content">
+      <div name="authcheck">
+      </div>
+      <p style="display: inline;">Number of comments displaying:</p>
+      <input style="margin-bottom: 10px" type="number" name="display-count" min="5" max="20" placeholder="5">
+      <input type="submit" onclick="getComments()" value="update"/>
+
+      <div id="comment-history" style="margin-left: 15px; margin-bottom: 15px"></div>
+      <div name="more-comments" style="text-align: center; margin-bottom: 50px;">
+        <button class="text-button" onclick="getMoreComments()">Load more comments</button>
+      </div>
+    </div>
   </body>
 </html>

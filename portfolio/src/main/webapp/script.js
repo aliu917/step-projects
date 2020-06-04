@@ -82,6 +82,12 @@ function getNumComments(displayCount) {
     history.forEach((comment) => {
       historyContainer.appendChild(createCommentDisplay(comment));
     });
+    const moreButton = document.getElementsByName("more-comments")[0];
+    if (displayCount > history.length) {
+      moreButton.style.display = "none";
+    } else {
+      moreButton.style.display = "block";
+    }
   });
 }
 
