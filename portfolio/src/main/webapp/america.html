@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="createDestinations()">
     <div class="header">
       <h1><a href="index.html">Angela Liu</a></h1>
       <a href="https://github.com/aliu917">
@@ -34,73 +34,18 @@
       <a class="travel" href="australia.html">Australia</a>
     </p>
     
-    <grid-container>
-      <a href="sf.html">
-        <div class="simple-box"> 
-          <img style="width: 100%" alt="San Francisco" src="images/sf.jpg">
-          <p class="center travel-dark caption"> <span class="no=wrap">S A N &ensp; F R A N C I S C O</span></p>
-          <p1 class="sub-caption">Summer 2019</p1>
-        </div>
-      </a>
-      <a href="banff.html">
-        <div class="simple-box"> 
-          <img style="width: 100%" alt="Banff" src="images/banff.jpg">
-          <p class="center travel-dark caption"> <span class="no=wrap">B A N F F</span></p>
-          <p1 class="sub-caption">Summer 2019</p1>
-        </div>
-      </a>
-
-        
-
-        <div class="simple-box"> 
-          <img style="width: 100%" alt="Lake Tahoe" src="images/laketahoe.jpg">
-          <p class="center travel-dark caption"> <span class="no=wrap">L A K E &ensp; T A H O E</span></p>
-          <p1 class="sub-caption">Winter 2018</p1>
-        </div>
-
-        <div class="simple-box"> 
-          <img style="width: 100%" alt="Los Angeles" src="images/la.jpg">
-          <p class="center travel-dark caption"> <span class="no=wrap">L O S &ensp; A N G E L E S</span></p>
-          <p1 class="sub-caption">Spring 2018</p1>
-        </div>
-
-        <div class="simple-box"> 
-          <img style="width: 100%" alt="Wisconsin" src="images/wisconsin.jpg">
-          <p class="center travel-dark caption"> <span class="no=wrap">W I S C O N S I N</span></p>
-          <p1 class="sub-caption">Summer 2017</p1>
-        </div>
-
-        <div class="simple-box"> 
-          <img style="width: 100%" alt="Boston" src="images/boston.jpg">
-          <p class="center travel-dark caption"> <span class="no=wrap">B O S T O N</span></p>
-          <p1 class="sub-caption">Summer 2016</p1>
-        </div>
-
-        <div class="simple-box"> 
-          <img style="width: 100%" alt="Vermont" src="images/vermont.jpg">
-          <p class="center travel-dark caption"> <span class="no=wrap">V E R M O N T</span></p>
-          <p1 class="sub-caption">Summer 2015</p1>
-        </div>
-
-        <div class="simple-box"> 
-          <img style="width: 100%" alt="Oklahoma" src="images/oklahoma.jpg">
-          <p class="center travel-dark caption"> <span class="no=wrap">O K L A H O M A</span></p>
-          <p1 class="sub-caption">Summer 2015</p1>
-        </div>
-
-        <div class="simple-box"> 
-          <img style="width: 100%" alt="Chicago" src="images/chicago.jpg">
-          <p class="center travel-dark caption"> <span class="no=wrap">C H I C A G O</span></p>
-          <p1 class="sub-caption">Summer 2014</p1>
-        </div>
-      
-        <div class="simple-box"> 
-          <img style="width: 100%" alt="Arizona" src="images/arizona.jpg">
-          <p class="center travel-dark caption"> <span class="no=wrap">A R I Z O N A</span></p>
-          <p1 class="sub-caption">Summer 2012</p1>
-        </div>
-
-      
-    </grid-container>
+    <div name="destinations" />
+    <script>
+      var destinations = {"San Francisco": {img: "sf.jpg", title: "S A N &ensp; F R A N C I S C O", date: "Summer 2019"},
+        "Banff": {img: "banff.jpg", title: "B A N F F", date: "Summer 2019"},
+        "Lake Tahoe": {img: "laketahoe.jpg", title: "L A K E &ensp; T A H O E", time: "Winter 2018"},
+        "Los Angeles": {img: "la.jpg", title: "L O S &ensp; A N G E L E S", time: "Spring 2018"},
+        "Wisconsin": {img: "wisconsin.jpg", title: "W I S C O N S I N", time: "Summer 2017"},
+        "Boston": {img: "boston.jpg", title: "B O S T O N", time: "Summer 2016"},
+        "Vermont": {img: "vermont.jpg", title: "V E R M O N T", time: "Summer 2015"},
+        "Oklahoma": {img: "oklahoma.jpg", title: "O K L A H O M A", time: "Summer 2015"},
+        "Chicago": {img: "chicago.jpg", title: "C H I C A G O", time: "Summer 2014"},
+        "Arizona": {img: "arizona.jpg", title: "A R I Z O N A", time: "Summer 2012"}}
+    </script>
   </body>
 </html>

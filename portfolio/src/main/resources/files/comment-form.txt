@@ -1,5 +1,6 @@
 <div class="section" style="margin:0px">
   <h2> Comment </h2>
+  <p>Hello %s! Tell me somewhere you've been or anywhere you want to go!
   %s
   %s
   <form action="/comment" method="POST">

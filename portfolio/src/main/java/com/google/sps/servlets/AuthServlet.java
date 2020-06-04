@@ -35,21 +35,21 @@ public class AuthServlet extends HttpServlet {
     PrintWriter out = response.getWriter();
 
     UserService userService = UserServiceFactory.getUserService();
-    String loginUrl = userService.createLoginURL("/comments.html");
+    String loginUrl = userService.createLoginURL("/travel.html");
     String isGuest = request.getParameter("guest");
 
     if (isGuest != null && isGuest.equals("true")) {
-	  String guestGreeting = "<p>Hello Guest! To continue as a user, <a class=\"link\" href=\"" + loginUrl + "\">login here</a></p>";
+	  String guestGreeting = "<p>To continue as a user, <a class=\"link\" href=\"" + loginUrl + "\">login here</a></p>";
       try {
-        createForm(out, guestGreeting, "Anonymous", true);
+        createForm(out, guestGreeting, "Stranger", true);
       } catch (Exception e) {
         e.printStackTrace();
       }
     } else if (userService.isUserLoggedIn()) {
-      String logoutUrl = userService.createLogoutURL("/comments.html");
+      String logoutUrl = userService.createLogoutURL("/travel.html");
       String id = userService.getCurrentUser().getUserId();
       String nickname = UserUtils.getUserNickname(id, userService);
-      String userGreeting = "<p>Hello " + nickname + "! Not you? <a class=\"link\" href=\"" + logoutUrl + "\">Logout here</a></p>";
+      String userGreeting = "<p>Not you? <a class=\"link\" href=\"" + logoutUrl + "\">Logout here</a></p>";
       try {
         createForm(out, userGreeting, nickname, false);
       } catch (Exception e) {
@@ -70,7 +70,7 @@ public class AuthServlet extends HttpServlet {
       guestNameField = new String(Files.readAllBytes(Paths.get(getClass().getResource(GUEST_FIELD_FILE_STRING).getFile())));
     }
     String commentFormHtml = new String(Files.readAllBytes(Paths.get(getClass().getResource(COMMENT_FORM_FILE_STRING).getFile())));
-    commentFormHtml = String.format(commentFormHtml, greetingLine, userNameField, guestNameField);
+    commentFormHtml = String.format(commentFormHtml, displayNickname, greetingLine, userNameField, guestNameField);
     out.println(commentFormHtml);
   }
 
@@ -87,7 +87,7 @@ public class AuthServlet extends HttpServlet {
     entity.setProperty("nickname", nickname);
     datastore.put(entity);
 
-    response.sendRedirect("/comments.html");
+    response.sendRedirect("/travel.html");
   }
 
 }

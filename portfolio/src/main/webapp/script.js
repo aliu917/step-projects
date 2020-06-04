@@ -242,3 +242,31 @@ function isInfoWindowOpen(infoWindow) {
   var map = infoWindow.getMap();
   return (map !== null && typeof map !== "undefined");
 }
+
+function createDestinations() {
+  var container = document.getElementsByName("destinations")[0];
+  var htmlFlipContainer = document.createElement("grid-container");
+  String.format = function() {
+            var s = arguments[0];
+            for (var i = 0; i < arguments.length - 1; i += 1) {
+                var reg = new RegExp('\\{' + i + '\\}', 'gm');
+                s = s.replace(reg, arguments[i + 1]);
+            }
+            return s;
+        };
+  fetch('files/dest.txt').then(response => response.text()).then((htmlScript) => {
+    for (var dest in destinations) {
+      var name = dest;
+      var attr = destinations[dest];
+      var img = attr["img"];
+      var title = attr["title"];
+      var time = attr["time"];
+      var link = (attr["link"] != null) ? attr["link"] : "";
+      var backContent = (attr["back"] != null) ? attr["back"] : "I might input this one day";
+      var destDiv = document.createElement("div");
+      destDiv.innerHTML = String.format(htmlScript, name, img, title, time, backContent);
+      htmlFlipContainer.appendChild(destDiv.firstChild);
+    }
+    container.appendChild(htmlFlipContainer);
+  })
+}
