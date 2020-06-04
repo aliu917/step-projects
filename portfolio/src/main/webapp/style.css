@@ -28,6 +28,11 @@
   position: relative;
 }
 
+#map {
+  height: 600px;
+  width:100%;
+}
+
 .styled-button {
   margin: 20px;
   margin-top: 0px;

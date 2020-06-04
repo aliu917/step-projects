@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <title>Melbourne</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script> 
-      $(function(){
-        $("#header").load("header.html"); 
-      });
-    </script> 
+    <script src="script.js"></script> 
   </head>
   <body>
-    <div id="header"></div>
+    <div class="header">
+      <h1><a href="index.html">Angela Liu</a></h1>
+      <a href="https://github.com/aliu917">
+        <img class="margin" border="0" alt="Github" src="images/github_white.png" width="50" height="50">
+      </a>
+      <a href="mailto:aliu917@berkeley.edu">
+        <img class="margin" border="0" alt="Email" src="images/email.png" width="50" height="50">
+      </a>
+      <a href="resume.html">
+        <img class="margin" border="0" alt="Linkedin" src="images/linkedin.png" width="50" height="50">
+      </a>
+      <p1 class="lower-right">
+        <a href="index.html">About Me</a> &emsp;
+        <a href="resume.html">Resume</a> &emsp; 
+        <a href="teaching.html">Teaching</a> &emsp; 
+        <a class="current" href="travel.html">Travel</a> &emsp;
+        <a href="comments.html">Comments</a>
+      </p1>
+    </div>
 
     <p class="center">
       <a class="travel" href="travel.html">All</a> &emsp; 
@@ -33,16 +45,16 @@
       <ul>
         <li><p>Hotel: Pullman Melbourne on Swanston - newly remodeled and very convenient location, although staying anywhere in CBD is 
             incredibly convenient and walking distance (or free tram distance) to all Melbourne city attractions</p></li>
-        <li><p>Rent a car for one day to visit the Great Ocean Road</p></li>
-        <li><p>Check out the free tram services <a class="download" href="files/melbourne-tram.png" target="_blank">here</a> (file from Public Transport Victoria)</p></li>
+        <li><p>Transportation: Rent a car for one day to visit the Great Ocean Road</p></li>
+        <li><p>Free transportation: Check out the free tram services <a class="download" href="files/melbourne-tram.png" target="_blank">here</a> (file from Public Transport Victoria)</p></li>
       </ul>
       <br />
       <h2 class="sub-header">Trip Diary</h2>
       <ul>
         <li><p>Day 1 - Travel Half Day</p>
         <ul>
-          <li><p style="font-weight:bold;">Hopetoun Tea Rooms</h2> <br />
-            <p>Got off the plane, checked into our hotel (Pullman Melbourne on Swanston)
+          <li><p style="font-weight:bold;">Hopetoun Tea Rooms</p>
+            <p>Got off the plane, checked into our hotel,
               and took a quick walk to The Block Arcade for an afternoon snack. Happened
               to stop by right when they were closing so we took some cakes to go. </p>
             <ul>
@@ -52,10 +64,10 @@
                 ate it the next day), Apple Cinammon Walnut Tea Cake, scones with jam</p></li>
             </ul>
           </li>
-          <li><p style="font-weight:bold;">Free Tram Ride</h2> <br />
+          <li><p style="font-weight:bold;">Free Tram Ride</p>
             <p>Got on at the State Library of Victoria stop and hopped off at Federation Square. </p>
           </li>
-          <li><p style="font-weight:bold;">Dragon Hot Pot</h2> <br />
+          <li><p style="font-weight:bold;">Dragon Hot Pot</p>
             <p>Spotted this popular hot pot restaurant near our hotel and enjoyed a large hearty meal. Buffet style entrance
               where you pick all raw ingredients you want (meats, vegetables, noodles, etc), pay by weight, and then they cook it up for you 
               and serve it back in one LARGE bowl.
@@ -64,31 +76,90 @@
         </ul>
         <li><p>Day 2 - Great Ocean Road</p></li>
           <ul>
-          <li><p style="font-weight:bold;">Shrine of Remembrance</h2> <br />
-            <p>Strolled through the Royal Botanical Gardens but most of it wasn't open yet (as we were there before 8 am) </p>
+          <li><p style="font-weight:bold;">Shrine of Remembrance</p>
+            <p>Strolled through the Royal Botanical Gardens but most of it wasn't open yet (as we were there before 8 am). </p>
           </li>
-          <li><p style="font-weight:bold;">Kettle Black</h2> <br />
+          <li><p style="font-weight:bold;">Kettle Black</p>
             <p>Super cute and classy cafe with quite large and filling brunch options. </p>
             <ul>
               <li><p>Favorite: Seasonal local mushroom toast</p></li>
-              <li><p>Also tried: chilli scarmbled eggs with crab, avocado toast, and poached eggs</p></li>
+              <li><p>Also tried: chilli scrambled eggs with crab, avocado toast, and poached eggs</p></li>
               <li><p>Grabbed some pastries to go for the Great Ocean Road!</p></li>
             </ul>
           </li>
-          <li><p style="font-weight:bold;">Great Ocean Road - Stop 1: Teddy's Lookout</h2> <br />
-            <p> A popular first stop with 
+          <li><p style="font-weight:bold;">Great Ocean Road - Stop 1: Teddy's Lookout</p>
+            <p> A popular first stop with a very scenic lighthouse and walkway to view the rocky cliffside.
+                (Pro tip: There are two parking areas/entrances to the area.
+                If you want to stop by the bathrooms, use the second stop as that's where the bathrooms are.)
+            </p>
+          </li>
+          <li><p style="font-weight:bold;">Great Ocean Road - Stop 2: Apollo Bay</p> 
+            <p> We didn't actually end up stopping here as the area was very crowded and we had to-go pastries
+                in the car for food, but it is a nice small town with cute shops and a beach.
+            </p>
+          </li>
+          <li><p style="font-weight:bold;">Great Ocean Road - Various Intermediate stops</p> 
+            <ul>
+              <li><p>There are many paved out stopping areas to enjoy a great view just spontaneously along the road.</p></li>
+              <li><p>Keep an eye out for wild koala! We spotted a small family of them climbing a tree near Aire River and it made our day!</p></li>
+            </ul>
+          </li>
+          <li><p style="font-weight:bold;">Great Ocean Road - Stop (N - 1): Gibson's Steps</p>
+            <ul>
+              <li><p>Amazing sea level view of the beach and cliffs. Even though you can't see the twelve apostles, there are 
+                  some cliff outcroppings and even some mini ones along the beach that you can climb on.
+              </p></li>
+              <li><p>As a heads up, the steps are quite steep as you are basically climbing down a cliff to the beach.</p></li>
+            </ul>
+          </li>
+          <li><p style="font-weight:bold;">Great Ocean Road - Final Stop: Twelve Apostles</p>
+            <p>I'll let the pictures speak for themselves on this one.</p>
+          </li>
+          <li><p style="font-weight:bold;">Carlton Gardens and Parliament Gardens</p>
+            <p>After a long day on the road, took a stroll along the same trolley route as the day before and ended along the Yarra River to a beautiful sunset.</p>
+          </li>
+          <li><p style="font-weight:bold;">Juicy Bao</p>
+            <p>Sun sets during the summer around 8:30pm so by the time we were looking for dinner places, most places were closing so we just took some to-go dumplings.
+                The red oil wontons were really good!
             </p>
           </li>
         </ul>
         <li><p>Day 3 - Travel Half Day</p></li>
+        <ul>
+          <li><p style="font-weight:bold;">Higher Ground</p>
+            <ul>
+              <li><p>Came before they even opened and there was a line of people waiting outside! </p></li>
+              <li><p>Tried the mango kiwi overnight oats--it was really good! But I would probably go back and try some of their more traditional brunch offerings.</p></li>
+            </ul>
+          </li>
+          <li><p style="font-weight:bold;">Gift shopping</p>
+            <ul>
+              <li><p>There are many small shop plazas in the same 2-block area like The Block Arcade, St. Collins Lane, The Walk Arcade, Royal Arcade, and 
+                  Bourke Street Mall with plenty of small souvenir shops. </p></li>
+              <li><p>Chocolate bars from Koko Black ended up being our go-to purchases. Tried the macadamia and honey crumble caramelised white chocolate from the 
+                  Koko Black x Dan Hunter collection and it was really good (though a bit on the sweet side).</p></li>
+            </ul>
+          </li>
+        </ul>
       </ul>
+      <div id="map"></div>
+      <script>
+        var map;
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -37.815018, lng: 144.946014},
+            zoom: 8
+          });
+        }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxLFaRpTrEpbZ8VKJhbLNhbrHe_pPuW4c&callback=initMap" async defer></script>
       <br />
       <h2 class="sub-header">Other places I hope to visit next time</h2>
       <ul>
         <li><p>Lune Croissanterie - the CBD location was closed for the duration of our visit :(</p></li>
         <li><p>Cumulus Inc - will one day return to try those fresh-made lemon-filling madeleines</p></li>
-        <li><p>State Library Victoria</p></li>
-        <li><p>Birghton Beach Boxes</p></li>
+        <li><p>State Library Victoria - never got to go in since it was always closed in the evenings when we were around.</p></li>
+        <li><p>Brighton Beach Boxes</p></li>
       </ul>
     </div>
   </body>
