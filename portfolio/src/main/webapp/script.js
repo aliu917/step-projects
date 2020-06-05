@@ -83,18 +83,19 @@ function getNumComments(displayCount) {
       historyContainer.appendChild(createCommentDisplay(comment));
     });
     const moreButton = document.getElementsByName("more-comments")[0];
+    const countTextBox = document.getElementsByName("display-count")[0];
     if (displayCount > history.length) {
       moreButton.style.display = "none";
+      countTextBox.value = history.length;
     } else {
       moreButton.style.display = "block";
+      countTextBox.value = displayCount;
     }
   });
 }
 
 function getMoreComments() {
   var moreDisplayNum = parseInt(commentDisplayNum()) + 10;
-  const countTextBox = document.getElementsByName("display-count")[0];
-  countTextBox.value = moreDisplayNum.toString();
   window.sessionStorage.setItem("prevDisplayCount", moreDisplayNum);
   getNumComments(moreDisplayNum);
 }
