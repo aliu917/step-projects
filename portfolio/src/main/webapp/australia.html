@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="createDestinations()">
     <div class="header">
       <h1><a href="index.html">Angela Liu</a></h1>
       <a href="https://github.com/aliu917">
@@ -33,36 +33,14 @@
       <a class="travel" href="asia.html">Asia</a> &emsp;
       <a class="travel current" href="australia.html">Australia</a>
     </p>
-    
-    <grid-container>
-      <a href="melbourne.html">
-        <div class="simple-box"> 
-          <img style="width: 100%" alt="Melbourne" src="images/melbourne.jpg">
-          <p class="center travel-dark caption"> <span class="no=wrap">M E L B O U R N E</span></p>
-          <p1 class="sub-caption">Winter 2019</p1>
-        </div>
-      </a>
-      <a href="whitsundays.html">
-        <div class="simple-box"> 
-          <img style="width: 100%" alt="Whitsundays" src="images/whitsundays.jpg">
-          <p class="center travel-dark caption"> <span class="no=wrap">W H I T S U N D A Y S</span></p>
-          <p1 class="sub-caption">Winter 2019</p1>
-        </div>
-      </a>
-      <a href="brisbane.html">
-        <div class="simple-box"> 
-          <img style="width: 100%" alt="Brisbane" src="images/brisbane.jpg">
-          <p class="center travel-dark caption"> <span class="no=wrap">B R I S B A N E</span></p>
-          <p1 class="sub-caption">Winter 2019</p1>
-        </div>
-      </a>
-      <a href="sydney.html">
-        <div class="simple-box"> 
-          <img style="width: 100%" alt="Sydney" src="images/sydney.jpg">
-          <p class="center travel-dark caption"> <span class="no=wrap">S Y D N E Y</span></p>
-          <p1 class="sub-caption">Winter 2019</p1>
-        </div>
-      </a>
-    </grid-container>
+
+    <div name="destinations" />
+    <script>
+      var destinations = {"Melbourne": {img: "melbourne.jpg", title: "M E L B O U R N E", time: "Winter 2019", link:"melbourne",
+        back: "The last leg of our Australia trip: wandered around Melbourne CBD, took a road trip along the Great Ocean Road, and enjoyed food from the cutest cafes and tea shops. <br /><br /> Click to learn more."},
+        "Whitsundays": {img: "whitsundays.jpg", title: "W H I T S U N D A Y S", time: "Winter 2019"},
+        "Brisbane": {img: "brisbane.jpg", title: "B R I S B A N E", time: "Winter 2019"},
+        "Sydney": {img: "sydney.jpg", title: "S Y D N E Y", time: "Winter 2019"}}
+    </script>
   </body>
 </html>
