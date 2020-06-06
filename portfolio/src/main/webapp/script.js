@@ -299,17 +299,18 @@ function isInfoWindowOpen(infoWindow) {
   return (map !== null && typeof map !== "undefined");
 }
 
+String.format = function() {
+  var s = arguments[0];
+  for (var i = 0; i < arguments.length - 1; i += 1) {
+    var reg = new RegExp('\\{' + i + '\\}', 'gm');
+    s = s.replace(reg, arguments[i + 1]);
+  }
+  return s;
+};
+
 function createDestinations() {
   var container = document.getElementsByName("destinations")[0];
   var htmlFlipContainer = document.createElement("grid-container");
-  String.format = function() {
-    var s = arguments[0];
-    for (var i = 0; i < arguments.length - 1; i += 1) {
-      var reg = new RegExp('\\{' + i + '\\}', 'gm');
-      s = s.replace(reg, arguments[i + 1]);
-    }
-    return s;
-  };
   fetch('files/dest.txt').then(response => response.text()).then((html) => {
     for (var dest in destinations) {
       var name = dest;
@@ -324,6 +325,24 @@ function createDestinations() {
       htmlFlipContainer.appendChild(destDiv.firstChild);
     }
     container.appendChild(htmlFlipContainer);
+  })
+}
+
+function makeSlides() {
+  var container = document.getElementsByName("slides")[0];
+  var dots_container = document.getElementsByName("bottom-dots")[0];
+  fetch('files/slides.txt').then(response => response.text()).then((html) => {
+    var index = 1;
+    var bottom_dots_html = "";
+    for (var img in slideImages) {
+      var destDiv = document.createElement("div");
+      destDiv.innerHTML = String.format(html, img, slideImages[img]);
+      container.appendChild(destDiv.firstChild);
+      bottom_dots_html = bottom_dots_html + "<span class=\"dot\" onclick=\"currentSlide(" + index + ")\"></span>";
+      index ++;
+    }
+    dots_container.innerHTML = bottom_dots_html;
+    showSlides(1);
   })
 }
 
