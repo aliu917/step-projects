@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script> 
   </head>
-  <body onload="showSlides(slideIndex)">
+  <body onload="makeSlides()">
     <div class="header">
       <h1><a href="index.html">Angela Liu</a></h1>
       <a href="https://github.com/aliu917">
@@ -40,30 +40,27 @@
     </div>
 
     <div class="simple-section">
-
       <div class="slideshow-container">
-        <div class="mySlides fade">
-          <img src="images/melbourne.jpg" style="width:100%">
-          <div class="text">Caption Text</div>
-        </div>
+        <div name="slides"></div>
 
-        <div class="mySlides fade">
-          <img src="images/la.jpg" style="width:100%">
-          <div class="text">Caption Two</div>
-        </div>
-
-        <div class="mySlides fade">
-          <img src="images/sydn.jpg" style="width:100%">
-          <div class="text">Caption Three</div>
-        </div>
+        <script>
+          var slideImages = {
+              "twelve_apostles.jpg" : "The Twelve Apostles",
+              "teddys_lookout.jpg" : "First stop along the Great Ocean road at Teddy's Lookout.",
+              "river.jpg" : "Melbourne CBD as seen from along the Yarra River during the evening.",
+              "gibson.jpg" : "View from Twelve Apostles lookout in the direction of Gibson's Steps (the beach in the distance is where Gibson's Steps leads).",
+              "koalas.jpg" : "Wild koalas climbing a tree seen along the Great Ocean Road.",
+              "garden.jpg" : "Exhibition fountain in Carlton Gardens.",
+              "cake.jpg" : "Tea cakes, pies, and pastries from Hopetoun Tea Room.",
+              "building.jpg" : "Royal Exhibition Building in Carlton Gardens.",
+              "cafe.jpg" : "Food from The Kettle Black Cafe."
+          }
+        </script>
 
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        <div class="bottom">
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
-          </div>
+        <div class="bottom" name="bottom-dots">
+        </div>
       </div>
       <br>
 
@@ -140,8 +137,11 @@
             </ul>
           </li>
           <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Twelve Apostles')">Great Ocean Road - Final Stop: Twelve Apostles</a>
-            <p>I'll let the pictures speak for themselves on this one.</p>
-            <p>(Jk I guess I'll add pictures one day maybe because uploading is actually a pain.)</p>
+            <p>The main attraction along the Great Ocean Road!</p>
+            <ul>
+              <li><p>Unlike all the other stops along the Great Ocean Road, this one has a very large parking lot (thankfully) and a visitor area with snacks and bathrooms.</p></li>
+              <li><p>There are two large lookout platforms that are really crowded but the views are amazing</p></li>
+            </ul>
           </li>
           <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Carlton Gardens'); flipInfo('Parliament Gardens');">Carlton Gardens and Parliament Gardens</a>
             <p>After a long day on the road, took a stroll along the same trolley route as the day before and ended along the Yarra River to a beautiful sunset.</p>

@@ -1,0 +1,4 @@
+<div class="mySlides fade">
+  <img src="images/melbourne/{0}" style="width:100%">
+  <div class="text">{1}</div>
+</div>
