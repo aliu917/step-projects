@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script> 
   </head>
-  <body>
+  <body onload="showSlides(slideIndex)">
     <div class="header">
       <h1><a href="index.html">Angela Liu</a></h1>
       <a href="https://github.com/aliu917">
@@ -40,6 +40,34 @@
     </div>
 
     <div class="simple-section">
+
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img src="images/melbourne.jpg" style="width:100%">
+          <div class="text">Caption Text</div>
+        </div>
+
+        <div class="mySlides fade">
+          <img src="images/la.jpg" style="width:100%">
+          <div class="text">Caption Two</div>
+        </div>
+
+        <div class="mySlides fade">
+          <img src="images/sydn.jpg" style="width:100%">
+          <div class="text">Caption Three</div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="bottom">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+      </div>
+      <br>
+
+
       <h2 class="sub-header">Trip Planning/Notes</h2>
       <ul>
         <li><p>Hotel: Pullman Melbourne on Swanston - newly remodeled and very convenient location, although staying anywhere in CBD is 
@@ -103,7 +131,7 @@
               <li><p>Keep an eye out for wild koala! We spotted a small family of them climbing a tree near Aire River and it made our day!</p></li>
             </ul>
           </li>
-          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Gibson\'s Steps')">Great Ocean Road - Stop (N - 1): Gibson's Steps</a>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Gibson\'s Steps')">Great Ocean Road - Stop 4: Gibson's Steps</a>
             <ul>
               <li><p>Amazing sea level view of the beach and cliffs. Even though you can't see the twelve apostles, there are 
                   some cliff outcroppings and even some mini ones along the beach that you can climb on.
