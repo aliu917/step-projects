@@ -35,7 +35,7 @@ public final class FindMeetingQuery {
     Collections.sort(optionalEventTimes, TimeRange.ORDER_BY_START);
 
     ArrayList<TimeRange> allAvailableRanges = findAvailableRanges(optionalEventTimes, TimeRange.START_OF_DAY, request);
-    if (allAvailableRanges.size() == 0 && optionalEventTimes.size() != eventTimes.size() && eventTimes.size() != 0) {
+    if (allAvailableRanges.isEmpty() && optionalEventTimes.size() != eventTimes.size() && !eventTimes.isEmpty()) {
         return findAvailableRanges(eventTimes, TimeRange.START_OF_DAY, request);
     }
 
