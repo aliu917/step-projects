@@ -40,10 +40,12 @@
     </div>
 
     <div class="simple-section">
+      <h2 class="sub-header">Image highlights</h2>
       <div class="slideshow-container">
         <div name="slides"></div>
 
         <script>
+          var title = "melbourne";
           var slideImages = {
               "twelve_apostles.jpg" : "The Twelve Apostles",
               "teddys_lookout.jpg" : "First stop along the Great Ocean road at Teddy's Lookout.",
@@ -54,7 +56,7 @@
               "cake.jpg" : "Tea cakes, pies, and pastries from Hopetoun Tea Room.",
               "building.jpg" : "Royal Exhibition Building in Carlton Gardens.",
               "cafe.jpg" : "Food from The Kettle Black Cafe."
-          }
+          };
         </script>
 
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -91,7 +93,7 @@
           <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('State Library Victoria'); flipInfo('Flinders Street Station');">Free Tram Ride</a>
             <p>Got on at the State Library Victoria stop and hopped off at Flinders Street Station. </p>
           </li>
-          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo(['Dragon Hot Pot'])">Dragon Hot Pot</a>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Dragon Hot Pot')">Dragon Hot Pot</a>
             <p>Spotted this popular hot pot restaurant near our hotel and enjoyed a large hearty meal. Buffet style entrance
               where you pick all raw ingredients you want (meats, vegetables, noodles, etc), pay by weight, and then they cook it up for you 
               and serve it back in one LARGE bowl.
@@ -190,6 +192,8 @@
           "Higher Ground": {lat: -37.815905, lng: 144.953047},
           "Koko Black": {lat: -37.815387, lng: 144.966324}
         };
+        var mapCenter = {lat: -37.815018, lng: 144.946014};
+        var zoomLevel = 8;
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxLFaRpTrEpbZ8VKJhbLNhbrHe_pPuW4c&callback=initMap" async defer></script>
       <br />

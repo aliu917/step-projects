@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Whitsundays</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script> 
+  </head>
+  <body onload="makeSlides()">
+    <div class="header">
+      <h1><a href="index.html">Angela Liu</a></h1>
+      <a href="https://github.com/aliu917">
+        <img class="margin" border="0" alt="Github" src="images/github_white.png" width="50" height="50">
+      </a>
+      <a href="mailto:aliu917@berkeley.edu">
+        <img class="margin" border="0" alt="Email" src="images/email.png" width="50" height="50">
+      </a>
+      <a href="resume.html">
+        <img class="margin" border="0" alt="Linkedin" src="images/linkedin.png" width="50" height="50">
+      </a>
+      <p1 class="lower-right">
+        <a href="index.html">About Me</a> &emsp;
+        <a href="resume.html">Resume</a> &emsp; 
+        <a href="teaching.html">Teaching</a> &emsp; 
+        <a class="current" href="travel.html">Travel</a>
+      </p1>
+    </div>
+
+    <p class="center">
+      <a class="travel" href="travel.html">All</a> &emsp; 
+      <a class="travel" href="america.html">North America</a> &emsp; 
+      <a class="travel" href="europe.html">Europe</a> &emsp; 
+      <a class="travel" href="asia.html">Asia</a> &emsp;
+      <a class="travel current" href="australia.html">Australia</a>
+    </p>
+    
+    <div class="simple-section">
+      <h2 class="center"><span class="no=wrap">W H I T S U N D A Y S</span></h2>
+      <p class="sub-caption">Part 3 of Winter 2019 Australia Trip</p>
+    </div>
+
+    <div class="simple-section">
+      <h2 class="sub-header">Image highlights</h2>
+      <div class="slideshow-container">
+        <div name="slides"></div>
+
+        <script>
+          var title = "whitsundays";
+          var slideImages = {
+              "hill_inlet2.JPG" : "One of my favorite views of the whole trip, hill inlet from the helicopter.",
+              "reef.jpg" : "An image of the reefs with the heart reef peeking in the top left.",
+              "hamilton.JPG" : "An aerial image from the airplane when we first arrived of Hamilton Island and Hamilton Island golf course (which is its own separate island!).",
+              "whitehaven2.jpg" : "Whitehaven beach ground-view.",
+              "helipad.JPG" : "An image of the reefs and a lone helicopter pad from the helicopter with streaks of rain.",
+              "rainbow.jpg" : "At the beginning of our helicopter ride, after the sun and rain fought all morning, we saw a beautiful rainbow from above.",
+              "hill_inlet.JPG" : "an image of hill inlet from atop Whitehaven Beach. The white strip in the bottom half is the tip of Whitehaven beach.",
+              "cafe.JPG" : "Our go-to lunch at Marina Cafe.",
+              "birds.JPG" : "The view from our hotel balcony, complete with an ocean view and numerous cockatoos.",
+              "manta_ray.JPG" : "Food at Manta Ray.",
+              "whitehaven.jpg" : "Another image of Whitehaven beach from ground-level."
+            }
+        </script>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="bottom" name="bottom-dots">
+        </div>
+      </div>
+      <br>
+
+
+      <h2 class="sub-header">Trip Planning/Notes</h2>
+      <p>We stayed on Hamilton Island, which is a privately-owned island in the Whitsundays with its own entire little community. 
+            Everything on the island costs a little more than the equivalent in Airie Beach or mainland towns but you pay a premium
+            for the convenience, hospitality, and island resort environment, which are unparalleled. Wild baby kangaroo run freely around,
+            mango trees and beautiful tropical plants populate the surroundings, and everyone we met was incredibly freindly. Would highly recommend staying 
+            here for the ultimate Whitsundays experience!</p>
+      <ul>
+        <li><p>In high peak seasons (like Christmas/New Years when we visited) book months early or else there will be no availabilities!</p></li>
+        <li><p>Hotel: Reef View Hotel - all rooms have an amazing ocean view balcony and every morning we would wake up to white cockatoos along the railing.</p></li>
+        <li><p>Check out the Hamilton Island website for island activities and reserve early! (You can cancel reservations up to 2 days before.)</p></li>
+        <li><p>Half of the restaurants on the island require reservations and the most popular is Coca Chu (everybody recommended it but there were no availabilities for the next 2 months!)</p></li>
+        <li><p>Make sure to bring an wall outlet that fits in the Australian wall plug. (We didn't have one and were charging our phones on our laptops the entire time.)</p></li>
+      </ul>
+      <br />
+      <h2 class="sub-header">Trip Diary</h2>
+      <ul>
+        <li><p>Day 1 - Travel Half Day</p>
+        <ul>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Catseye Beach')">Catseye Beach</a>
+            <p>Checked into our hotel and headed straight to the beach which was only a 3 min walk from our hotel. </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Manta Ray');">Manta Ray</a>
+            <p>Delicious food with a beautiful view of the harbor. We ordered the tuna tataki, torched salmon sushi tacos,
+                prawn linguini, and salmon fillet--all of which were amazing! 
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Australia the Gift');">Australia the Gift</a>
+            <p>Cute little gift shop located right by the Reef View Hotel where we bought a couple little local trinkets. 
+            </p>
+          </li>
+        </ul>
+        <li><p>Day 2 - Heart Reef and Whitehaven Beach</p></li>
+          <ul>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Bob's Bakery')">Bob Bakery</a>
+            <p>Woke up early to take a quick stroll along the marina and grabbed some pastries for breakfast. Our favorite was the
+                fruit tarts which we ended up getting for breakfast every morning after. </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Heart Reef')">Heart Reef Helicopter tour</a>
+            <p>It had rained all morning and weather forecast warned of lightning but luckily, the weather was just starting to clear
+                for our helicopter tour at 9 (still had a couple scattered showers though). </p>
+            <ul>
+              <li><p>We took the <a class="travel" href="https://www.hamiltonislandair.com/tours/heart-reef-whitehaven-scenic/">Heart Reef and Whitehaven Scenic</p> helicopter tour
+                which was 1 hour long and flew over all the major areas like Whitehaven beach, hill inlet, heart reef, and surrounding island areas.</li>
+              <li><p>To be honest, the one-hour helicopter ride was a bit long and most of it (about 30-35 min) was spent just traveling to and from the heart reef with 
+                  and wasn't as exciting as seeing the major attractions. Granted, the heart reef is definitely worth visitng, but for us, the area
+                  above the heart reef was still quite stormy so we didn't get the nice picturesque sunny view but it was still cool!</p></li>
+              <li><p>Personally, my favorite was hill inlet and seeing the beautiful sand spirals so if I came back, I would probably stick
+                  with the shorter Whitehaven Photo Scenic which just covers Whitehaven Beach, hill inlet, and the nearby islands.</p></li>
+              <li><p>It also might be worth checking out Reefworld Fly/Cruise which has all the benefits of visiting all the major helicopter tour attractions
+                  but 20 min less because there is no helicopter return trip. You would additionally get to snorkel out at Reefworld among the coral reefs and return by cruise. However, this option was fully booked
+                  when I tried to reserve 2 months in advance and it also didn't fit into our schedule since we only had one full day and wanted to visit Whitehaven Beach in the afternoon.</p></li>
+              <li><p>Overall though, would definitely recommend a helicopter tour of some kind because the pictures from above are absolutely stunning!</p></li>
+            </ul>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Marina Cafe')">Marina Cafe</a> 
+            <p> Stopped by for a quick snack and just ordered a bunch of sushi rolls and a mango tropical smoothie. Smoothie was good
+                but not spectacular. The sushi was the perfect light lunch meal and we ended up taking them to-go the next day for lunch too!
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Whitehaven Beach')">Whitehaven Beach</a>
+            <p>Declared as the second best beach in the world, Whitehaven Beach was the perfect place to spend a sunny afternoon (it had luckily stopped
+                raining by then). The sand is unbelievably white and soft, and we all spent most of the afternoon just floating in the clear ocean water.
+                We took the <a class="travel" href="https://www.hamiltonisland.com.au/whitehaven-beach/whitehaven-beach-half-day-cruise">Cruise Whitesundays Whitehaven Beach Half-day</a>
+                afternoon tour and it was perfect.
+            </p>
+            <ul>
+              <li><p>Incredibly clean and pristine beach that was not overcrowded (as there are only a handful of cruises that stop there each afternoon).
+                  The soft white sand was definitely the highlight followed closely by the clear blue refreshing waters.
+                  </p></li>
+              <li><p>Visiting during December, there were invisible poisonous jellyfish in the ocean so Cruise Whitsundays provided everybody
+                  with free full-body lycra suits to borrow and they were very clean and easy to slip on.
+              </p></li>
+              <li><p>Cruise Whitsundays also provided a free charcuterie platter buffet with surprisingly many options and sodas/drinks as passengers were boarding for the return trip.</p></li>
+           </ul>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Tako')">Tako</a> 
+            <p> Ate dinner at this Mexican fusion restaurant and tried the Jalapeno poppers, grilled corn on the cob, pulled pork tacos, and seared adobo marinated fish.
+                Food was good and the restaurant had a very energetic vibe but I personally enjoyed Manta Ray more. 
+          </li>
+          </ul>
+        <li><p>Day 3 - Travel Half Day</p></li>
+        <p>We had a flight in the late morning so strolled around the marina once more, got another fruit tart and some sushi rolls to-go, and we were on our way to Melbourne!
+      </ul>
+      <div id="map"></div>
+      <script>
+        var markers = {};
+        var places = {"Catseye Beach": {lat: -20.346401, lng: 148.957449}, 
+          "Manta Ray": {lat: -20.344997, lng: 148.950804},
+          "Australia the Gift": {lat: -20.346665, lng: 148.955855},
+          "Bob's Bakery": {lat: -20.344978, lng: 148.949582},
+          "Heart Reef": {lat: -19.775421, lng: 149.247809},
+          "Marina Cafe": {lat: -20.345833, lng: 148.951713},
+          "Whitehaven Beach": {lat: -20.282393, lng: 149.038830},
+          "Tako": {lat: -20.345833, lng: 148.951713},
+        };
+        var mapCenter = {lat: -19.995041, lng: 149.134510};
+        var zoomLevel = 9;
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxLFaRpTrEpbZ8VKJhbLNhbrHe_pPuW4c&callback=initMap" async defer></script>
+      <br />
+      <h2 class="sub-header">Other places I hope to visit next time</h2>
+      <ul>
+        <li><p>Would be very interested in trying some of the motor boat or parasailing activities they had on the island.</p></li>
+        <li><p>Coca chu - this restaurant was recommended by everybody but sadly reservations were full for months</p></li>
+      </ul>
+    </div>
+  </body>
+</html>

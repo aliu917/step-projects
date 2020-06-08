@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sydney</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script> 
+  </head>
+  <body onload="makeSlides()">
+    <div class="header">
+      <h1><a href="index.html">Angela Liu</a></h1>
+      <a href="https://github.com/aliu917">
+        <img class="margin" border="0" alt="Github" src="images/github_white.png" width="50" height="50">
+      </a>
+      <a href="mailto:aliu917@berkeley.edu">
+        <img class="margin" border="0" alt="Email" src="images/email.png" width="50" height="50">
+      </a>
+      <a href="resume.html">
+        <img class="margin" border="0" alt="Linkedin" src="images/linkedin.png" width="50" height="50">
+      </a>
+      <p1 class="lower-right">
+        <a href="index.html">About Me</a> &emsp;
+        <a href="resume.html">Resume</a> &emsp; 
+        <a href="teaching.html">Teaching</a> &emsp; 
+        <a class="current" href="travel.html">Travel</a>
+      </p1>
+    </div>
+
+    <p class="center">
+      <a class="travel" href="travel.html">All</a> &emsp; 
+      <a class="travel" href="america.html">North America</a> &emsp; 
+      <a class="travel" href="europe.html">Europe</a> &emsp; 
+      <a class="travel" href="asia.html">Asia</a> &emsp;
+      <a class="travel current" href="australia.html">Australia</a>
+    </p>
+    
+    <div class="simple-section">
+      <h2 class="center"><span class="no=wrap">S Y D N E Y</span></h2>
+      <p class="sub-caption">Part 1 of Winter 2019 Australia Trip</p>
+    </div>
+
+    <div class="simple-section">
+      <h2 class="sub-header">Image highlights</h2>
+      <div class="slideshow-container">
+        <div name="slides"></div>
+
+        <script>
+          var title = "sydney";
+          var slideImages = {
+              "cruise.jpg" : "Crossing under the Harbour Bridge during the cruise, we see this beautiful view of the bridge with the Opera House in the back.",
+              "bondi.jpg" : "A view from the Bondi to Bronte coastal walk facing Bondi Beach in the distance.",
+              "chair.jpg" : "A view of the Sydney Opera House with the Harbour Bridge in the backdrop from Mrs. MacQuarie's Chair.",
+              "bronte.jpg" : "A view from the Bondi to Bronte coastal walk facing Bronte Beach (the farthest beach in the distance).",
+              "opera_house.jpg" : "Ground view of the front entrance of the Sydney Opera House.",
+              "preach.jpg" : "The beautiful and delicious brunch at Preach Cafe in Bondi.",
+              "strand_arcade.jpg" : "The Strand Arcade - a cute small side street filled with small trinket shops and festive decorations.",
+              "cristini.jpg" : "Our delicious final meal in Sydney at Cristini's.",
+              "church.jpg" : "St. Mary's Cathedral lit up by lights telling the story of the Christmas holiday.",
+              "yayoi.jpg" : "Dinner at Yayoi where we enjoyed a nice warm filling Japanese meal.",
+              "pylon.jpg" : "View of the Opera House from the start of the Harbour Bridge near Pylon Lookout.",
+              "christmas.jpg" : "Christmas trees and lights in Sydney CBD on Christmas Eve.",
+              "cake.jpg" : "All the cute cake variations in Black Star Pastry. The bottom row had dozens of large strawberry watermelon cakes that all ended up being sold out in a couple hours!",
+              "diamondbay.jpg" : "The stunning cliff and blue waters at Diamond Bay reserve.",
+              "grounds.jpg" : "The outdoor cafe at the Grounds of Alexandria."
+          };
+        </script>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="bottom" name="bottom-dots">
+        </div>
+      </div>
+      <br>
+
+
+      <h2 class="sub-header">Trip Planning/Notes</h2>
+      <ul>
+        <li><p>Hotel: Hilton Sydney - really nice hotel at a perfect location in the heart of Sydney CBD</p></li>
+        <li><p>Transportation: We rented a car to visit some of the outer areas like Alexandria and Bondi Beach. A car is definitely not necessary in CBD,
+            but especially during the holidays when most of CBD is closed, it was really convenient to have one and drive along the coast. </p></li>
+        <li><p>Spending Christmas at Sydney was good and bad: good because the entire city was beautifully lighted and decorated with a lot of 
+            free Christmas festivities like church choirs and light shows; the bad news, though, is that most attractions and restaurants are closed in Christmas day.</p></li>
+      </ul>
+      <br />
+      <h2 class="sub-header">Trip Diary</h2>
+      <ul>
+        <li><p>Day 1 - Sydney Opera House </p>
+        <ul>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Grounds of Alexandria')">Grounds of Alexandria</a>
+            <p>Reminds me of an upscale farmers market with a mix of local shops and farmers selling trinkets and fresh snacks to 
+                sit-down restaurants all selling locally-sourced produce. We came during the Frozen 2 theme so there was a lifesize
+                Elsa and Anna with wintery decorations. </p>
+            <ul>
+              <li><p>We ate at the Grounds (the outdoor fast food area) and I ordered some green avocado quinoa bowl that was really good along with a smoothie. 
+                  Also tried the burger and some fresh donuts from some of the small vendors. Everything was really fresh and super delicious!</p></li>
+              <li><p>Got some popsicles and took a picture under the "Love you to the moon and back" sign</p></li>
+              <li><p>If I came back, I would probably make a reservation for the Potting Shed as that restuarant looks super popular.</p></li>
+            </ul>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Cuppa Flower');">Cuppa Flower</a>
+            <p>Made a quick to-go stop at Cuppaflower to try their totorro cake and a taro cake roll. Both were really good and super cute
+                but, in hindsight, probably not worth the stop.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Queen Victoria Building'); flipInfo('Strand Arcade');">Walking through CBD</a>
+            <p>Strolled through Queen Victoria Building (QVB as they call it) and saw some cute Christmas choirs and angelic
+                decorations. Also passed through the Strand Arcade on our way to the harbour which was similarly festively decorated.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Black Star Pastry')">Black Star Pastry</a>
+            <p>The famous watermelon cake shop is located on the se. Was right next door to our hotel so we stopped by for some more delicious pastries!
+            </p>
+            <ul>
+              <li><p>Strawberry watermelon cake was hands-down our favorite and one of the best things I've ever eaten</p></li>
+              <li><p>Raspberry lychee cake was also really good and fresh (probably my second favorite cake ever?)</p></li>
+              <li><p>Came back in the afternoon for more right when they were closing and they were completely sold out! We did end up getting the last two dragon cake slices though which were 
+                also really good.</p></li>
+            </ul>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Pylon Lookout')">Pylon Lookout</a>
+            <p>Hiked up the start of Harbour Bridge for some cool views of the Opera House.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Circular Quay')">Captain Cook Cruise through Sydney Harbour</a>
+            <p>We took a 2-hour Captain Cook story cruise that circled through the inner and outer parts of the bay.
+            </p>
+            <ul>
+              <li><p>A 2-hour cruise was quite long and once we were out of sight of the Opera House, the views comparably weren't that interesting</p></li>
+              <li><p>The guide told us some interesting historical tales about Sydney when the British first arrived, but we were perhaps a bit too tired after the long flight for the guide's stories by the second hour</p></li>
+              <li><p>The cruise ended up circling back under the Harbour Bridge and we got some amazing pictures of the opera house and the bridge!</p></li>
+            </ul>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Sydney Opera House')">Sydney Opera House tour</a>
+            <p>We took the standard Opera house tour where we visited some of the inner chambers and learned about the design and history. 
+                The entire story was very captivating and understanding the history really makes you appreciate the architectural design 
+                at a different level so would highly recommend!
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Yayoi')">Yayoi</a>
+            <p>Enjoyed some hearty Japanese food at the upscale chain Yayoi. Prices in Australia actually were quite a bit
+                cheaper than in America due to the currency differences and the food was amazing! We ordered two niku udons, 
+                a large unagi hitsumabushi (as you can tell, we love eel!), and a wagyu sukiyaki. Also stopped by Gong Cha, which
+                was in the basement level of the same mall, for a caffeine fix as we headed out for some Christmas festivities.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Sydney Town Hall')">Sydney Town Hall</a>
+            <p>The Sydney Town Hall is a beautiful building just to walk by and visit, but on Christmas Eve, they had a 
+                special Christmas Carols ceremony that we stopped by to enjoy for a bit.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('St. Mary's Cathedral')">St. Mary's Cathedral</a>
+            <p>Walked through CBD, stopping by King Street where there was a crowd gathered around a large lighted Christmas tree,
+                before reaching St. Mary's Cathedral where light shows depicting Christian scenes were projected onto the back of the church
+                in beautiful designs and patterns. All the crowds and lights during Christmas in Sydney were truly mesmerizing
+                and on top of that, it was really cool to celebrate a warm Christmas eve with throngs of people celebrating outdoors.
+            </p>
+          </li>
+        </ul>
+        <li><p>Day 2 - Bondi Beach</p></li>
+          <ul>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Royal Botanical Gardens'); flipInfo('Mrs. MacQuarie's Chair);">Royal Botanical Gardens</a>
+            <p>Took a morning stroll through Hyde Park and the botanical gardens until we reached Mrs. MacQuarie's Chair where we enjoyed
+                an amazing view of the Opera House and the Harbour Bridge in the background. This was probably one of the best viewpoints
+                of both landmarks that we saw during our whole trip! The gardens are also very beautiful with a lot of vibrant, exotic flowers.</p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Preach Cafe')">Preach Cafe</a>
+            <p>There are many cute cafes in Bondi, but this was the only one open on Christmas Day and it was packed! 
+                All the food was incredibly fresh, tasty, and beautifully displayed. </p>
+            <ul>
+              <li><p>Favorites: Green Nourish Bowl and fruit bowl (which came inside a pineapple!)</p></li>
+              <li><p>Also tried: Bondi Beach Bowl and Preach Poach (both good, but probably wouldn't order the latter again because the sauces had a strong flavor that we weren't accustomed to) </p></li>
+              <li><p>And of course we also got a green juice that was really good!</p></li>
+            </ul>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Bondi Beach'); flipInfo('Bronte Beach');">Bondi to Bronte Beach Walk</a>
+            <p> The famous Bondi Beach was crowded with so many people wearing swimsuits and santa hats, it was quite a sight! 
+                Played around in the waters for a bit and then took the beautiful coastal walk to Bronte Beach where we saw a lot
+                of cool cliffs and caves along the way. While the trek is not tiring, it was really hot for us so we stopped by Boost juice
+                in Bondi after for a quick mango smoothie.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Diamond Bay')">Diamond Bay</a> 
+            <p> The area is a bit obscure (the path leading to its entrance is literally the dead end of a neighborhood), but the area 
+                had quite a few visitors to fill up all available limited parking and the view was really pretty. There's a short wooden
+                path railing that you can walk along to view the beautiful cliff and would definitely recommend if you have a car
+                and can conveniently get here.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Criniti\'s')">Criniti's</a> 
+            <p>This was also one of the few restaurants open on Christmas Day and we came pretty early (around 5) and there
+            was no wait and no reservations needed. The food was delicious and sitting in the outdoor eating area along the harbour
+            was a beautiful, relaxing experience! (Update: we ate at the Woolloomooloo location which seems to now be closed
+            but there are also other locations acrosss Sydney!)</p>
+            <ul>
+              <li><p>Favorite: italian garlic prawns - the prawns were delicious and that creamy tomato base with that seafood taste was amazing!
+              <li><p>Also enjoyed linguine frank sinatra (especially when adding some of that prawn tomato sauce mentioned above into it, as it was slightly lacking that tomato kick) and spaghetti pachino</p></li>
+              <li><p>Also tried the penne genovese (found it a bit too cheesy for our liking though)</p></li>
+            </ul>
+          </li>
+        </ul>
+      </ul>
+      <div id="map"></div>
+      <script>
+        var markers = {};
+        var places = {"Grounds of Alexandria": {lat: -33.910675, lng: 151.194140}, 
+          "Cuppa Flower": {lat: -33.902298, lng: 151.203957},
+          "Black Star Pastry": {lat: -33.872680, lng: 151.207452},
+          "Queen Victoria Building": {lat: -33.871722, lng: 151.206708},
+          "Strand Arcade": {lat: -33.869425, lng: 151.207519},
+          "Pylon Lookout": {lat: -33.854539, lng: 151.209535},
+          "Circular Quay": {lat: -33.861047, lng: 151.210121},
+          "Sydney Opera House": {lat: -33.856774, lng: 151.215298},
+          "Yayoi": {lat: -33.872416, lng: 151.207612},
+          "Sydney Town Hall": {lat: -33.873157, lng: 151.206116},
+          "St. Mary's Cathedral": {lat: -33.871191, lng: 151.213328},
+          "Royal Botanical Gardens": {lat: -33.864217, lng: 151.216593},
+          "Mrs. MacQuarie's Chair": {lat: -33.859642, lng: 151.222527},
+          "Preach Cafe": {lat: -33.891289, lng: 151.273484},
+          "Bondi Beach": {lat: -33.891490, lng: 151.276678},
+          "Bronte Beach": {lat: -33.903425, lng: 151.268276},
+          "Diamond Bay": {lat: -33.861911, lng: 151.282058},
+          "Criniti\'s": {lat: -33.868637, lng: 151.220222},
+        };
+        var mapCenter = {lat: -33.876139, lng: 151.238442};
+        var zoomLevel = 13;
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxLFaRpTrEpbZ8VKJhbLNhbrHe_pPuW4c&callback=initMap" async defer></script>
+      <br />
+      <h2 class="sub-header">Other places I hope to visit next time</h2>
+      <ul>
+        <li><p>All those famous cafes in Bondi: Bill's, Drake's Eatery, Harry's Bondi, Bondi Hardware...</p></li>
+        <li><p>Otto Ristorante - another pretty popular Italian place right next to Cristini's in Woolloomooloo</p></li>
+        <li><p>Gelato Messina and ANITA - heard these were two really popular gelato places but never got the chance to stop by</p></li>
+        <li><p>Manly to Spit Bridge Coastal Walk - seems like quite a hike (5 hours!) but the views look insane so maybe next time</p></li>
+      </ul>
+    </div>
+  </body>
+</html>

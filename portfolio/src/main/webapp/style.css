@@ -551,8 +551,9 @@ grid-container {
 }
 
 .slideshow-container {
-  width: 100%;
+  width: calc(100% - 60px);
   position: relative;
+  margin: 30px;
 }
 
 /* Hide the images by default */
