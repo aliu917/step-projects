@@ -76,9 +76,18 @@ function getComments() {
 }
 
 function getNumComments(displayCount) {
-  fetch('/list-comments?count=' + displayCount).then(response => response.json()).then((history) => {
+  timeout(2000, fetch('/list-comments?count=' + displayCount)).then(response => {
+    if (!response.ok) {
+      throw new Error("server");
+    } else {
+      return response.json();
+    }
+  }).then((history) => {
     const historyContainer = document.getElementById('comment-history');
     historyContainer.innerHTML = "";
+    if (history == []) {
+      throw new Error("server");
+    }
     history.forEach((comment) => {
       historyContainer.appendChild(createCommentDisplay(comment));
     });
@@ -90,6 +99,17 @@ function getNumComments(displayCount) {
     } else {
       moreButton.style.display = "block";
       countTextBox.value = displayCount;
+    }
+    window.sessionStorage.setItem("retryCount", 0);
+  }).catch((error) => {
+    var retries = getRetries();
+    if (retries < 5) {
+      getNumComments(displayCount);
+      window.sessionStorage.setItem("retryCount", retries + 1);
+    } else {
+      const historyContainer = document.getElementById('comment-history');
+      historyContainer.innerHTML = "<p>An error occurred when trying to connect to the server. To load comments, please refresh and try again.</p>";
+      window.sessionStorage.setItem("retryCount", 0);
     }
   });
 }
@@ -200,10 +220,45 @@ function getTimeDiff(timestamp) {
   }
 }
 
+function timeout(ms, promise) {
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      reject(new Error("timeout"))
+    }, ms)
+    promise.then(resolve, reject)
+  })
+}
+
+function getRetries() {
+  var retries = window.sessionStorage.getItem("retryCount");
+  var numRetries = retries == null ? 0 : parseInt(retries);
+  return numRetries;
+}
+
 function getAuthInput(input) {
-  fetch(input).then((response) => response.text()).then((displayText) => {
+  timeout(2000, fetch(input)).then((response) => {
+    if (!response.ok) {
+      throw new Error("server");
+    } else {
+      return response.text();
+    }
+  }).then((displayText) => {
+    if (displayText == "") {
+      throw new Error("server");
+    }
     var container = document.getElementsByName("authcheck")[0];
     container.innerHTML = displayText;
+    window.sessionStorage.setItem("retryCount", 0);
+  }).catch((error) => {
+    var retries = getRetries();
+    if (retries < 5) {
+      getAuthInput(input);
+      window.sessionStorage.setItem("retryCount", retries + 1);
+    } else {
+      var container = document.getElementsByName("authcheck")[0];
+      container.innerHTML = "<p>An error occurred when trying to connect to the server. To comment, please refresh and try again.</p>";
+      window.sessionStorage.setItem("retryCount", 0);
+    }
   });
 }
 
