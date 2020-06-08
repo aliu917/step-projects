@@ -2,7 +2,7 @@
   <div class="flip-container">
     <div class="flip-content">
       <div class="flip-content-front  simple-box">
-        <img style="width: 100%" alt="{0}" src="images/{1}">
+        <img style="width: 100%" alt="{0}" src="images/general/{1}">
         <p class="center travel-dark caption"> <span class="no=wrap">{2}</span></p>
         <p1 class="sub-caption">{3}</p1>
       </div>

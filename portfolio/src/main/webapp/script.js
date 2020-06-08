@@ -270,10 +270,10 @@ function showGuestForm() {
   getAuthInput("/auth?guest=true");
 }
 
-function initMap() {
+function initMap(c, z) {
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -37.815018, lng: 144.946014},
-    zoom: 8
+    center: mapCenter,
+    zoom: zoomLevel
   });
   for (var placeName in places) {
     var infowindow = new google.maps.InfoWindow({content: placeName});
@@ -336,7 +336,7 @@ function makeSlides() {
     var bottom_dots_html = "";
     for (var img in slideImages) {
       var destDiv = document.createElement("div");
-      destDiv.innerHTML = String.format(html, img, slideImages[img]);
+      destDiv.innerHTML = String.format(html, title, img, slideImages[img]);
       container.appendChild(destDiv.firstChild);
       bottom_dots_html = bottom_dots_html + "<span class=\"dot\" onclick=\"currentSlide(" + index + ")\"></span>";
       index ++;

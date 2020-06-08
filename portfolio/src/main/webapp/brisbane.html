@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Brisbane</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script> 
+  </head>
+  <body onload="makeSlides()">
+    <div class="header">
+      <h1><a href="index.html">Angela Liu</a></h1>
+      <a href="https://github.com/aliu917">
+        <img class="margin" border="0" alt="Github" src="images/github_white.png" width="50" height="50">
+      </a>
+      <a href="mailto:aliu917@berkeley.edu">
+        <img class="margin" border="0" alt="Email" src="images/email.png" width="50" height="50">
+      </a>
+      <a href="resume.html">
+        <img class="margin" border="0" alt="Linkedin" src="images/linkedin.png" width="50" height="50">
+      </a>
+      <p1 class="lower-right">
+        <a href="index.html">About Me</a> &emsp;
+        <a href="resume.html">Resume</a> &emsp; 
+        <a href="teaching.html">Teaching</a> &emsp; 
+        <a class="current" href="travel.html">Travel</a>
+      </p1>
+    </div>
+
+    <p class="center">
+      <a class="travel" href="travel.html">All</a> &emsp; 
+      <a class="travel" href="america.html">North America</a> &emsp; 
+      <a class="travel" href="europe.html">Europe</a> &emsp; 
+      <a class="travel" href="asia.html">Asia</a> &emsp;
+      <a class="travel current" href="australia.html">Australia</a>
+    </p>
+    
+    <div class="simple-section">
+      <h2 class="center"><span class="no=wrap">B R I S B A N E</span></h2>
+      <p class="sub-caption">Part 2 of Winter 2019 Australia Trip</p>
+    </div>
+
+    <div class="simple-section">
+      <h2 class="sub-header">Image highlights</h2>
+      <div class="slideshow-container">
+        <div name="slides"></div>
+
+        <script>
+          var title = "brisbane";
+          var slideImages = {
+              "koala.JPG" : "Two koalas hugging a tree in Lone Pine Koala Sanctuary.",
+              "kangaroo.JPG" : "Some kangaroo posing in Lone Pine Koala Sanctuary.",
+              "emu.JPG" : "An emu running around in Lone Pine Koala Sanctuary.",
+              "kangaroo1.JPG": "A lone baby kangaroo scratching its leg in Lone Pine Koala Sanctuary.",
+              "brisbane.JPG" : "An aerial view of Brisbane CBD from the plane as we left for the Whitsundays."
+            }
+        </script>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="bottom" name="bottom-dots">
+        </div>
+      </div>
+      <br>
+
+
+      <h2 class="sub-header">Trip Planning/Notes</h2>
+      <p>I'm sure Brisbane is an amazing and vibrant city to visit, but since our entire Australia trip was only a little more than a week,
+          we weren't planning to make Brisbane a stop. However, we couldn't come all the way to Australia without hugging a koala, so we 
+          squeezed this short 15-hour overnight layover in Brisbane just so we could visit the Lone Pine Koala Sanctuary.
+      </p>
+      <ul>
+        <li><p>Hotel: Capri by Fraser</p></li>
+        <li><p>Transportation: We didn't rent a car as we were planning to rely on public transport buses, but since we were on such 
+            a tight schedule, we ended up having to take a cab everywhere which ended up costing about the same as just renting a car for the day.</p></li>
+      </ul>
+      <br />
+      <h2 class="sub-header">Trip Diary</h2>
+      <ul>
+        <li><p>Day 1 - Travel Half Day</p>
+        <ul>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('The Croft House')">The Croft House Town Kitchen</a>
+            <p>Not many places were open as it was boxing day, but this nice sit-down establishment was quite crowded and their food was really good. 
+                We were in sort of a hurry (and the service was quite slow) but it seemed like they had some buffet option with plenty of pastries and other popular options.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Lone Pine Koala Sanctuary');">Lone Pine Koala Sanctuary</a>
+            <p>This sanctuary has probably the best koala program (all the famous celebrities come here to meet and hold koalas) and 
+                the staff were really kind to both koala and customers, giving us sufficient time to take a good photo and even taking extra group photos for us.
+                They also have a lot of other cool animals and the kangaroo-feeding area was also super popular and cute!
+            </p>
+            <ul>
+              <li><p>Arrive right when the sanctuary opens (or within the first 30 min) and head straight to the koala simple-section
+                  to get in line for koala holding if that's what you're here for. We came right at the 30 min mark and barely got into the first
+                  koala holding section.</p></li>
+              <li><p>Visit the kangaroos (and emus)! Feeding the kangaroos is really fun and you get some great pictures since both kangaroos and emus
+                  are super friendly (especially when offered food).</p></li>
+              <li><p>We had a flight around noon so we couldn't check out some of the other exhibits, but there are many other cool and unique animals that 
+                  this can definitely be a day trip.</p></li>
+            </ul>
+        </ul>
+      </ul>
+      <div id="map"></div>
+      <script>
+        var markers = {};
+        var places = {"The Croft House": {lat: -27.471184, lng: 153.026924}, 
+          "Lone Pine Koala Sanctuary": {lat: -27.533753, lng: 152.968804}
+        };
+        var mapCenter = {lat: -27.498545, lng: 153.001472};
+        var zoomLevel = 13;
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxLFaRpTrEpbZ8VKJhbLNhbrHe_pPuW4c&callback=initMap" async defer></script>
+      <br />
+      <h2 class="sub-header">Other places I hope to visit next time</h2>
+      <ul>
+        <li><p>Coffee Anthology - really wanted to try this breakfast place but they were closed on Boxing day.</p></li>
+        <li><p>Gold Coast - if we had another day, visiting the gold coast beach and trying out hot air balloons seems pretty popular and cool!</p></li>
+      </ul>
+    </div>
+  </body>
+</html>
