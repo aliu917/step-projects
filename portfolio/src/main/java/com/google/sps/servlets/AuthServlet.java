@@ -29,12 +29,13 @@ public class AuthServlet extends HttpServlet {
   static final String GUEST_FIELD_FILE_STRING = "/files/guest-name-field.txt";
   static final String USER_FIELD_FILE_STRING = "/files/user-name-field.txt";
 
+  UserService userService = createUserService();
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     response.setContentType("text/html;");
     PrintWriter out = response.getWriter();
 
-    UserService userService = UserServiceFactory.getUserService();
     String loginUrl = userService.createLoginURL("/travel.html");
     String isGuest = request.getParameter("guest");
 
@@ -76,18 +77,24 @@ public class AuthServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    UserService userService = UserServiceFactory.getUserService();
-
     String nickname = request.getParameter("nickname");
     String id = userService.getCurrentUser().getUserId();
 
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    DatastoreService datastore = createDataService();
     Entity entity = new Entity("UserInfo", id);
     entity.setProperty("id", id);
     entity.setProperty("nickname", nickname);
     datastore.put(entity);
 
     response.sendRedirect("/travel.html");
+  }
+
+  protected UserService createUserService() {
+    return UserServiceFactory.getUserService();
+  }
+
+  protected DatastoreService createDataService() {
+    return DatastoreServiceFactory.getDatastoreService();
   }
 
 }
