@@ -460,6 +460,7 @@ grid-container {
 
 .active, .collapsible:hover {
   color: rgb(11, 60, 109);
+  background-color: transparent;
 }
 
 .collapsible-content {
