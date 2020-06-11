@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Banff</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script> 
+  </head>
+  <body onload="makeSlides()">
+    <div class="header">
+      <h1><a href="index.html">Angela Liu</a></h1>
+      <a href="https://github.com/aliu917">
+        <img class="margin" border="0" alt="Github" src="images/github_white.png" width="50" height="50">
+      </a>
+      <a href="mailto:aliu917@berkeley.edu">
+        <img class="margin" border="0" alt="Email" src="images/email.png" width="50" height="50">
+      </a>
+      <a href="resume.html">
+        <img class="margin" border="0" alt="Linkedin" src="images/linkedin.png" width="50" height="50">
+      </a>
+      <p1 class="lower-right">
+        <a href="index.html">About Me</a> &emsp;
+        <a href="resume.html">Resume</a> &emsp; 
+        <a href="teaching.html">Teaching</a> &emsp; 
+        <a class="current" href="travel.html">Travel</a>
+      </p1>
+    </div>
+
+    <p class="center">
+      <a class="travel" href="travel.html">All</a> &emsp; 
+      <a class="travel current" href="america.html">North America</a> &emsp; 
+      <a class="travel" href="europe.html">Europe</a> &emsp; 
+      <a class="travel" href="asia.html">Asia</a> &emsp;
+      <a class="travel" href="australia.html">Australia</a>
+    </p>
+    
+    <div class="simple-section">
+      <h2 class="center"><span class="no=wrap">B A N F F</span></h2>
+      <p class="sub-caption">Summer 2019 Canada Trip</p>
+    </div>
+
+    <div class="simple-section">
+      <h2 class="sub-header">Image highlights</h2>
+      <div class="slideshow-container">
+        <div name="slides"></div>
+
+        <script>
+          var title = "banff";
+          var slideImages = {
+              "lake_agnes.jpg" : "Lake Agnes as seen from the Lake Agnes Tea House at the top of the mountain.",
+              "banff_gondola.jpg" : "Aerial view of the town of Banff from atop the gondola observatory.",
+              "lake_louise.jpg" : "Lake Louise as seen from ground level at the Fairmont Chateau Lake Louise viewing grounds.",
+              "hotel.jpg" : "A view of Fairmont Chateau Lake Louise while walking along the edge of Lake Louise.",
+              "moraine_lake_ground.jpg" : "Moraine Lake view from ground level.",
+              "peyto_lake.jpg" : "The bright blue waters of Peyto Lake surrounded by light blankets of snow.",
+              "hotel_canoe.jpg" : "Side view of Fairmont Chateau Lake Louise with a canoe floating on the waters.",
+              "lake_agnes_trail.jpg" : "View from the top of Lake Agnes trail where you can see the roof of Fairmont Chateau Lake Louise in the distance.",
+              "moraine_lake_top.jpg" : "View of Moraine Lake from atop the rocky outcropping viewpoint.",
+              "lake_minnewanka.jpg" : "View of Lake Minnewanka while riding on a motorboat.",
+              "banff_town.jpg" : "Street view of the town of Banff.",
+              "ice_cream.jpg" : "Close-up of COWS Banff ice cream.",
+              "scenic_stop.jpg" : "Scenic stop along the route from Radium Hot Springs back to Canmore.",
+              "airport_drive.jpg" : "A view from the car window along the drive from Calgary airport to Banff.",
+              "fairmont_springs.jpg" : "A view of the iconic Fairmont Springs Banff hotel from Surprise Corner viewpoint.",
+              "dinner.jpg" : "Dinner at Fairview Restaurant and Bar (grilled calamari, lakeview salad, seared salmon, and chicken parmesan pappardelle).",
+              "scenic_stop_2.JPG" : "Scenic stop along the route from Radium Hot Springs back to Canmore.",
+              "hotel_far.jpg" : "View of Fairmont Chateau Lake Louise from the far end of the lake while canoeing.",
+              "bow_lake.jpg" : "A view of Bow Lake and the surrounding snowy mountains.",
+              "dessert.jpg" : "Dessert from Fairview Restaurant and Bar (creme brulee and some yellow banana dessert).",
+              "johnston_falls_cave.jpg" : "The first waterfall along Johnston Canyon trail with a cave on the lower right that you can enter and view the falls from.",
+              "observatory.jpg" : "Banff gondola observatory atop the hill as seen from the highest point of the wooden walkway trail surrounding the mountaintop.",
+              "snow_road.jpg" : "Snow-covered trees and mountains on our drive to Peyto Lake.",
+              "johnston_falls.jpg" : "The top half of the second waterfall along Johnston Canyon trail.",
+              "sinclair_canyon.jpg" : "View of Sinclair canyon from the side of the road."
+          };
+        </script>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="bottom" name="bottom-dots">
+        </div>
+      </div>
+      <br>
+
+
+      <h2 class="sub-header">Trip Planning/Notes</h2>
+      <ul>
+        <li><p>Hotel (Part 1): Blackstone Mountain Lodge by CLIQUE - we stayed the first two nights in Canmore as they have 
+            really large suite/apartment-style rooms at a lower cost than the equivalent in Banff or the Lake Louise area. 
+            There are a lot of suites/lodges in that general area, all of which look in pretty good shape, so it's a really nice alternative
+            especially if you're traveling with a larger family.</p></li>
+        <li><p>Hotel (Part 2): Fairmont Chateau Lake Louise - definitely splurged on this one, but I must say it was completely worth it!
+            This hotel is almost as scenic and luxurious as Lake Louise itself and being able to wake up to a perfect view of Lake Louise
+            right outside your window is absolutely breath-taking!</p></li>
+        <li><p>Transportation: Highly recommend renting a car (unless you're planning to join a tour company for the entire duration) as 
+            most major attractions are quite a distance apart and having a car means you have the freedom to visit random scenic lakes and wildlife spots of which there are many!</p></li>
+        <li><p>We came right at the beginning of summer and it was cold, so pack jackets and don't be surprised to see snow (especially if you're venturing North toward Jasper).</p></li>
+      </ul>
+      <br />
+      <h2 class="sub-header">Trip Diary</h2>
+      <ul>
+        <li><p>Day 1 - Town of Banff</p>
+        <ul>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Vendome Cafe')">Vendome Cafe</a>
+            <p>Had a morning flight into Calgary so we stopped for brunch at this cute cafe with delicious food and 
+                a really nice cafe ambience. We tried: Croque Madame (with a side salad), roasted squash salad, 
+                avocado breakfast panini, and some raspberry chia pudding (the final one was a bit bland but overall really good!)</p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Banff Gondola');">Banff Gondola</a>
+            <p>After brunch, headed straight to the Banff Gondola to get a beautiful scenic panorama of the town of Banff. </p>
+            <ul>
+              <li><p>We did not purchase tickets ahead of time, but the line wasn't that long (probably between 20-30 min wait overall) to get on the gondola</p></li>
+              <li><p>There's a very nice outdoor walkway area that allows you to walk around the mountaintop and even climb up to the highest point.</p></li>
+            </ul>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Bear Street Tavern')">Bear Street Tavern</a>
+            <p>Wandered around the streets of Banff until we happened upon this popular establishment. Ordered some artichoke cheese dip,
+                hawaiian pizza, and pork mac-and-cheese. It was a bit overwhelmingly cheesy (no surprise) but overall a really warm and filling dinner!
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('COWS Banff')">COWS Banff</a>
+            <p> This is a super popular ice cream shop that we had our eye on when walking by it on our way to dinner (the line for a scoop is about 20 min and goes out the door!), 
+                so obviously we came back for some ice cream even though it was quite cold outside. Mostly classic flavors with some Canadian twists that were really good! 
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Surprise Corner')">Surprise Corner</a>
+            <p> On our way back to Canmore, we took a quick stop at Surprise Corner to get a view of the famous Fairmont 
+                Banff Springs in the evening light. Described as a "castle-like" building nestled in the forested mountains,
+                it really looks like a fairytale scene during golden hour.
+            </p>
+          </li>
+        </ul>
+        <li><p>Day 2 - Ziplining</p></li>
+          <ul>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Valley Zipline Adventure')">Valley Zipline Adventure</a>
+            <p>Woke up, grabbed some Starbucks, and headed on a 2-hour drive to ziplining. I would probably recommend ziplining in Jasper
+                as that seems to be a much more popular place to do it, but since we had limited time and weren't planning to head over there
+                (and my sister insisted on ziplining), we settled for this. As my first experience ziplining, I can't really compare it but
+                I felt really safe the whole time (they had a quick mini prep course for us) and had a lot of fun! The instructors/guides were
+                really nice and supportive the whole time.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Big Horn Cafe')">Big Horn Cafe</a>
+            <p>Radium is quite a small town, but since it was past 2:30 and we still hadn't eaten lunch, we stopped at this cute shop for
+                some pastries and warm drinks. </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Stop 1 - Sinclair Canyon'); 
+                                                                      flipInfo('Stop 2 - Radium Hot Springs'); 
+                                                                      flipInfo('Stop 3 - Sinclair Creek');
+                                                                      flipInfo('Stop 4 - Scenic stop');
+                                                                      flipInfo('Stop 5 - Numa Falls');">Mini road trip back to Canmore</a>
+            <p> Took the time to make a couple scenic stops on the way back:</p>
+            <ul>
+              <li><p>Sinclair Canyon - quite a few people at this stop where there are really high cliffs lining the road and a deep creek on the side.</p></li>
+              <li><p>Radium Hot Springs - stopped by the area to check out the springs, but it really just looked like a normal swimming pool
+                  and nobody felt like changing out of our winter clothes into swim gear so we left.</p></li>
+              <li><p>Sinclair Creek - this is really not a formal stopping point but there is a tiny steep trail leading down to the creekside that
+                  I thought looked cool and my family ended up going down and having a mini extensive photoshoot which was really fun.</p></li>
+              <li><p>Scenic stop - this one was a random stop on the side with views of the Kootenay River but probably one of the prettiest
+                  since there were a lot of wildflowers and purple plants in the distant mountains along with the Kootenay River</p></li>
+              <li><p>Numa Falls - You can climb down to the rocks by the creek here to get really close to the falls. For us, though, the actual falls area
+                  was blocked off by a gate since the waters were too high.</p></li>
+            </ul>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Santa Lucia Trattoria')">Santa Lucia Trattoria</a> 
+            <p> Returned to Canmore to have dinner at this popular Italian restaurant with delicious Italian classics. We tried the bruschetta, 
+                the Surf and Turf (clam and shrimp pasta), and classic spaghetti.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Beaver Tails')">Beaver Tails</a> 
+            <p>Couldn't come to Canada without trying Beaver Tails! There are so many of these little chain shops so we stopped by one in Canmore
+                and tried the classic cinammon flavor and pecan pie--both were really good!</p>
+          </li>
+        </ul>
+        <li><p>Day 3 - Johnston Canyon and the lakes</p></li>
+        <ul>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Johnston Canyon')">Johnston Canyon</a>
+            <p>Woke up really early (at 6:30 am!) just to get here at 8 am and there were already quite a few people walking around the canyons.
+                Spent about 2.5 hours here and just did the shorter half of the walk (to see the two waterfalls) and it was really pretty.
+                However, the creek was still quite high in the early summer so you couldn't walk down to the creekside to get the cool
+                ground-level shot of some of the rock formations. But still a super cool area to visit and the waterfalls, wooden walkways, and caves
+                are very cleverly molded to allow for some amazing natural views!</p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Moraine Lake')">Moraine Lake</a>
+            <p> According to some, this is the most beautiful of the three famous lakes in the Banff area, and I can see why! The 
+                rocky outcropping (there are nice easy stairs to climb to the top of it) offers a magnificent view of the bright blue waters.
+                When we came, the weather was quite cloudy and foggy so we couldn't see the large mountains behind the lake very clearly and 
+                the canoe businesses was not operating, but I can definitely see this being a super popular spot on sunnier days. (In fact, it
+                was quite popular even on this downcast day.)</p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Chateau Deli')">Chateau Deli</a>
+            <p> Checked into our hotel and stopped for a quick lunch at the Chateau Deli (which was packed with people sitting and eating on hallway benches and floors!).
+                Fast food service with warm hearty soups (my favorite was the beef chilli) and plenty of pastry options for a quick meal.</p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Peyto Lake')">Peyto Lake</a>
+            <p> In the middle of our drive to Peyto Lake, the outside scenery, which was originally just a dry downcast day, suddenly turned into
+                a winter wonderland with soft blankets of white snow all over the grounds in the middle of June! It was a pleasant surprise, albeit
+                a bit chilly, but trudging along the snowy wonderland toward the Peyto Lake lookout was definitely a lot more fun. When we reached the 
+                lookout point, we were initially disappointed since fog was hiding the entire blue lake but after waiting a couple minutes, the wind blew
+                it away and we got some amazing winter shots of the bright blue waters! (Because of the snow, this actually ended up being our favorite lake!)
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Bow Lake')">Bow Lake</a>
+            <p> On our way back from Peyto, we stopped by Bow lake for some photographs. While the waters aren't as famously blue as the others,
+                it was still a breathtaking sight against the mountains and there was even a cute little bridge for photogenic pictures.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Fairview Bar and Restaurant')">Fairview Bar and Restaurant</a>
+            <p> This restaurant is amazing because it provides some of the best views of Lake Louise (which are right outside the window) and additionally
+                all the food and service is exceptional! We enjoyed it so much that we ended up coming back the next day too.
+            </p>
+            <ul>
+              <li><p>Favorites: chicken parmesan pappardelle (this was honestly the best thing ever!) and some yellow dessert with caramaleized bananas (can't remember the name now)</p></li>
+              <li><p>Also really good: seared salmon (the fish was an amazing texture!), grilled calamari (I think we were expecting a fried version but this was still really good),
+                  lakeview greens (decent salad), and creme brulee (which came with three bite-size chocolate-covered cookies that paired perfectly with the sweet desert)</p></li>
+            </ul>
+          </li>
+        </ul>
+        <li><p>Day 4 - Lake Louise</p></li>
+        <ul>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Lake Agnes Trail')">Lake Agnes Trail</a>
+            <p>This is quite a long and moderately challenging hike that took us about 2 hours to reach the top, but definitely worth the half day trip!
+                There are multiple beautiful lakes at the top along with waterfalls and snow-capped mountain---it's truly a marvelous site and a satisfying
+                journey. Pro tip: especially on a pretty chilly morning, pack some extra layers because the temperatures drop a lot when you reach the top
+                especially if you decide to take a break and stop exercising. Another pro tip: go into the Fairmont Chateau hotel for a last minute bathroom break
+                and grab some free water bottles as there are none on the hike (from my experience, you can even do this if you're not staying there).
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Lake Agnes Tea House')">Lake Agnes Tea House</a>
+            <p> Of course, we couldn't undergo the long and arduous journey to the top without enjoying some tea and delicacies! 
+                We tried two fruity teas (don't quite remember them), a cookie, hummus sandwiches (the hummus was a bit hard and cold), and something
+                else that I can't quite remember but overall the tea is definitely the best part! Come early as the place is quite small and fills up really quickly.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Lake Louise')">Lake Louise Canoeing</a>
+            <p> At lunch, once again, at the Chateau deli and then the day cleared up in the afternoon so we spent an hour canoeing on Lake Louise.
+                A fun family activity plus you get some really nice views of the Fairmont Chateau from the lake!</p></li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Lake Louise')">Walk around Lake Louise</a>
+            <p> Okay, so our day practically revolved around Lake Louise, but it was just too pretty to solely hike and canoe on, so of course we spent the last afternoon sunlight casually walking along the outer
+                rim of the lake and just enjoying the natural serenity and views that it provided. Finished this off with dinner, once again, at the Lakeview Restaurant
+                ordering practically the same thing to end the day!</p>
+          </li>
+        </ul>
+        <li><p>Day 5 - Travel half day</p></li>
+        <ul>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Lake Minnewanka')">Lake Minnewanka</a>
+            <p> Checked out of our hotel and spent our final morning in Banff at Lake Minnewanka, where we rented a motorboat for an hour and 
+                just enjoyed speeding around the large lake. This park area has a lot of activities from various boats to running and biking, also with
+                amazing lake and mountain views so it was the perfect fun and action-filled activity to end our time at Banff!
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Vendome Cafe')">Vendome Cafe</a>
+            <p> Returned to Calgary for our flight home, but before we boarded our plane, we stopped by Vendome Cafe once again
+                for a quick brunch. This time, we enjoyed the avocado eggs benedict, yogurt parfait, and avocado toast which were all super tasty!
+            </p>
+          </li>
+        </ul>
+      </ul>
+      <div id="map"></div>
+      <script>
+        var markers = {};
+        var places = {"Vendome Cafe": {lat: 51.055216, lng: -114.083227}, 
+          "Banff Gondola": {lat: 51.148078, lng: -115.555821},
+          "Bear Street Tavern": {lat: 51.177242, lng: -115.572882},
+          "COWS Banff": {lat: 51.176330, lng: -115.570621},
+          "Surprise Corner": {lat: 51.167267, lng: -115.558999},
+          "Valley Zipline Adventure": {lat: 50.585307, lng: -116.042107},
+          "Big Horn Cafe": {lat: 50.620304, lng: -116.071347},
+          "Stop 1 - Sinclair Canyon": {lat: 50.632597, lng: -116.056329},
+          "Stop 2 - Radium Hot Springs": {lat: 50.634829, lng: -116.039189},
+          "Stop 3 - Sinclair Creek": {lat: 50.636400, lng: -116.027940},
+          "Stop 4 - Scenic stop": {lat: 50.971930, lng: -115.947244},
+          "Stop 5 - Numa Falls": {lat: 51.132181, lng: -116.131824},
+          "Santa Lucia Trattoria": {lat: 51.089331, lng: -115.359351},
+          "Beaver Tails": {lat: 51.089101, lng: -115.361279},
+          "Johnston Canyon": {lat: 51.245532, lng: -115.839896},
+          "Moraine Lake": {lat: 51.327665, lng: -116.179878},
+          "Chateau Deli": {lat: 51.417712, lng: -116.216930},
+          "Peyto Lake": {lat: 51.716722, lng: -116.506498},
+          "Bow Lake": {lat: 51.678341, lng: -116.465675},
+          "Fairview Bar and Restaurant": {lat: 51.417637, lng: -116.217007},
+          "Lake Agnes Trail": {lat: 51.415168, lng: -116.232133},
+          "Lake Agnes Tea House": {lat: 51.416232, lng: -116.243924},
+          "Lake Louise": {lat: 51.416790, lng: -116.217934},
+          "Lake Minnewanka": {lat: 51.250043, lng: -115.496642}
+        };
+        var mapCenter = {lat: 50.960707, lng: -115.804530};
+        var zoomLevel = 8;
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxLFaRpTrEpbZ8VKJhbLNhbrHe_pPuW4c&callback=initMap" async defer></script>
+      <br />
+      <h2 class="sub-header">Other places I hope to visit next time</h2>
+      <ul>
+        <li><p>Jasper Park - everybody says this is their favorite part of the trip, but sadly, it was a bit far for us and we didn't have anough time
+            in the 5 days we were here. Maybe next time!</p></li>
+        <li><p>Natural Bridge - seems like a cool landmark but was a bit inconvenient and we couldn't find a good time to get to it.</p></li>
+      </ul>
+    </div>
+  </body>
+</html>
