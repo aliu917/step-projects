@@ -236,7 +236,7 @@ function getRetries() {
 }
 
 function getAuthInput(input) {
-  timeout(2000, fetch(input)).then((response) => {
+  timeout(getRetries() * 1000, fetch(input)).then((response) => {
     if (!response.ok) {
       throw new Error("server");
     } else {
