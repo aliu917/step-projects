@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Seville</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script> 
+  </head>
+  <body onload="makeSlides()">
+    <div class="header">
+      <h1><a href="index.html">Angela Liu</a></h1>
+      <a href="https://github.com/aliu917">
+        <img class="margin" border="0" alt="Github" src="images/github_white.png" width="50" height="50">
+      </a>
+      <a href="mailto:aliu917@berkeley.edu">
+        <img class="margin" border="0" alt="Email" src="images/email.png" width="50" height="50">
+      </a>
+      <a href="resume.html">
+        <img class="margin" border="0" alt="Linkedin" src="images/linkedin.png" width="50" height="50">
+      </a>
+      <p1 class="lower-right">
+        <a href="index.html">About Me</a> &emsp;
+        <a href="resume.html">Resume</a> &emsp; 
+        <a href="teaching.html">Teaching</a> &emsp; 
+        <a class="current" href="travel.html">Travel</a>
+      </p1>
+    </div>
+
+    <p class="center">
+      <a class="travel" href="travel.html">All</a> &emsp; 
+      <a class="travel" href="america.html">North America</a> &emsp; 
+      <a class="travel current" href="europe.html">Europe</a> &emsp; 
+      <a class="travel" href="asia.html">Asia</a> &emsp;
+      <a class="travel" href="australia.html">Australia</a>
+    </p>
+    
+    <div class="simple-section">
+      <h2 class="center"><span class="no=wrap">S E V I L L E</span></h2>
+      <p class="sub-caption">Winter 2018 Spain Trip</p>
+    </div>
+
+    <div class="simple-section">
+      <h2 class="sub-header">Image highlights</h2>
+      <div class="slideshow-container">
+        <div name="slides"></div>
+
+        <script>
+          var title = "seville";
+          var slideImages = {
+              "la_giralda.jpg" : "An image of the tower La Giralda from ground level surrounded by orange trees.",
+              "peacock_pose.jpg" : "Peacock posing atop a shelf in the midst of the gardens in Real Alcazar de Sevilla.",
+              "higher_view.jpg" : "View atop La Giralda in Catedral de Sevilla.",
+              "plaza_front.jpg" : "Front view of the entire Plaza de Espana.",
+              "cathedral_room.jpg" : "A room within the Catedral de Sevilla (there is some significance to this room but I don't remember).",
+              "plaza_nueva.jpg" : "Plaza Nueva",
+              "columbus_burial.jpg" : "Statues of soldiers carrying Columbus's casket within the Catedral de Sevilla.",
+              "ice_cream.jpg" : "Delicious ice cream (pistachio, vanilla, and coffee) with a vanilla macaron from Amorino.",
+              "plaza_boat_side.jpg" : "Side view of the Plaza de Espana with a canoe in the foreground that you can pay to ride.",
+              "peacock.jpg" : "Peacock casually strolling through the gardens in Real Alcazar de Sevilla.",
+              "plaza_side.jpg" : "Side view of the Plaza de Espana.",
+              "streets.jpg" : "The streets of Seville with La Giralda peeking in the distance.",
+              "churro.jpg" : "An image of churros at Catunambu.",
+              "gardens.jpg" : "An image of the gardens within the Real Alcazar de Sevilla.",
+              "street_view.jpg" : "View from a lower window on the path up La Giralda of Seville streets.",
+              "fruit.jpg" : "An image of a large fruit platter I enjoyed from the bar in Gran Melia Colon (along with a strawberry drink peeking in the corner) while watching flamenco dancing.",
+              "castle_edge.jpg" : "A view of the side of the Real Alcazar de Sevilla from within the inner gardens.",
+              "view.jpg" : "View of the Cathedral roofs and city from the middle of the climb up La Giralda.",
+              "breakfast.jpg" : "Just the pastry section of the free buffet breakfast at Gran Melia Colon."
+          };
+        </script>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="bottom" name="bottom-dots">
+        </div>
+      </div>
+      <br>
+
+
+      <h2 class="sub-header">Trip Planning/Notes</h2>
+      <ul>
+        <li><p>Hotel: Gran Melia Colon - one of the best hotels I have ever stayed in: free buffet breakfast with so many delicious options (including lox, iberian ham, brie cheese, churros...),
+            free flamenco dancing shows every Saturday evening, and truly unparalleled service and accomodations!</p></li>
+        <li><p>Transportation: Everything within Seville is walking distance and just enjoying the leisurely strolls truly allows you to feel the delightful ambience of old Spanish
+            architecture and blooming orange trees to their fullest.</p></li>
+      </ul>
+      <br />
+      <h2 class="sub-header">Trip Diary</h2>
+      <ul>
+        <li><p>Day 1 - Seville</p>
+        <ul>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Catedral de Sevilla')">Catedral de Sevilla</a>
+            <p>Visited this magnificent cathedral with some truly stunning cieling designs, portrait rooms, and gold crowns.</p>
+            <ul>
+              <li><p>Would probably be a good idea to book tickets ahead of time as we didn't and had to wait about 30-45 min just to get in.</p></li>
+              <li><p>Make sure to request a separate tour to visit the tower (La Giralda) as you can enjoy the best views of the city and the interesting
+                  designs along the cathedral roofs.</p></li>
+            </ul>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Real Alcazar de Sevilla');">Real Alcazar de Sevilla</a>
+            <p>This place reminds me of a summer palace (which it probably is) with some very unique architecture, beautiful ceilings,
+                and a large, beautiful garden full of fountains and mini mazes. </p>
+            <ul>
+              <li><p>Also a good idea to book tickets ahead of time as we didn't and had to wait about 45 min to an hour just to get in.</p></li>
+              <li><p>Keep an eye out for the peacock that casually roams around and poses!</p></li>
+            </ul>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Christopher Columbus Monument')">Christopher Columbus Monument</a>
+            <p>Seemed quite close to the Real Alcazar, but due to the gates, it was actually quite a walk. Probably the least exciting landmark we visited
+                but still cool!
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Plaza de Espana')">Plaza de Espana</a>
+            <p> Beautiful plaza with horses, fountains, boats, and live flamenco dancers that create a relaxing and delightful environment. It's a truly magnificent area
+                with many people milling around and beautiful architecture as befits a place to hold the World Expo.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Universidad de Sevilla')">Universidad de Sevilla</a>
+            <p> Walked through the university on our way back from Plaza de Espana to downtown Seville because why not?
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Amorino')">Amorino</a>
+            <p> Wandered through the streets looking for a quick dinner and ended up having a very bad meal at Don Carlo, so of course, we
+                decided to then fill ourselves up with ice cream and had some of the best ice cream ever at Amorino! Truly was so good that we came back the next day!
+                Ordered the pistachio, vanilla, and coffee (3 scoops) with a vanilla macaron and it was the best thing ever! Also tried the black cherry sundae which was really good too.
+            </p>
+          </li>
+        </ul>
+        <li><p>Day 2 - Granada</p></li>
+          <ul>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Granada')">Granada</a>
+            <p>See my <a class="download" href="granada.html">Granada post</a> for details on how we visited Granada! Would definitely recommend making a half-day trip there while visiting Seville.</p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Catunambu')">Catunambu</a>
+            <p>Enjoyed some churros dipped in hot chocolate for dinner (yes, I know but it's vacation) and then topped that off with more ice cream at Amorino nearby!
+                To be honest, the churros weren't the best we'd ever tried but they were decent--would probably try a different place next time though.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Gran Melia Colon')">Flamenco Dancing</a> 
+            <p>Finished the day with some flamenco dancing at our hotel in Gran Melia Colon. Also ordered drinks and a fruit platter (that was actually quite large!)
+                to go with it.
+            </p>
+          </li>
+        </ul>
+      </ul>
+      <div id="map"></div>
+      <script>
+        var markers = {};
+        var places = {"Catedral de Sevilla": {lat: 37.385825, lng: -5.993107}, 
+          "Real Alcazar de Sevilla": {lat: 37.383048, lng: -5.990215},
+          "Christopher Columbus Monument": {lat: 37.383480, lng: -5.987905},
+          "Plaza de Espana": {lat: 37.377179, lng: -5.986893},
+          "Universidad de Sevilla": {lat: 37.380644, lng: -5.991177},
+          "Amorino": {lat: 37.389166, lng: -5.994722},
+          "Granada": {lat: 37.176671, lng: -3.589185},
+          "Catunambu": {lat: 37.391945, lng: -5.995000},
+          "Gran Melia Colon": {lat: 37.390835, lng: -5.998669}
+        };
+        var mapCenter = {lat: 37.385004, lng: -5.992275};
+        var zoomLevel = 14;
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxLFaRpTrEpbZ8VKJhbLNhbrHe_pPuW4c&callback=initMap" async defer></script>
+      <br />
+      <h2 class="sub-header">Other places I hope to visit next time</h2>
+      <ul>
+        <li><p>Uno de Delicias - should have come here for dinner the first night, but didn't. Seems like a cute place with many great reviews!</p></li>
+      </ul>
+    </div>
+  </body>
+</html>
