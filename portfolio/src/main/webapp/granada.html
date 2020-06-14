@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Granada</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script> 
+  </head>
+  <body onload="makeSlides()">
+    <div class="header">
+      <h1><a href="index.html">Angela Liu</a></h1>
+      <a href="https://github.com/aliu917">
+        <img class="margin" border="0" alt="Github" src="images/github_white.png" width="50" height="50">
+      </a>
+      <a href="mailto:aliu917@berkeley.edu">
+        <img class="margin" border="0" alt="Email" src="images/email.png" width="50" height="50">
+      </a>
+      <a href="resume.html">
+        <img class="margin" border="0" alt="Linkedin" src="images/linkedin.png" width="50" height="50">
+      </a>
+      <p1 class="lower-right">
+        <a href="index.html">About Me</a> &emsp;
+        <a href="resume.html">Resume</a> &emsp; 
+        <a href="teaching.html">Teaching</a> &emsp; 
+        <a class="current" href="travel.html">Travel</a>
+      </p1>
+    </div>
+
+    <p class="center">
+      <a class="travel" href="travel.html">All</a> &emsp; 
+      <a class="travel" href="america.html">North America</a> &emsp; 
+      <a class="travel current" href="europe.html">Europe</a> &emsp; 
+      <a class="travel" href="asia.html">Asia</a> &emsp;
+      <a class="travel" href="australia.html">Australia</a>
+    </p>
+    
+    <div class="simple-section">
+      <h2 class="center"><span class="no=wrap">G R A N A D A</span></h2>
+      <p class="sub-caption">Winter 2018 Spain Trip</p>
+    </div>
+
+    <div class="simple-section">
+      <h2 class="sub-header">Image highlights</h2>
+      <div class="slideshow-container">
+        <div name="slides"></div>
+
+        <script>
+          var title = "granada";
+          var slideImages = {
+             "garden.jpg" : "An image of one of the courtyard areas containing fountains and bushes within Alhambra palace.",
+             "courtyard.jpg" : "View from the second floor looking down on one of many courtyards in the palace.",
+             "inside.jpg" : "Inside the palace hallway with another courtyard in the background with a small fountain.",
+             "outdoor.jpg" : "Gardens right outside the palace near the entrance/exit. of the building.",
+             "window.jpg" : "Not sure about the animal's significance, but this was just an animal cutout plastered onto a window that I thought looked interesting.",
+             "view2.jpg" : "View of the city from Alhambra.",
+             "alhambra.jpg" : "View of Alhambra from gardens of Generalife viewpoint.",
+             "ceiling.jpg" : "An image of the intricate ceiling designs in the palace.",
+             "view.jpg" : "View of the city from the roofs of the palace.",
+             "food.jpg" : "Lunch at Viacolon consisting of Iberian ham and bread."
+          };
+        </script>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="bottom" name="bottom-dots">
+        </div>
+      </div>
+      <br>
+
+
+      <h2 class="sub-header">Trip Planning/Notes</h2>
+      <ul>
+        <li><p>We took a tour: pros of the tour were that the transportation was much more convenient (pick up at the hotel and 3 hour bus but there was a scheduled bathroom break in the middle
+            and a tour guide told us stories and gave descriptions of the surroundings the whole time); cons were that there were some cool places in Alhambra and surroundings 
+            of Granada that we weren't able to visit because we were with a tour group. So I guess overall, it was nice to have a tour but if we came back, we probably wouldn't get one 
+            again and would like the freedom to explore more on our own.</p></li>
+        <li><p>A good souvenir/travel gift is the really beautiful handmade Granada-style trinket boxes. There was a room of artisans making them and selling them in Alhambra, but you can
+            actually buy them for much cheaper at any random souvenir shop in downtown. But definitely check out the stall to see how they are made as the process is super cool! </p></li>
+      </ul>
+      <br />
+      <h2 class="sub-header">Trip Diary</h2>
+      <ul>
+        <li><p>Half Day - Granada</p>
+        <ul>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Alhambra')">Alhambra </a>
+            <p>This was the main attraction for the entire trip and we were able to see some amazingly intricate ceiling designs especially in the palace.
+                We also visited the gardens of Generalife and got some amazing views of Alhambra from the viewpoint.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Viacolon');">Viacolon</a>
+            <p>We chose to get dropped off in downtown Granada rather than follow the rest of the tour to wherever they headed off to in the next hour.
+                For some odd reason, a lot of the restaurants were closed while we were here on a Saturday afternoon at 2:30 pm (still not sure why),
+                but this spot was quite busy with a lot of professionally dressed people and the restaurant has quite a fancy appearance with some pretty good
+                quality meals. Ordered the iberian ham spread and fried pinto bean-like dish with an egg and bacon on it. Was a bit oily but overall was really tasty! </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Catedral de Granda')">Catedral de Granda</a>
+            <p>This cathedral was super close to where we had just eaten and it looked just like any other cathedral in Spain, which is to say, big and magnificent. 
+                But at this point in the trip, we'd visited so many cathedrals that there really was nothing particularly "special" about this one (yes, our standards were
+                quite high at this point) and so we chose not to pay for a visit. It did look cool though from the bit I saw of it!
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Artesanías Medina')">Artesanías Medina</a>
+            <p> Don't remember exactly, but I think this is the place where we stopped to buy some cute Granada sourvenirs like the artisan trinket box
+                mentioned above.
+            </p>
+          </li>
+        </ul>
+      </ul>
+      <div id="map"></div>
+      <script>
+        var markers = {};
+        var places = {"Alhambra": {lat: 37.176077, lng: -3.588162}, 
+          "Viacolon": {lat: 37.177335, lng: -3.598501},
+          "Catedral de Granda": {lat: 37.176463, lng: -3.599242},
+          "Artesanías Medina": {lat: 37.175449, lng: -3.600280}
+        };
+        var mapCenter = {lat: 37.176351, lng: -3.594397};
+        var zoomLevel = 17;
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcHyab9ISl3nzO85BaBVKdyCD9pc4lEuM&callback=initMap" async defer></script>
+      <br />
+      <h2 class="sub-header">Other places I hope to visit next time</h2>
+      <ul>
+        <li><p>Heladería Los Italianos - I really popular ice cream shop that has delicious looking desserts (like ice cream cake in cones and coffee mugs!).</p></li>
+      </ul>
+    </div>
+  </body>
+</html>
