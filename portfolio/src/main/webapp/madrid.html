@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Madrid</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script> 
+  </head>
+  <body onload="makeSlides()">
+    <div class="header">
+      <h1><a href="index.html">Angela Liu</a></h1>
+      <a href="https://github.com/aliu917">
+        <img class="margin" border="0" alt="Github" src="images/github_white.png" width="50" height="50">
+      </a>
+      <a href="mailto:aliu917@berkeley.edu">
+        <img class="margin" border="0" alt="Email" src="images/email.png" width="50" height="50">
+      </a>
+      <a href="resume.html">
+        <img class="margin" border="0" alt="Linkedin" src="images/linkedin.png" width="50" height="50">
+      </a>
+      <p1 class="lower-right">
+        <a href="index.html">About Me</a> &emsp;
+        <a href="resume.html">Resume</a> &emsp; 
+        <a href="teaching.html">Teaching</a> &emsp; 
+        <a class="current" href="travel.html">Travel</a>
+      </p1>
+    </div>
+
+    <p class="center">
+      <a class="travel" href="travel.html">All</a> &emsp; 
+      <a class="travel" href="america.html">North America</a> &emsp; 
+      <a class="travel current" href="europe.html">Europe</a> &emsp; 
+      <a class="travel" href="asia.html">Asia</a> &emsp;
+      <a class="travel" href="australia.html">Australia</a>
+    </p>
+    
+    <div class="simple-section">
+      <h2 class="center"><span class="no=wrap">M A D R I D</span></h2>
+      <p class="sub-caption">Winter 2018 Spain Trip</p>
+    </div>
+
+    <div class="simple-section">
+      <h2 class="sub-header">Image highlights</h2>
+      <div class="slideshow-container">
+        <div name="slides"></div>
+
+        <script>
+          var title = "madrid";
+          var slideImages = {
+             "cathedral.jpg" : "Catedral de la Almudena in the afternoon light.",
+             "palace_entrance1.jpg" : "The first chamber entrance into the Royal Palace.",
+             "palace.jpg" : "A view of the Royal Palace from the inner courtyard.",
+             "plaza.jpg" : "An image of a small street archway leading into Plaza de Espana.",
+             "congress.jpg" : "An image of the streets of Madrid with the Congress of Deputies on the left.",
+             "palace_front.jpg" : "Front view of the palace.",
+             "park.jpg" : "Monument to Alfonso XII in Parque de el Retiro.",
+             "cibeles.jpg" : "Plaza de Cibeles",
+             "crystal_palace.jpg" : "An image of the artistic wirings within the Crystal Palace.",
+             "mercado.jpg" : "Warm potato and sausage stew with an oxtail soup side at Mercado de San Miguel.",
+             "palace_entrance.jpg" : "One of the entrance chambers at the Royal Palace.",
+             "paella.jpg" : "Beautifully served paella at Varela Cafe.",
+             "palace_inside.jpg" : "Beautiful ceiling designs in one of the inner rooms of the palace.",
+             "squid_ink.jpg" : "Squid ink pasta from Restaurante Ten Con Ten.",
+             "street.jpg" : "An image of some beautiful buildings seen while riding the Madrid City Tour bus.",
+             "ice_cream.jpg" : "Ice cream dessert at Restaurante Ten Con Ten."
+          };
+        </script>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="bottom" name="bottom-dots">
+        </div>
+      </div>
+      <br>
+
+
+      <h2 class="sub-header">Trip Planning/Notes</h2>
+      <ul>
+        <li><p>Hotel: Hotel Preciados - it was a nice place (but not fancy or special in any way) and it was in a little side street that 
+            was a couple blocks from the main popular street but overall a decent place to stay that's pretty convenient</p></li>
+        <li><p>Transportation: We decided to visit the city using the Madrid city tours hop-on/off buses which were actually really convenient
+            and visited all the major places that we were interested in seeing. Was a bit hard to find the starting point to buy tickets
+            (although I guess now looking back we should have known that it was right by the stop 1 on the map) but it was quite convenient
+            and overall a good experience sitting on the top deck and watching the city fly by while listening to the historical background audios. </p></li>
+      </ul>
+      <br />
+      <h2 class="sub-header">Trip Diary</h2>
+      <ul>
+        <li><p>Day 1: Madrid</p>
+        <ul>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Mercado de San Miguel')">Mercado de San Miguel </a>
+            <p> Arrived around noon so our first stop was lunch at Mercado de San Miguel. Very clean and modern-looking market with a lot of 
+                stalls containing any type of Spanish food you are looking for from seafood to iberian ham and warm stews.
+            </p>
+            <ul>
+              <li><p>Amaiketako: tapas stand where we tried some delicious snacks like octopus, tuna, mussels, and sardines on bread. Really great option
+                  to try small bites of different Spanish tapas dishes!</p></li>
+              <li><p>Raza Nostra: I may be wrong about this one, but I think it was this stall we stopped at? Anyway, it was pretty cold as we were there in the winter 
+                  and this place had a nice warm and filling potato sausage stew with oxtail soup that was just the best thing on a cold day.</p></li>
+            </ul>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('El Retiro Park');">El Retiro Park</a>
+            <p> Walked from lunch to El Retiro Park as that was also the starting location of the Madrid City Tour bus. Highlights of the park 
+                were the Monument to Alfonso XII and Palacio de Cristal.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Plaza de Cibeles'); flipInfo('Metropolis'); flipInfo('Plaza de Espana');">Madrid City Bus Tour</a>
+            <p> Madrid City Bus tour was super convenient and visited all the major attractions we wanted to see around Madrid with additional audio provided to give a backstory about each building.
+                Highlights: Plaza de Cibeles, Metropolis, and Plaza de Espana
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Royal Palace of Madrid'); flipInfo('Catedral de la Almudena');">Royal Palace of Madrid and Catedral de la Almudena</a>
+            <p> Got off on this stop of the City Bus Tour and decided to take some pictures around the Royal Palace and the cathedral. Found out that there was free entrance to the palace
+                the next afternoon so we came back the next day to go inside the gates!
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Restaurante Ten Con Ten');">Restaurante Ten Con Ten</a>
+            <p> Really delicious (and sort of fancy in a business/formal sense) restaurant in the high-end district of Madrid. 
+                Took the second line of the Madrid City Bus tour which conveniently dropped us off quite close to it.
+            </p>
+            <ul>
+              <li><p>Favorite: squid ink pasta with seafodd - was finally able to try squid ink on this trip and it was delicious!</p></li>
+              <li><p>Also tried: sardines appetizer and ice cream (both also really good!)</p></li>
+              <li><p>Seems like a trend in Spain where all restaurants give bread as starters which they end up charging you for but it was really good bread!
+                  Many different varieties and all warm and freshly baked.</p></li>
+            </ul>
+          </li>
+          <li><p>Day 2: Granada and the Royal Palace</p>
+        <ul>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Toledo')">Toledo </a>
+            <p> Woke up early in the morning to take a bus to Toledo. Read more about the trip <a class="download" href="toledo.html">here</a> </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Royal Palace of Madrid');">Royal Palace of Madrid</a>
+            <p> Don't quite remember the exact schedule but Thursdays after 5 you get free entry into the Royal Palace so of course, we took advantage of that! We actually get access
+                to a lot of rooms and they are all incredibly extravagant and beautiful! Was not super crowded (there was no wait to get in) when we were there, but there were still quite a lot of people. 
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Catedral de la Almudena');">Catedral de la Almudena</a>
+            <p> Beautiful cathedral right across from the palace that also has free entry.</p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Varela Cafe');">Varela Cafe</a>
+            <p> Came back to our hotel and decided to just eat at the restaurant underneath. Ordered a soup and finally tried paella in Spain and it was really good! 
+                We were one of the only customers the whole time, but you can tell that the place is very fancy with great service and delicious food!
+            </p>
+          </li>
+        </ul>
+      </ul>
+      <div id="map"></div>
+      <script>
+        var markers = {};
+        var places = {"Mercado de San Miguel": {lat: 40.415378, lng: -3.708970}, 
+          "El Retiro Park": {lat: 40.415350, lng: -3.684167},
+          "Plaza de Cibeles": {lat: 40.419338, lng: -3.693099},
+          "Metropolis": {lat: 40.418818, lng: -3.697280},
+          "Plaza de Espana": {lat: 40.423387, lng: -3.712217},
+          "Royal Palace of Madrid": {lat: 40.417939, lng: -3.714301},
+          "Catedral de la Almudena": {lat: 40.415648, lng: -3.714537},
+          "Restaurante Ten Con Ten": {lat: 40.427811, lng: -3.688787},
+          "Toledo": {lat: 39.858228, lng: -4.025193},
+          "Varela Cafe": {lat: 40.419725, lng: -3.707615}
+        };
+        var mapCenter = {lat: 40.418804, lng: -3.704521};
+        var zoomLevel = 14;
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcHyab9ISl3nzO85BaBVKdyCD9pc4lEuM&callback=initMap" async defer></script>
+      <br />
+      <h2 class="sub-header">Other places I hope to visit next time</h2>
+      <ul>
+        <li><p>Le Pain Quotidien - really wanted to visit this cute bread cafe for breakfast but didn't have the time.</p></li>
+      </ul>
+    </div>
+  </body>
+</html>
