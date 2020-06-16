@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Toledo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script> 
+  </head>
+  <body onload="makeSlides()">
+    <div class="header">
+      <h1><a href="index.html">Angela Liu</a></h1>
+      <a href="https://github.com/aliu917">
+        <img class="margin" border="0" alt="Github" src="images/github_white.png" width="50" height="50">
+      </a>
+      <a href="mailto:aliu917@berkeley.edu">
+        <img class="margin" border="0" alt="Email" src="images/email.png" width="50" height="50">
+      </a>
+      <a href="resume.html">
+        <img class="margin" border="0" alt="Linkedin" src="images/linkedin.png" width="50" height="50">
+      </a>
+      <p1 class="lower-right">
+        <a href="index.html">About Me</a> &emsp;
+        <a href="resume.html">Resume</a> &emsp; 
+        <a href="teaching.html">Teaching</a> &emsp; 
+        <a class="current" href="travel.html">Travel</a>
+      </p1>
+    </div>
+
+    <p class="center">
+      <a class="travel" href="travel.html">All</a> &emsp; 
+      <a class="travel" href="america.html">North America</a> &emsp; 
+      <a class="travel current" href="europe.html">Europe</a> &emsp; 
+      <a class="travel" href="asia.html">Asia</a> &emsp;
+      <a class="travel" href="australia.html">Australia</a>
+    </p>
+    
+    <div class="simple-section">
+      <h2 class="center"><span class="no=wrap">T O L E D O</span></h2>
+      <p class="sub-caption">Winter 2018 Spain Trip</p>
+    </div>
+
+    <div class="simple-section">
+      <h2 class="sub-header">Image highlights</h2>
+      <div class="slideshow-container">
+        <div name="slides"></div>
+
+        <script>
+          var title = "toledo";
+          var slideImages = {
+             "alleyway.jpg" : "The image taken at a small alleyway when walking from the cathedral to Zocodover, with the cathedral tower looming in the distance.",
+             "tower_view.jpg" : "An image halfway up the cathedral tower climb with a wall statue and a view of the streets by the cathedral.",
+             "toledo_view2.jpg" : "An image of Toledo and the Tagus River in the first half of the Train Vision tour.",
+             "portrait_room.jpg" : "Portrait room inside the Catedral Primada.",
+             "cover_view.jpg" : "An image of the town of Toledo and the Tagus River from Alcantara Bridge.",
+             "mazapan.jpg" : "Small mazapan treat from Pasteleria Santo Tome with other pastries in the background.",
+             "religious_structure.jpg" : "A small model of Christ's birth scene inside Catedral Primada.",
+             "cathedral_roof.jpg" : "An image of the roof design of the cathedral from the top of the tower.",
+             "courtyard_wall.jpg" : "Painted murals along the outdoor walls facing the inner cathedral courtyard.",
+             "back_view.jpg" : "An image of Toledo near the end of the Train Vision tour ride."
+          };
+        </script>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="bottom" name="bottom-dots">
+        </div>
+      </div>
+      <br>
+
+
+      <h2 class="sub-header">Trip Planning/Notes</h2>
+      <ul>
+        <li><p>Transportation (Madrid to Toledo): Since this was just a day trip from Madrid, we took the ALSA bus from Madrid to Toledo which is a direct
+            drive that took 1.5 hours one-way. Super convenient and the bus was pretty nice!</p></li>
+        <li><p>Transportation (inside Toledo): Within Toledo, the town is small enough to walk. However, we did take the Toledo Train Vision (a small cute tourist train) for a 
+            scenic overview of the city before we walked the small streets. Would definitely recommend as it takes you around the Tagus River for some unparalleled views, and would 
+            definitely recommend booking ahead of time. (We tried taking the earliest offering at 9 am and were almost denied a spot but luckily they were able to add us on last minute 
+            since we were only a party of 2).</p></li>
+      </ul>
+      <br />
+      <h2 class="sub-header">Trip Diary</h2>
+      <ul>
+        <li><p>Half Day - Toledo</p>
+        <ul>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Train Vision station')">Train Vision </a>
+            <p> Super cute train that takes you around the Tagus River and provides some historical commentary about the city. Would recommend doing this first to get a nice 
+                background overview before hitting the streets.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Catedral Primada')">Catedral Primada</a>
+            <p> A grand and beautiful cathedral that I would definitely recommend visiting. Make sure to request an extra tour that goes up the tower as you get 
+                some amazing views of the city and can even touch the large cracked bell at the top! In the summer, I can imagine this cathedral being a nice place to 
+                cool down, but be warned, it's freezing in the winter time and we came on a very cold downcast day which made it feel even colder.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Scenic alleyway')">Small streets of Toledo</a>
+            <p> Had to record this cute spot I stumble upon as I got one of the best images of the charming small alleyways of Toledo with the cathedral tower 
+                poking up in the background.
+            </p>
+          </li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Alcantara Bridge')">Alcantara Bridge</a>
+            <p> A great place to walk along the Tagus river and get some great views of the river, Toledo, and the alcazar. </p></li>
+          <li><a class="travel normal-bold-text" href="#map" onclick="flipInfo('Pasteleria Santo Tome')">Pasteleria Santo Tome</a>
+            <p> Super cute, popular, and delicious mazapan spot. They sell a ton of varieties of mazapan pastries and it would be a shame to come out to Toledo without 
+                trying some. You can even buy a some small goodie bags of mini mazapan treats to serve as great souvenir gifts! </p>
+          </li>
+        </ul>
+      </ul>
+      <div id="map"></div>
+      <script>
+        var markers = {};
+        var places = {"Train Vision station": {lat: 39.859633, lng: -4.021458}, 
+          "Catedral Primada": {lat: 39.857114, lng: -4.023562},
+          "Scenic alleyway": {lat: 39.857189, lng: -4.021577},
+          "Alcantara Bridge": {lat: 39.860412, lng: -4.017323},
+          "Pasteleria Santo Tome": {lat: 39.859361, lng: -4.021017}
+        };
+        var mapCenter = {lat: 39.858575, lng: -4.024870};
+        var zoomLevel = 15;
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcHyab9ISl3nzO85BaBVKdyCD9pc4lEuM&callback=initMap" async defer></script>
+      <br />
+      <h2 class="sub-header">Other places I hope to visit next time</h2>
+      <ul>
+        <li><p>Alcazar de Toledo - I remember walking by this large imposing building but we didn't go in (don't quite remember why...)</p></li>
+      </ul>
+    </div>
+  </body>
+</html>
